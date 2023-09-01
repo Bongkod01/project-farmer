@@ -78,11 +78,8 @@ const TestRoute = () => (
      DogColor: ""
   });
 
-
-
-
   const onClickMe = () => {
-    alert("Woonsen");
+    
   }
 
 
