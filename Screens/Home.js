@@ -13,7 +13,6 @@ import { Image } from 'react-native';
 import COLORS from '../constants/colors';
 import Report from './Report';
 import Profile from './Profile';
-import Test from './Test';
 
 
 const Tab = createBottomTabNavigator();
@@ -29,11 +28,6 @@ const ReportRoute = () => (
 const ProfileRoute = () => (
   <View style={[styles.scene, { backgroundColor: '"#ffffff"' }]} />
 );
-
-const TestRoute = () => (
-  <View style={[styles.scene, { backgroundColor: '"#ffffff"' }]} />
-);
-
 
 
 //  const ary = []
@@ -71,20 +65,51 @@ const TestRoute = () => (
 
 // }
 
-   const DogClass_Definition = ({
+   let DogClass_Definition = ({
      DogName: "",
      DogAge: 0,
      DogBreed: "",
      DogColor: ""
   });
 
+  
+
   const onClickMe = () => {
     
+    // const data_dog_ME_name = "Woonsen";
+    // const data_dog_Age = 2;
+    // const data_dog_Breed = "Shiba Inu";
+    // const data_dog_Color = "Orange";
+
+    // DogClass_Definition={
+    //   DogName:data_dog_ME_name,
+    //   DogAge:data_dog_Age,
+    //   DogBreed: data_dog_Breed,
+    //   DogColor:data_dog_Color,
+    // }
+
+
+    if (DogClass_Definition.DogName == '') {
+
+      const data_dog_ME_name2 = "Itim";
+      const data_dog_Age2 = 4;
+      const data_dog_Breed2 = "Beaggle";
+      const data_dog_Color2 = "Brown";
+
+      DogClass_Definition={
+      DogName:data_dog_ME_name2,
+      DogAge:data_dog_Age2,
+      DogBreed: data_dog_Breed2,
+      DogColor:data_dog_Color2,
+    }
   }
+    
+  console.log (DogClass_Definition)
+ }
 
 
  
-
+ console.log (DogClass_Definition)
 
 
 
@@ -442,16 +467,6 @@ const TestRoute = () => (
         options={{
           tabBarIcon: ({ focused, color, size }) => (
               <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={"#007260"} />
-          ),
-        }}
-      />
-
-      <Tab.Screen name="Test"
-        component={Test}
-        onPress={()=>navigation.navigate("Test")}
-        options={{ 
-          tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons name={focused ? 'document' : 'document-text-outline'} size={size} color={"#007260"} />
           ),
         }}
       />
