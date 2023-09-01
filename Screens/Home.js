@@ -13,6 +13,9 @@ import { Image } from 'react-native';
 import COLORS from '../constants/colors';
 import Report from './Report';
 import Profile from './Profile';
+import Test from './Test';
+
+
 const Tab = createBottomTabNavigator();
 
 const HomeRoute = () => (
@@ -24,6 +27,10 @@ const ReportRoute = () => (
 );
 
 const ProfileRoute = () => (
+  <View style={[styles.scene, { backgroundColor: '"#ffffff"' }]} />
+);
+
+const TestRoute = () => (
   <View style={[styles.scene, { backgroundColor: '"#ffffff"' }]} />
 );
 
@@ -64,34 +71,39 @@ const ProfileRoute = () => (
 
 // }
 
-  const DogClass_Definition = ({
-    DogName: "",
-    DogAge: 0,
-    DogBreed: "",
-    DogColor: ""
+   const DogClass_Definition = ({
+     DogName: "",
+     DogAge: 0,
+     DogBreed: "",
+     DogColor: ""
   });
 
+
+
+
   const onClickMe = () => {
-    alert('Woonsen');
-      
-  };
+    alert("Woonsen");
+  }
+
+
+ 
 
 
 
 
-const initialLayout = { width: Dimensions.get('window').width };
+ const initialLayout = { width: Dimensions.get('window').width };
 
- const Home = ({ navigation }) => {
+  const Home = ({ navigation }) => {
 
-   const HomeScreen = () => (
+  const HomeScreen = () => (
      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
        <Text>Dog</Text>
 
-      <Button onPress={onClickMe}> Click Me</Button>
+       <Button onPress={onClickMe}> Click Me</Button>
 
-   </View>
- );
+    </View>
+  );
 
 
 
@@ -436,9 +448,20 @@ const initialLayout = { width: Dimensions.get('window').width };
           ),
         }}
       />
+
+      <Tab.Screen name="Test"
+        component={Test}
+        onPress={()=>navigation.navigate("Test")}
+        options={{ 
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons name={focused ? 'document' : 'document-text-outline'} size={size} color={"#007260"} />
+          ),
+        }}
+      />
+
     </Tab.Navigator>
   );
- }
+  }
 
 
 const styles = StyleSheet.create({
