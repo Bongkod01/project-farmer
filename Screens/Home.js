@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet, Dimensions,Pressable, } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { Picker } from '@react-native-picker/picker';
-import { Button } from 'react-native';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import ProfileScreen from './Profile';
-import { VStack,Spacer , Center, NativeBaseConfigProvider } from "native-base";
+import { VStack,HStack,Spacer , Center, NativeBaseConfigProvider,Stack,Button } from "native-base";
 import { Image } from 'react-native';
 
 import COLORS from '../constants/colors';
@@ -28,15 +28,102 @@ const ProfileRoute = () => (
 );
 
 
+
+//  const ary = []
+//  const mainnumber = 0
+// let number = 0
+
+// const onClickMe = () => {
+//   if (mainnumber == 0) {
+//     number++
+//     ary.push(number)
+//   } else{
+//     number--
+//   }
+
+//   console.log("นับจำนวน")
+//   console.log(number);
+
+//   console.log("เพิ่มค่าเข้าไปใน array")
+//   console.log(ary);
+
+// if (number == 5)
+// {
+//   for (let index = 0; index < ary.length; index++) {
+//     const element = ary[2];
+//     console.log(element);
+//   }
+// }
+
+// [1, 2, 3, 4] data
+
+// [0, 1, 2, 3] index
+
+// data = ค่า 1 ตำแหน่งที่ [0]
+
+
+// }
+
+  const DogClass_Definition = ({
+    DogName: "",
+    DogAge: 0,
+    DogBreed: "",
+    DogColor: ""
+  });
+
+  const onClickMe = () => {
+    alert('Woonsen');
+      
+  };
+
+
+
+
 const initialLayout = { width: Dimensions.get('window').width };
 
-const Home = ({ navigation }) => {
+ const Home = ({ navigation }) => {
 
-  const HomeScreen = () => (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
+   const HomeScreen = () => (
+     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+
+       <Text>Dog</Text>
+
+      <Button onPress={onClickMe}> Click Me</Button>
+
+   </View>
+ );
+
+
+
+
+      /* <Heading>HStack</Heading> */
+   
+  //     <HStack space={3} alignItems="center">
+  //       <Center size={16} bg="primary.400" rounded="md" _text={{
+  //       color: "white"
+  //     }} shadow={3}>
+  //         Box 1
+  //       </Center>
+  //       <Center bg="secondary.400" size={16} rounded="md" _text={{
+  //       color: "white"
+  //     }} shadow={3}>
+  //         Box 2
+  //       </Center>
+  //       <Center size={16} bg="emerald.400" rounded="md" _text={{
+  //       color: "white"
+  //     }} shadow={3}>
+  //         Box 3
+  //       </Center>
+  //     </HStack>
+  //   </Stack>
+  //   </View>
+
+    
+  //; 
+
+
+
+
   // const ProfileScreen = () => {
   //   return (
   //     <View style={{ flex: 1 }}>
@@ -351,7 +438,7 @@ const Home = ({ navigation }) => {
       />
     </Tab.Navigator>
   );
-}
+ }
 
 
 const styles = StyleSheet.create({
@@ -410,4 +497,4 @@ const styles = StyleSheet.create({
   
 });
 
-export default Home
+ export default Home
