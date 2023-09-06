@@ -9,6 +9,36 @@ import { Button } from 'react-native';
 const Login = ({ navigation }) => {
     const [isPasswordShown, setIsPasswordShown] = useState(false);
     const [isChecked,setIsChecked] = useState(false);
+
+
+const [Email,setEmail] = useState(null);
+const [Password,setPassword] = useState(null); 
+ 
+const onClickMe = () => {
+          if( Email == "bow" && Password == 1234)
+          {navigation.navigate("Home")
+          }
+          else {
+          console.log("Email ไม่ถูกต้อง ")
+            console.log("Password ไม่ถูกต้อง")
+
+
+              }
+            
+    //   const  onClickMe = () => {
+
+    //   if( Email == "bow" && Password == 1234){
+    //      navigation.navigate("Home")
+    //   }
+    //    else{
+    //    console.log("Email ไม่ถูกต้อง ")
+    //     console.log("Password ไม่ถูกต้อง")
+    //  }
+
+ 
+
+
+          }
   return (
    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
     <ScrollView keyboardShouldPersistTaps="handled">
@@ -32,6 +62,7 @@ const Login = ({ navigation }) => {
 
 
        <View style={{marginBottom: 12}}>
+
         <Text style={{
           fontSize: 16,
           fontWeight: 400,
@@ -48,10 +79,13 @@ const Login = ({ navigation }) => {
           justifyContent: "center",
           paddingLeft: 22
         }}>
+
           <TextInput
           placeholder='Enter your email'
           placeholderTextColor={COLORS.grey}
           keyboardType='email-address'
+          value={Email}
+          onChangeText={(text)=>{setEmail(text)}}
           style={{
             width: "100%"
           }}/>
@@ -80,6 +114,7 @@ const Login = ({ navigation }) => {
           placeholder='Enter your password'
           placeholderTextColor={COLORS.grey}
           secureTextEntry={isPasswordShown}
+          onChangeText={(text)=>{setPassword(text)}}
           style={{
             width: "100%"
           }}/>
@@ -120,7 +155,7 @@ const Login = ({ navigation }) => {
 
         <Button
           title="Login"
-          onPress={()=>navigation.navigate("Home")}
+          onPress={onClickMe}
           filled
           color={COLORS.primary}
           style={{
