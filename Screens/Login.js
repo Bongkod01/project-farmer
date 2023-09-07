@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, TextInput, TouchableOpacity, ScrollView, Image, Pressable } from 'react-native'
+import { View, Text, SafeAreaView, TextInput, TouchableOpacity, ScrollView, Image, Pressable,Alert } from 'react-native'
 import React, { useState } from 'react'
 import COLORS from '../constants/colors';
 import { Ionicons } from '@expo/vector-icons';
@@ -21,6 +21,7 @@ const onClickMe = () => {
           {navigation.navigate("Home")
           }
           else {
+            Alert.alert('Email หรือ Password ไม่ถูกต้อง');
           console.log("Email ไม่ถูกต้อง ")
           console.log("Password ไม่ถูกต้อง")
           }

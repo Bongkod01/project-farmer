@@ -21,7 +21,8 @@ const Signup = ({ navigation }) => {
               if ( FullName == "Bongkod Boonpeng" || Email == "bow" || Phone == "0111111111" || Password == "1234" )
               {navigation.navigate("Login")      
               }
-              else {
+              else { 
+              Alert.alert('กรุณากรอกข้อมูลให้ครบถ้วน');
               console.log("Full Name ยังไม่ได้กรอก")
               console.log("Email ยังไม่ได้กรอก")
               console.log("Phone Number ยังไม่ได้กรอก")
