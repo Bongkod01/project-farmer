@@ -25,7 +25,7 @@ const Report = () => {
     <Picker style={{ backgroundColor: '#cccccc'}}
       selectedValue={selectedValue}
         onValueChange={(itemValue) => setSelectedValue(itemValue)}>
-       <Picker.Item label="--กรุณาเลือกงวด--" value="option1" />
+      <Picker.Item label="--กรุณาเลือกงวด--" value="option1" />
       <Picker.Item label="งวดที่ 1" value="option2" />
       <Picker.Item label="งวดที่ 2" value="option3" />
       <Picker.Item label="งวดที่ 3" value="option4" />
@@ -33,39 +33,41 @@ const Report = () => {
 
     
       <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={5}>
-        <Center bg="#007260"  width={120} height={70} borderRadius={10} _text={{
-        color: "white"
-      }} shadow={3}>
+        <Center bg="#007260" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+
           จำนวลบิล : --
+
         </Center>
-        <Center bg="#727272" width={120} height={70} borderRadius={10} _text={{
-        color: "white"
-      }} shadow={3}>
+        <Center bg="#727272" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+
           CCS เฉลี่ย : --
+
         </Center>
       </HStack>
-      <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={5} >
-        <Center bg="#007260"  width={120} height={70} borderRadius={10} _text={{
-        color: "white"
-      }} shadow={3}>
+
+      <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={3} >
+        <Center bg="#007260"width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+
           น้ำหนัก : --
+
         </Center>
-        <Center bg="#727272" width={120} height={70} borderRadius={10} _text={{
-        color: "white"
-      }} shadow={3}>
+        <Center bg="#727272" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+
           น้ำมัน : --
+
         </Center>
       </HStack>
-      <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={5} >
-        <Center bg="#007260"  width={120} height={70} borderRadius={10} _text={{
-        color: "white"
-      }} shadow={3}>
+
+      <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={3} >
+        <Center bg="#007260"  width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+
           CCS สะสม : --
+
         </Center>
-        <Center bg="#727272" width={120} height={70} borderRadius={10} _text={{
-        color: "white"
-      }} shadow={3}>
+        <Center bg="#727272" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+
           นน.สะสม : --
+
         </Center>
       </HStack>
 
@@ -143,7 +145,7 @@ const Report = () => {
         marginBottom: 10,
         alignItems: 'center',
         justifyContent: 'center'
-       },
+       }
         
    });
   
