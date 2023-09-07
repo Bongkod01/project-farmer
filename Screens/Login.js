@@ -14,17 +14,18 @@ const Login = ({ navigation }) => {
 const [Email,setEmail] = useState(null);
 const [Password,setPassword] = useState(null); 
  
+
 const onClickMe = () => {
-          if( Email == "bow" && Password == 1234)
+
+          if ( Email == "bow" && Password == 1234)
           {navigation.navigate("Home")
           }
           else {
           console.log("Email ไม่ถูกต้อง ")
-            console.log("Password ไม่ถูกต้อง")
-
-
-              }
-            
+          console.log("Password ไม่ถูกต้อง")
+          }
+           
+          
     //   const  onClickMe = () => {
 
     //   if( Email == "bow" && Password == 1234){
@@ -35,10 +36,10 @@ const onClickMe = () => {
     //     console.log("Password ไม่ถูกต้อง")
     //  }
 
- 
-
 
           }
+
+
   return (
    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
     <ScrollView keyboardShouldPersistTaps="handled">
