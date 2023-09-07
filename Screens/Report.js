@@ -4,9 +4,10 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { Picker } from '@react-native-picker/picker';
 import { Button } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NativeBaseProvider } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-
+import { HStack,Center } from 'native-base';
 import ProfileScreen from './Profile';
 import Stack from '@mui/material/Stack';
 
@@ -30,10 +31,50 @@ const Report = () => {
       <Picker.Item label="งวดที่ 3" value="option4" />
     </Picker>
 
+    
+      <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={5}>
+        <Center bg="#007260"  width={120} height={70} borderRadius={10} _text={{
+        color: "white"
+      }} shadow={3}>
+          จำนวลบิล : --
+        </Center>
+        <Center bg="#727272" width={120} height={70} borderRadius={10} _text={{
+        color: "white"
+      }} shadow={3}>
+          CCS เฉลี่ย : --
+        </Center>
+      </HStack>
+      <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={5} >
+        <Center bg="#007260"  width={120} height={70} borderRadius={10} _text={{
+        color: "white"
+      }} shadow={3}>
+          น้ำหนัก : --
+        </Center>
+        <Center bg="#727272" width={120} height={70} borderRadius={10} _text={{
+        color: "white"
+      }} shadow={3}>
+          น้ำมัน : --
+        </Center>
+      </HStack>
+      <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={5} >
+        <Center bg="#007260"  width={120} height={70} borderRadius={10} _text={{
+        color: "white"
+      }} shadow={3}>
+          CCS สะสม : --
+        </Center>
+        <Center bg="#727272" width={120} height={70} borderRadius={10} _text={{
+        color: "white"
+      }} shadow={3}>
+          นน.สะสม : --
+        </Center>
+      </HStack>
 
-   
-   
-          <View style={styles.box }>
+
+    </View>
+)}
+
+
+          {/* <View style={styles.box }>
           <Text style={{
             color: "#ffffff",
           }}>จำนวนบิล: --</Text>
@@ -65,8 +106,8 @@ const Report = () => {
             color: "#ffffff",
           }}>นน.สะสม: --</Text>
       </View> 
-    </View> 
-    )}
+    </View>  */}
+  
 
    
 
@@ -83,28 +124,26 @@ const Report = () => {
       box: {
         marginHorizontal: 10,
         width: 160,
-       
-       marginVertical: 10,
+        marginVertical: 10,
         height: 50,
-       borderRadius: 5,
-       backgroundColor: '#007260',
+        borderRadius: 5,
+        backgroundColor: '#007260',
         marginBottom: 10,
-       alignItems: 'center',
-       justifyContent: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
       },
        boxx: {
         marginHorizontal: 10,
         width: 160,
-       marginVertical: 10,
+        marginVertical: 10,
         height: 50,
       
-       borderRadius: 5,
-       backgroundColor: '#727272',
+        borderRadius: 5,
+        backgroundColor: '#727272',
         marginBottom: 10,
-       alignItems: 'center',
-       justifyContent: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
        },
-      
         
    });
   
