@@ -38,7 +38,7 @@ const Report = () => {
           จำนวลบิล : --
 
         </Center>
-        <Center bg="#727272" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        <Center bg="#39B68D" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
           CCS เฉลี่ย : --
 
@@ -51,7 +51,7 @@ const Report = () => {
           น้ำหนัก : --
 
         </Center>
-        <Center bg="#727272" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        <Center bg="#39B68D" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
           น้ำมัน : --
 
@@ -64,7 +64,7 @@ const Report = () => {
           CCS สะสม : --
 
         </Center>
-        <Center bg="#727272" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        <Center bg="#39B68D" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
           นน.สะสม : --
 
