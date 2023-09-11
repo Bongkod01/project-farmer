@@ -14,31 +14,29 @@ import COLORS from '../constants/colors';
 
 
     let Profile_Info = ({
-      Name : "",
-      ID : 0,
+      ชื่อ : "",
+      เลขประจำตัวชาวไร่ : "",
       Email : "",
-      Phone : 0,
-      Place : ""
+      เบอร์โทรศัพท์ : "",
+      ที่อยู่ : ""
     });
 
     const ShowInfo = () => {
 
-    if (Profile_Info == '') {
-
       const data_name = "";
-      const data_id = 0;
+      const data_id = "";
       const data_email = "";
-      const data_phone = 0;
+      const data_phone = "";
       const data_place = "";
 
-      Profile_Info={
-      Name: data_name,
-      ID: data_id,
-      Email: data_email,
-      Phone: data_phone,
-      Place: data_place,
-      
-    }
+      Profile_Info = {
+
+        ชื่อ : data_name,
+        เลขประจำตัวชาวไร่ : data_id,
+        Email : data_email,
+        เบอร์โทรศัพท์ : data_phone,
+        ที่อยู่ : data_place,
+        
     }
 
     console.log(Profile_Info)
