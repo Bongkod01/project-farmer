@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Text, View, StyleSheet, Dimensions,Pressable, } from 'react-native';
+import React, { useState,useEffect  } from 'react';
+import { Text, View, StyleSheet, Dimensions,Pressable,TextInput } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { Picker } from '@react-native-picker/picker';
 import { Button } from 'react-native';
@@ -13,7 +13,71 @@ import { Image } from 'react-native';
 import COLORS from '../constants/colors';
 
 
+
+
+    // const [userData, setUserData] = useState({
+    //   username: '',
+      
+    // });
+
+    // useEffect(() => {
+    //   setUserData({
+    //     username: 'Hi',
+        
+    //   });
+    // }, []); 
+  
+  
+    let Profile_Info = ({
+      Name : "",
+      ID : "",
+      Email : "",
+      Phone : "",
+      Place : ""
+    });
+
+
+    const onPageLoad = () => {
+
+        const data_name = "บงกช บุญเพ็ง";
+        const data_id = "123456789";
+        const data_email = "farmerapp@gmail.com";
+        const data_phone = "091-234-5678";
+        const data_place = "11/1 กรุงเทพมหานคร";
+  
+        Profile_Info={
+        Name: data_name,
+        ID: data_id,
+        Email: data_email,
+        Phone: data_phone,
+        Place: data_place,
+        
+      }
+    
+      console.log(Profile_Info)
+  
+      }
+
 const Profile = ({navigation}) => {
+
+
+ 
+  onPageLoad()
+
+  useEffect(() => {
+            
+
+
+    console.log("useEffectProfile")
+
+    
+   
+     
+    }, [])
+
+
+
+
   return (
     <View style={{ flex: 1 }}>
       <View>
@@ -37,10 +101,17 @@ const Profile = ({navigation}) => {
           fontWeight: 'bold',
           top: 130
         }}
-        >นายใจดี มีสุข</Text>
-        <Text style={{
-          top: 140,
-        }}>เลขประจำตัวชาวไร่ 123456789</Text>
+        >{Profile_Info.Name}</Text>
+
+        <View style={styles.row}>
+          <Text style={{
+            top: 140,
+          }}>เลขประจำตัวชาวไร่</Text>
+
+          <Text style={{
+            top: 140,
+          }}>{Profile_Info.ID}</Text>
+        </View>
       </View>
 
       <View style={styles.container}>
@@ -58,7 +129,7 @@ const Profile = ({navigation}) => {
               fontSize: 17,
               marginHorizontal: 90,
               color: '#868080',
-              fontWeight: 'bold'}}>นายใจดี มีสุข </Text>
+              fontWeight: 'bold'}}>{Profile_Info.Name}</Text>
           </View>
 
           <View style={styles.row}>
@@ -75,7 +146,7 @@ const Profile = ({navigation}) => {
               fontSize: 17,
               marginHorizontal: 40,
               color: '#868080',
-              fontWeight: 'bold'}}>FarmerApp@gmail.com</Text>
+              fontWeight: 'bold'}}>{Profile_Info.Email}</Text>
           </View>
 
           <View style={styles.row}>
@@ -92,7 +163,7 @@ const Profile = ({navigation}) => {
               fontSize: 17,
               marginHorizontal: 50,
               color: '#868080',
-              fontWeight: 'bold'}}> 091-234-5678</Text>
+              fontWeight: 'bold'}}>{Profile_Info.Phone}</Text>
           </View>
 
           <View style={styles.row}>
@@ -109,7 +180,7 @@ const Profile = ({navigation}) => {
               fontSize: 17,
               marginHorizontal: 52,
               color: '#868080',
-              fontWeight: 'bold'}}>99/9, กรุงเทพมหานคร</Text>
+              fontWeight: 'bold'}}>{Profile_Info.Place}</Text>
           </View>
 
 
@@ -120,7 +191,6 @@ const Profile = ({navigation}) => {
               paddingVertical: 30,
               alignSelf: 'flex-start',
               fontSize: 17,
-              marginHorizontal: 20,
               color: "#f00",
               fontWeight: 'bold'}}>ออกจากระบบ</Text>
             </Pressable>
@@ -149,4 +219,6 @@ const Profile = ({navigation}) => {
     },
 
   })
+
+
 export default Profile

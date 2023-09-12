@@ -1,9 +1,10 @@
 import { View, Text, SafeAreaView, TextInput, TouchableOpacity, ScrollView, Image, Pressable,Alert } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import COLORS from '../constants/colors';
 import { Ionicons } from '@expo/vector-icons';
 import Checkbox from "expo-checkbox";
 import { Button } from 'react-native';
+
 
 
 const Login = ({ navigation }) => {
@@ -40,6 +41,12 @@ const onClickMe = () => {
 
           }
 
+          useEffect(() => {
+            
+          console.log("useEffectLogin")
+           
+          }, [])
+          
 
   return (
    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
