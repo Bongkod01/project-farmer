@@ -65,16 +65,16 @@ const ProfileRoute = () => (
 
 // }
 
-  //  let DogClass_Definition = ({
-  //    DogName: "",
-  //    DogAge: 0,
-  //    DogBreed: "",
-  //    DogColor: ""
-  // });
+   let DogClass_Definition = ({
+     DogName: "",
+     DogAge: 0,
+     DogBreed: "",
+     DogColor: ""
+  });
 
   
 
-  // const onClickMe = () => {
+  const onClickMe = () => {
     
     // const data_dog_ME_name = "Woonsen";
     // const data_dog_Age = 2;
@@ -89,59 +89,28 @@ const ProfileRoute = () => (
     // }
 
 
-//     if (DogClass_Definition == '') {
+    if (DogClass_Definition.DogName == '') {
 
-//       const data_dog_ME_name2 = "Itim";
-//       const data_dog_Age2 = 4;
-//       const data_dog_Breed2 = "Beaggle";
-//       const data_dog_Color2 = "Brown";
+      const data_dog_ME_name2 = "Itim";
+      const data_dog_Age2 = 4;
+      const data_dog_Breed2 = "Beaggle";
+      const data_dog_Color2 = "Brown";
 
-//       DogClass_Definition={
-//       DogName:data_dog_ME_name2,
-//       DogAge:data_dog_Age2,
-//       DogBreed: data_dog_Breed2,
-//       DogColor:data_dog_Color2,
-//     }
-//   }
+      DogClass_Definition={
+      DogName:data_dog_ME_name2,
+      DogAge:data_dog_Age2,
+      DogBreed: data_dog_Breed2,
+      DogColor:data_dog_Color2,
+    }
+  }
     
-//   console.log (DogClass_Definition)
-//  }
+  console.log (DogClass_Definition)
+ }
 
 
  
-//  console.log (DogClass_Definition)
+ console.log (DogClass_Definition)
 
-
-
-    let Profile_Info = ({
-      Name : "",
-      ID : "",
-      Email : "",
-      Phone : 0,
-      Place : ""
-    });
-
-    const onClickMe = () => {
-
-
-      const data_name = "Bongkod";
-      const data_id = "123-456-7890";
-      const data_email = "farmerapp@gmail.com";
-      const data_phone = "091-234-5678";
-      const data_place = "99/99 กรุงเทพมหานคร";
-
-      Profile_Info = {
-        Name : data_name,
-        ID : data_id,
-        Email : data_email,
-        Phone : data_phone,
-        Place  : data_place,
-        
-    }
-
-    console.log(Profile_Info)
-
-    }
 
 
  const initialLayout = { width: Dimensions.get('window').width };
