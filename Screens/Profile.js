@@ -6,44 +6,11 @@ import { Button } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import ProfileScreen from './Profile';
 import { VStack,Spacer , Center, NativeBaseConfigProvider } from "native-base";
 import { Image } from 'react-native';
 
 import COLORS from '../constants/colors';
-
-
-
-    let Profile_Info = ({
-      Name : "",
-      ID : 0,
-      Email : "",
-      Phone : 0,
-      Place : ""
-    });
-
-    const ShowInfo = () => {
-
-    if (Profile_Info == '') {
-
-      const data_name = "";
-      const data_id = 0;
-      const data_email = "";
-      const data_phone = 0;
-      const data_place = "";
-
-      Profile_Info={
-      Name: data_name,
-      ID: data_id,
-      Email: data_email,
-      Phone: data_phone,
-      Place: data_place,
-      
-    }
-    }
-
-    console.log(Profile_Info)
-
-    }
 
 
 const Profile = ({navigation}) => {
@@ -70,80 +37,79 @@ const Profile = ({navigation}) => {
           fontWeight: 'bold',
           top: 130
         }}
-        > นายใจดี มีสุข </Text>
+        >นายใจดี มีสุข</Text>
         <Text style={{
           top: 140,
-        }}> เลขประจำตัวชาวไร่ 123456789 </Text>
+        }}>เลขประจำตัวชาวไร่ 123456789</Text>
       </View>
 
-       <View style={styles.container}>
-
+      <View style={styles.container}>
           <View style={styles.row}>
             <Text style={{
-              paddingVertical: 20,
+              paddingVertical: 30,
               alignSelf: 'flex-start',
               fontSize: 17,
-              marginHorizontal: 90, 
-              fontWeight: 'bold'}}> ชื่อ </Text>
+              marginHorizontal: 98,
+              fontWeight: 'bold'}}>ชื่อ</Text>
 
             <Text style={{
-              paddingVertical: 20,
+              paddingVertical: 30,
               alignSelf: 'flex-start',
               fontSize: 17,
               marginHorizontal: 90,
               color: '#868080',
-              fontWeight: 'bold'}}> นายใจดี มีสุข </Text>
+              fontWeight: 'bold'}}>นายใจดี มีสุข </Text>
           </View>
 
           <View style={styles.row}>
              <Text style={{
-              paddingVertical: 20,
+              paddingVertical: 30,
               alignSelf: 'flex-start',
               fontSize: 17,
-              marginHorizontal: 45,
-              fontWeight: 'bold'}}> Email</Text>
+              marginHorizontal: 50,
+              fontWeight: 'bold'}}>Email</Text>
 
             <Text style={{
-              paddingVertical: 20,
+              paddingVertical: 30,
               alignSelf: 'flex-start',
               fontSize: 17,
-              marginHorizontal: 42,
+              marginHorizontal: 40,
               color: '#868080',
-              fontWeight: 'bold'}}> FarmerApp@gmail.com </Text>
+              fontWeight: 'bold'}}>FarmerApp@gmail.com</Text>
           </View>
 
           <View style={styles.row}>
              <Text style={{
-              paddingVertical: 20,
+              paddingVertical: 30,
               alignSelf: 'flex-start',
               fontSize: 17,
-              marginHorizontal: 45,
-              fontWeight: 'bold'}}> เบอร์โทรศัพท์ </Text>
+              marginHorizontal: 50,
+              fontWeight: 'bold'}}>เบอร์โทรศัพท์</Text>
               
             <Text style={{
-              paddingVertical: 20,
+              paddingVertical: 30,
               alignSelf: 'flex-start',
               fontSize: 17,
-              marginHorizontal: 45,
+              marginHorizontal: 50,
               color: '#868080',
               fontWeight: 'bold'}}> 091-234-5678</Text>
           </View>
 
           <View style={styles.row}>
              <Text style={{
-              paddingVertical: 20,
+              paddingVertical: 30,
               alignSelf: 'flex-start',
               fontSize: 17,
-              marginHorizontal: 55,
-              fontWeight: 'bold'}}> ที่อยู่ </Text>
+              marginHorizontal: 60,
+              fontWeight: 'bold'}}>ที่อยู่</Text>
 
             <Text style={{
-              paddingVertical: 20,
+              paddingVertical: 30,
               alignSelf: 'flex-start',
               fontSize: 17,
               marginHorizontal: 52,
               color: '#868080',
-              fontWeight: 'bold'}}> 99/9, กรุงเทพมหานคร </Text>
+              fontWeight: 'bold'}}>99/9, กรุงเทพมหานคร</Text>
           </View>
 
 
@@ -177,8 +143,10 @@ const Profile = ({navigation}) => {
       borderWidth: 1 
     },
     row: {
-      flexDirection: 'row'
-    }
+      flexDirection: 'row',
+      backgroundColor: ''
+      
+    },
 
   })
 export default Profile
