@@ -15,6 +15,13 @@ const Login = ({ navigation }) => {
 const [Email,setEmail] = useState(null);
 const [Password,setPassword] = useState(null); 
  
+// const [Data,setData] = useState({
+//   username: '',
+//   password: ''
+// })
+
+
+
 
 const onClickMe = () => {
 
@@ -41,12 +48,19 @@ const onClickMe = () => {
 
           }
 
-          useEffect(() => {
-            
-          console.log("useEffectLogin")
-           
-          }, [])
+//           useEffect(() => {
+//             setData ({
+//               username: 'test',
+//               password: '1111'
+//             })
           
+//             console.log(Data)
+
+//           console.log("useEffectLogin")
+           
+//           }, [])
+          
+// console.log(Data)
 
   return (
    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
@@ -94,7 +108,10 @@ const onClickMe = () => {
           placeholderTextColor={COLORS.grey}
           keyboardType='email-address'
           value={Email}
+          // value={Data.username}
           onChangeText={(text)=>{setEmail(text)}}
+          // onChangeText={(text) => setData((prevState) => ({ ...prevState, username: text }))}
+
           style={{
             width: "100%"
           }}/>
