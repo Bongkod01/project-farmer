@@ -5,19 +5,31 @@ import COLORS from '../constants/colors';
 import { Image } from 'react-native';
 import Button from '../components/Button';
 
+
+import { setAppName } from '../redux/WelcomeSlice';
+
+
 import { useNavigation } from '@react-navigation/native';
 
-import { setHome_Name } from '../redux/HomeSlice';
+// import { setHome_Name } from '../redux/HomeSlice';
 
 const Welcome = ({}) => {
 
   const navigation = useNavigation();
   
+
   const NextLogin = () => {
 
-    const HomeName = "Boe";
-    console.log(HomeName);
-    setHome_Name(HomeName);
+
+    const WelcomeName = "Bow to FileSlice";
+    console.log(WelcomeName);
+    setAppName(WelcomeName);
+
+    
+
+    // const HomeName = "Boe";
+    // console.log(HomeName);
+    // setHome_Name(HomeName);
 
     navigation.navigate('Login')
   };

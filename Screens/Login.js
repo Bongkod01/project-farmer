@@ -4,10 +4,13 @@ import COLORS from '../constants/colors';
 import { Ionicons } from '@expo/vector-icons';
 import Checkbox from "expo-checkbox";
 import { Button } from 'react-native';
+import { useSelector } from 'react-redux';
 
 
 
 const Login = ({ navigation }) => {
+
+
     const [isPasswordShown, setIsPasswordShown] = useState(false);
     const [isChecked,setIsChecked] = useState(false);
 
@@ -15,7 +18,20 @@ const Login = ({ navigation }) => {
 const [Email,setEmail] = useState(null);
 const [Password,setPassword] = useState(null); 
  
+
+
+    const returndata_appname = useSelector((state) => state.welcome.appName
+    );
+
+    console.log(returndata_appname);
+
+
+
+
+
 // const [Data,setData] = useState({
+
+
 //   username: '',
 //   password: ''
 // })
@@ -48,21 +64,22 @@ const onClickMe = () => {
 
           }
 
-//           useEffect(() => {
-//             setData ({
-//               username: 'test',
-//               password: '1111'
-//             })
+//          useEffect(() => {
+//            setData ({
+//            username: 'test',
+//                password: '1111'
+//              })
           
 //             console.log(Data)
 
-//           console.log("useEffectLogin")
+//            console.log("useEffectLogin")
            
-//           }, [])
+//            }, [])
           
-// console.log(Data)
+//  console.log(Data)
 
   return (
+    
    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
     <ScrollView keyboardShouldPersistTaps="handled">
       <View style={{flex: 1, marginHorizontal: 22}}>

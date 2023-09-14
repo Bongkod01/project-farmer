@@ -9,8 +9,8 @@ const HomeSlice = createSlice({
     initialState,
     reducers: {
         setHome_Name: (state,action) => {
-           state.home_name = action,payload
-            console.log(state.home_name)
+           state.home_name = action.payload
+            console.log( action.payload)
         }
     },
     extraReducers: (builder) => {
@@ -18,5 +18,5 @@ const HomeSlice = createSlice({
     }
 })
 
-export const {setHome_Name} = HomeSlice.actions
+export const {setHome_Name,extraReducers} = HomeSlice.actions
 export default HomeSlice.reducer
