@@ -1,17 +1,42 @@
+// import { createSlice } from "@reduxjs/toolkit";
+
+// const initialState = {
+//     model_UserInfo: ""
+// }
+
+// const loginSlice = createSlice({
+//     name: 'login',
+//     initialState,
+//     reducers: {
+//     },
+//     extraReducers: (builder) => {
+//         builder
+//     }
+// })
+
+// export default LoginSlice.reducer
+
+
+
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    model_UserInfo: ""
+   HomePage: ""
 }
 
-const loginSlice = createSlice({
-    name: 'login',
+const LoginSlice = createSlice({
+    name: 'welcome',
     initialState,
     reducers: {
+        setHome_Name: (state, action) => {
+            state.HomePage = action.payload;
+            console.log( 'LoginSlice: ',state.HomePage);
+        }
     },
     extraReducers: (builder) => {
         builder
     }
 })
-
-export default loginSlice.reducer
+export const {setHome_Name} = LoginSlice.actions
+export default LoginSlice.reducer

@@ -5,26 +5,38 @@ import { Ionicons } from '@expo/vector-icons';
 import Checkbox from "expo-checkbox";
 import { Button } from 'react-native';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
+import { setHome_Name } from '../redux/LoginSlice';
 
 
 const Login = ({ navigation }) => {
+
+
 
 
     const [isPasswordShown, setIsPasswordShown] = useState(false);
     const [isChecked,setIsChecked] = useState(false);
 
 
-const [Email,setEmail] = useState(null);
-const [Password,setPassword] = useState(null); 
+    const [Email,setEmail] = useState(null);
+    const [Password,setPassword] = useState(null); 
+ 
+    const Dispatch = useDispatch();
+
+    const returndata_appname = useSelector((state) => state.welcome.AppName);
+
+    // console.log(' useSelector: ',returndata_appname);
+
  
 
 
-    const returndata_appname = useSelector((state) => state.welcome.appName
-    );
+    
+    
 
-    console.log(returndata_appname);
-
+    const Home_Page = "Welcome to Home Page";
+        
+        Dispatch(setHome_Name(Home_Page));
 
 
 
@@ -37,6 +49,10 @@ const [Password,setPassword] = useState(null);
 // })
 
 
+useEffect(() =>  {
+
+  // console.log('useEffect: ',returndata_appname)
+})
 
 
 const onClickMe = () => {
@@ -50,7 +66,9 @@ const onClickMe = () => {
           console.log("Password ไม่ถูกต้อง")
           }
            
-          
+        
+
+
     //   const  onClickMe = () => {
 
     //   if( Email == "bow" && Password == 1234){
@@ -61,7 +79,7 @@ const onClickMe = () => {
     //     console.log("Password ไม่ถูกต้อง")
     //  }
 
-
+  
           }
 
 //          useEffect(() => {
@@ -77,6 +95,9 @@ const onClickMe = () => {
 //            }, [])
           
 //  console.log(Data)
+
+
+
 
   return (
     
@@ -235,5 +256,8 @@ const onClickMe = () => {
    </SafeAreaView>
   )
 }
+
+
+
 
 export default Login

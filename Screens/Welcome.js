@@ -8,24 +8,30 @@ import Button from '../components/Button';
 
 import { setAppName } from '../redux/WelcomeSlice';
 
-
+import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 
 // import { setHome_Name } from '../redux/HomeSlice';
 
 const Welcome = ({}) => {
 
+  const Dispatch = useDispatch();
+
+
+
   const navigation = useNavigation();
   
+
+
 
   const NextLogin = () => {
 
 
-    const WelcomeName = "Bow to FileSlice";
-    console.log(WelcomeName);
-    setAppName(WelcomeName);
-
+    const Welcome_Name = "Bow_Welcome";
     
+    Dispatch(setAppName(Welcome_Name));
+
+        
 
     // const HomeName = "Boe";
     // console.log(HomeName);

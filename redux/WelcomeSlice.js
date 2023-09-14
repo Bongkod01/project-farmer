@@ -3,7 +3,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    appName: 'Hi',
+    AppName: '',
     username: null,
     password: null
 }
@@ -13,8 +13,8 @@ const WelcomeSlice = createSlice({
     initialState,
     reducers: {
         setAppName: (state, action) => {
-            state.appName = action.payload;
-            console.log(state.appName);
+            state.AppName = action.payload;
+            console.log( 'WelcomeSlice: ',state.AppName);
         }
     },
     extraReducers: (builder) => {
