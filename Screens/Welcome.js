@@ -30,7 +30,6 @@ const Welcome = ({}) => {
     const Welcome_Name = "Bow_Welcome";
     
     Dispatch(setAppName(Welcome_Name));
-
         
 
     // const HomeName = "Boe";

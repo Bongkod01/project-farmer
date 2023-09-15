@@ -38,5 +38,6 @@ const LoginSlice = createSlice({
         builder
     }
 })
+
 export const {setHome_Name} = LoginSlice.actions
 export default LoginSlice.reducer

@@ -12,7 +12,7 @@ import { setHome_Name } from '../redux/LoginSlice';
 
 const Login = ({ navigation }) => {
 
-
+    const Dispatch = useDispatch();
 
 
     const [isPasswordShown, setIsPasswordShown] = useState(false);
@@ -22,7 +22,7 @@ const Login = ({ navigation }) => {
     const [Email,setEmail] = useState(null);
     const [Password,setPassword] = useState(null); 
  
-    const Dispatch = useDispatch();
+   
 
     const returndata_appname = useSelector((state) => state.welcome.AppName);
 
@@ -31,14 +31,10 @@ const Login = ({ navigation }) => {
  
 
 
+
     
+
     
-
-    const Home_Page = "Welcome to Home Page";
-        
-        Dispatch(setHome_Name(Home_Page));
-
-
 
 
 // const [Data,setData] = useState({
@@ -67,7 +63,10 @@ const onClickMe = () => {
           }
            
         
-
+          const Home_Page = "Welcome to Home Page";
+        
+          Dispatch(setHome_Name(Home_Page));
+  
 
     //   const  onClickMe = () => {
 
@@ -246,18 +245,26 @@ const onClickMe = () => {
                   fontWeight: "bold",
                   marginLeft: 6
                 }}>Register</Text>
+
+                
               </Pressable>
 
           </View>
 
-
+        
       </View>
+      
     </ScrollView>
+    
    </SafeAreaView>
+
   )
+
+
+
+
+
 }
-
-
 
 
 export default Login

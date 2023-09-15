@@ -9,13 +9,15 @@ import { Ionicons } from '@expo/vector-icons';
 import ProfileScreen from './Profile';
 import { VStack,HStack,Spacer , Center, NativeBaseConfigProvider,Stack,Button } from "native-base";
 import { Image } from 'react-native';
-
+import { useSelector } from 'react-redux';
 import COLORS from '../constants/colors';
 import Report from './Report';
 import Profile from './Profile';
+import { useDispatch } from 'react-redux';
 
 
 const Tab = createBottomTabNavigator();
+
 
 const HomeRoute = () => (
   <View style={[styles.scene, { backgroundColor: '"#ffffff"' }]} />
@@ -28,6 +30,8 @@ const ReportRoute = () => (
 const ProfileRoute = () => (
   <View style={[styles.scene, { backgroundColor: '"#ffffff"' }]} />
 );
+
+
 
 
 //  const ary = []
@@ -116,6 +120,10 @@ const ProfileRoute = () => (
  const initialLayout = { width: Dimensions.get('window').width };
 
   const Home = ({ navigation }) => {
+
+
+    const return_home = useSelector((state) => state.welcome.Home_Page);
+
 
   const HomeScreen = () => (
      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
