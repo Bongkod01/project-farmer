@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Dimensions, Pressable, TextInput } from 'react-native';
 import { Image } from 'react-native';
+import axios from 'axios'
+
 
 const Profile = ({ navigation }) => {
 
@@ -32,14 +34,35 @@ const Profile = ({ navigation }) => {
   }
 
 
-  useEffect(() => {
-    console.log("useEffectProfile")
 
-    onPageLoad()
+  useEffect(()=>{    
+        // try {
+    //   const url = 'http://127.0.0.1:5000/info'
+    // axios.get(url).then((res) => {
+    //   console.log('axios res -->', res)
+    // })
+    // } catch (error) {
+    //   console.log(error)
+    // }
 
-    console.log("useEffectProfile onPageLoad", Data);
-  }, [])
+    const urlAPI = `http://192.168.0.250:5000/info`;
+    fetch(urlAPI)
+    .then((response)=>response.json())
+    .then((Jsondata)=>setData(Jsondata))
+    .catch((error)=>(console.error(error)))
+    console.log(data_id)
+  },[])
 
+
+
+  // useEffect(() => {
+
+  //   console.log("useEffectProfile")
+
+  //   onPageLoad()
+
+  //   console.log("useEffectProfile onPageLoad", Data);
+  // }, [])
 
   return (
     <View style={{ flex: 1 }}>

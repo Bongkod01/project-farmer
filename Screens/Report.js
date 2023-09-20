@@ -10,14 +10,22 @@ import { Ionicons } from '@expo/vector-icons';
 import { HStack,Center } from 'native-base';
 import ProfileScreen from './Profile';
 import Stack from '@mui/material/Stack';
-
+import { VStack } from 'native-base';
 import { Image } from 'react-native';
-
+import { DataTable } from 'react-native-paper';
 import COLORS from '../constants/colors';
 
 
 
 const Report = () => {
+
+
+
+
+
+
+
+  
     const [selectedValue, setSelectedValue] = useState('option1');
   
     return (
@@ -31,7 +39,7 @@ const Report = () => {
       <Picker.Item label="งวดที่ 3" value="option4" />
     </Picker>
 
-    
+
       <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={5}>
         <Center bg="#007260" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
@@ -70,6 +78,44 @@ const Report = () => {
 
         </Center>
       </HStack>
+
+
+      <DataTable style={styles.container} paddingTop={20} >
+
+        <DataTable.Header style={styles.tableHeader}  alignItems="center" justifyContent={"center"} >
+
+          <DataTable.Title> วันที่ </DataTable.Title>
+
+          <DataTable.Title> จำนวนบิล </DataTable.Title>
+
+        </DataTable.Header>
+
+        <DataTable.Row>
+          {/* <DataTable.Cell> 2 มกราคม 2565 </DataTable.Cell>
+          <DataTable.Cell> 25 </DataTable.Cell> */}
+        </DataTable.Row>
+
+      <DataTable.Row>
+        {/* <DataTable.Cell> 5 พฤษภาคม 2565 </DataTable.Cell>
+        <DataTable.Cell> 20 </DataTable.Cell> */}
+      </DataTable.Row>
+
+      <DataTable.Row>
+        {/* <DataTable.Cell> 5 พฤษภาคม 2565 </DataTable.Cell>
+        <DataTable.Cell> 15 </DataTable.Cell> */}
+      </DataTable.Row>
+
+      <DataTable.Row>
+        {/* <DataTable.Cell></DataTable.Cell>
+        <DataTable.Cell></DataTable.Cell> */}
+      </DataTable.Row>
+
+      <DataTable.Row>
+        {/* <DataTable.Cell></DataTable.Cell>
+        <DataTable.Cell></DataTable.Cell> */}
+      </DataTable.Row>
+
+    </DataTable>
 
 
     </View>
@@ -139,13 +185,17 @@ const Report = () => {
         width: 160,
         marginVertical: 10,
         height: 50,
-      
         borderRadius: 5,
         backgroundColor: '#727272',
         marginBottom: 10,
         alignItems: 'center',
-        justifyContent: 'center'
-       }
+        justifyContent: 'center',
+       },
+      tableHeader: {
+        
+        backgroundColor: '#cccccc', 
+      
+        },
         
    });
   

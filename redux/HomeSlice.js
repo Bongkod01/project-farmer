@@ -1,3 +1,5 @@
+
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -18,5 +20,5 @@ const HomeSlice = createSlice({
     }
 })
 
-export const {setHome_Name,extraReducers} = HomeSlice.actions
+export const {setHome_Name} = HomeSlice.actions
 export default HomeSlice.reducer

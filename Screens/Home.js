@@ -16,6 +16,7 @@ import Profile from './Profile';
 import { useDispatch } from 'react-redux';
 
 
+
 const Tab = createBottomTabNavigator();
 
 
@@ -69,16 +70,16 @@ const ProfileRoute = () => (
 
 // }
 
-   let DogClass_Definition = ({
-     DogName: "",
-     DogAge: 0,
-     DogBreed: "",
-     DogColor: ""
-  });
+  //  let DogClass_Definition = ({
+  //    DogName: "",
+  //    DogAge: 0,
+  //    DogBreed: "",
+  //    DogColor: ""
+  // });
 
   
 
-  const onClickMe = () => {
+  // const onClickMe = () => {
     
     // const data_dog_ME_name = "Woonsen";
     // const data_dog_Age = 2;
@@ -93,27 +94,27 @@ const ProfileRoute = () => (
     // }
 
 
-    if (DogClass_Definition.DogName == '') {
+//     if (DogClass_Definition.DogName == '') {
 
-      const data_dog_ME_name2 = "Itim";
-      const data_dog_Age2 = 4;
-      const data_dog_Breed2 = "Beaggle";
-      const data_dog_Color2 = "Brown";
+//       const data_dog_ME_name2 = "Itim";
+//       const data_dog_Age2 = 4;
+//       const data_dog_Breed2 = "Beaggle";
+//       const data_dog_Color2 = "Brown";
 
-      DogClass_Definition={
-      DogName:data_dog_ME_name2,
-      DogAge:data_dog_Age2,
-      DogBreed: data_dog_Breed2,
-      DogColor:data_dog_Color2,
-    }
-  }
+//       DogClass_Definition={
+//       DogName:data_dog_ME_name2,
+//       DogAge:data_dog_Age2,
+//       DogBreed: data_dog_Breed2,
+//       DogColor:data_dog_Color2,
+//     }
+//   }
     
-  console.log (DogClass_Definition)
- }
+//   console.log (DogClass_Definition)
+//  }
 
 
  
- console.log (DogClass_Definition)
+//  console.log (DogClass_Definition)
 
 
 
@@ -123,16 +124,30 @@ const ProfileRoute = () => (
 
 
     const return_home = useSelector((state) => state.welcome.Home_Page);
-
+    
 
   const HomeScreen = () => (
-     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+     <View>
 
-       <Text>Dog</Text>
+       
+       <VStack space={5} alignItems="center" justifyContent={"center"} paddingTop={3} >
+        <Center bg="#007260"  width={320} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
-       <Button onPress={onClickMe}> Click Me</Button>
+          น้ำหนักรวมรายวัน
+          
+        </Center>
 
-    </View>
+        </VStack>
+
+        <VStack space={5} alignItems="center" justifyContent={"center"} paddingTop={250} >
+        <Center bg="#007260"  width={320} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+
+          น้ำหนักรวมรายงวด
+
+        </Center>
+        
+        </VStack>
+</View>
   );
 
 
