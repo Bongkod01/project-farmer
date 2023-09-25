@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, Dimensions,Pressable, } from 'react-native';
+import { Text, View, StyleSheet, Dimensions,Pressable,ScrollView } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { Picker } from '@react-native-picker/picker';
 
@@ -127,34 +127,185 @@ const ProfileRoute = () => (
     
 
   const HomeScreen = () => (
-     <View>
 
-       
-       <VStack space={5} alignItems="center" justifyContent={"center"} paddingTop={3} >
-        <Center bg="#007260"  width={320} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
-          น้ำหนักรวมรายวัน
-          
+<ScrollView>
+<View>
+
+
+      <Image source={require("../assets/logotrr.png")}
+      style={{
+        height: 200, 
+        width: 320,
+        borderRadius: 10,
+        alignSelf: "center",
+        top: 30,}}>
+      </Image>
+
+      <Text style={{
+        fontStyle:"italic",
+        paddingTop: 50,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 17
+
+      }}>       " กลุ่มไทยรุ่งเรืองมีโรงงานในเครือทั้งหมด    10  โรงงาน  มีกำลังการผลิตทั้งหมด 301,000 ตันต่อวัน    ซึ่งเป็นกลุ่มน้ำตาลที่มีกำลังการผลิตสูงที่สุดในประเทศไทย "</Text>
+
+        <Image source={require("../assets/trrweight.png")}
+        style={{
+          height: 120, 
+          width: 80,
+          borderRadius: 10,
+          alignSelf: "center",
+          top: 20
+        }}>
+        </Image>
+
+      <HStack space={2} alignItems="center" justifyContent={"center"} paddingTop={5} >
+          <Center bg="#86754e" width={250} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+          จากโรงงานน้ำตาลเอกชนแห่งแรกของไทย
+          เราพัฒนาอย่างต่อเนื่องจากรุ่นสู่รุ่น
+          </Center>
+        </HStack>
+
+        <Image source={require("../assets/quality.png")}
+      style={{
+        height: 120, 
+        width: 175,
+        alignSelf: "center",
+        top: 20
+      }}>
+      </Image>
+
+    <HStack space={2} alignItems="center" justifyContent={"center"} paddingTop={5} >
+        <Center bg="#86754e" width={250} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        เราพิถีพิถันใส่ใจในทุกรายละเอียด
+        เพื่อให้ได้น้ำตาลคุณภาพที่ดีที่สุด
         </Center>
+      </HStack>
 
-        </VStack>
+      <Image source={require("../assets/heart.png")}
+      style={{
+        height: 90, 
+        width: 180,
+        alignSelf: "center",
+        top: 20
+      }}>
+      </Image>
 
-        <VStack space={5} alignItems="center" justifyContent={"center"} paddingTop={250} >
-        <Center bg="#007260"  width={320} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
-
-          น้ำหนักรวมรายงวด
-
+    <HStack space={2} alignItems="center" justifyContent={"center"} paddingTop={5} >
+        <Center bg="#86754e" width={250} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        เพื่อส่งมอบความหวานและความสุข
+        ให้กับทุกคน เพราะเราเชื่อว่า
+        "ความหวาน คือ รสชาติแรกของความสุข"
         </Center>
-        
-        </VStack>
+      </HStack>
+
+      {/* <Image source={require("../assets/trrweight.png")}
+      style={{
+        height: 120, 
+        width: 80,
+        borderRadius: 10,
+        alignSelf: "center",
+        top: 50,
+      }}>
+      </Image>
+
+      <Text style={{
+        paddingTop: 60,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>จากโรงงานน้ำตาลเอกชนแห่งแรกของไทย</Text>
+
+      <Text style={{
+        paddingTop: 2,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>เราพัฒนาอย่างต่อเนื่องจากรุ่นสู่รุ่น</Text>
+
+      <Image source={require("../assets/quality.png")}
+      style={{
+        height: 100, 
+        width: 160,
+        borderRadius: 10,
+        alignSelf: "center",
+        top: 50,
+      }}>
+      </Image>
+
+      <Text style={{
+        paddingTop: 60,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>เราพิถีพิถันใส่ใจในทุกรายละเอียด  </Text>
+
+      <Text style={{
+        paddingTop: 2,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>เพื่อให้ได้น้ำตาลคุณภาพที่ดีที่สุด</Text>
+
+      <Image source={require("../assets/heart.png")}
+      style={{
+        height: 70, 
+        width: 130,
+        borderRadius: 10,
+        alignSelf: "center",
+        top: 50,
+      }}>
+      </Image>
+
+      <Text style={{
+        paddingTop: 60,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>เพื่อส่งมอบความหวานและความสุข </Text>
+
+      <Text style={{
+        paddingTop: 2,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>ให้กับทุกคน เพราะเราเชื่อว่า</Text>
+
+      <Text style={{
+        paddingTop: 2,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>"ความหวาน คือ รสชาติแรกของความสุข"</Text> */}
+
+
+
 </View>
+</ScrollView>
   );
 
 
 
 
       /* <Heading>HStack</Heading> */
-   
+  
   //     <HStack space={3} alignItems="center">
   //       <Center size={16} bg="primary.400" rounded="md" _text={{
   //       color: "white"
@@ -471,7 +622,7 @@ const ProfileRoute = () => (
         component={HomeScreen}
         options={{
           tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons name={focused ? 'home' : 'home-outline'} size={size} color={"#007260"} />
+            <Ionicons name={focused ? 'home' : 'home-outline'} size={size} color={"#091E40"} />
           ),
         }}
       />
@@ -480,7 +631,7 @@ const ProfileRoute = () => (
         onPress={()=>navigation.navigate("Report")}
         options={{ 
           tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons name={focused ? 'document' : 'document-text-outline'} size={size} color={"#007260"} />
+            <Ionicons name={focused ? 'document' : 'document-text-outline'} size={size} color={"#091E40"} />
           ),
         }}
       />
@@ -489,7 +640,7 @@ const ProfileRoute = () => (
         onPress={()=>navigation.navigate("Profile")}
         options={{
           tabBarIcon: ({ focused, color, size }) => (
-              <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={"#007260"} />
+              <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={"#091E40"} />
           ),
         }}
       />
@@ -521,7 +672,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: 5,
     marginHorizontal: 15,
-    borderColor: '#007260',
+    borderColor: '#091E40',
     borderRadius: 20,
     borderWidth: 1
   },

@@ -6,37 +6,37 @@ import axios from 'axios'
 
 const Profile = ({ navigation }) => {
 
-  const [Data, setData] = useState({
-    Name: '',
-    ID: '',
-    Email: '',
-    Phone: '',
-    Place: ''
-  })
 
-  const onPageLoad = () => {
+  const [user, setUser] = useState({});
 
-    const data_name = "บงกช บุญเพ็ง";
-    const data_id = "123456789";
-    const data_email = "farmerapp@gmail.com";
-    const data_phone = "091-234-5678";
-    const data_place = "11/1 กรุงเทพมหานคร";
+  // const onPageLoad = () => {
 
-    setData({
-      Name: data_name,
-      ID: data_id,
-      Email: data_email,
-      Phone: data_phone,
-      Place: data_place
-    })
+  //   const data_name = "บงกช บุญเพ็ง";
+  //   const data_id = "123456789";
+  //   const data_email = "farmerapp@gmail.com";
+  //   const data_phone = "091-234-5678";
+  //   const data_place = "11/1 กรุงเทพมหานคร";
 
-    console.log("IN onPageLoad", Data);
-  }
+  //   setData({
+  //     Name: data_name,
+  //     ID: data_id,
+  //     Email: data_email,
+  //     Phone: data_phone,
+  //     Place: data_place
+  //   })
 
+  //   console.log("IN onPageLoad", Data);
+  // }
+
+  // state = {
+  //   Data: ''
+  // }
 
 
-  useEffect(()=>{    
-        // try {
+
+
+  
+    //     try {
     //   const url = 'http://127.0.0.1:5000/info'
     // axios.get(url).then((res) => {
     //   console.log('axios res -->', res)
@@ -45,14 +45,30 @@ const Profile = ({ navigation }) => {
     //   console.log(error)
     // }
 
-    const urlAPI = `http://192.168.0.250:5000/info`;
-    fetch(urlAPI)
-    .then((response)=>response.json())
-    .then((Jsondata)=>setData(Jsondata))
-    .catch((error)=>(console.error(error)))
-    console.log(data_id)
-  },[])
+    useEffect(()=>{   
 
+      
+      try {
+
+        console.log('LoadProfilePage');
+
+        const url = 'http://192.168.0.250:5000/info'
+        axios.get(url).then((res) => {
+          setUser(res.data);
+        console.log('axios res -->', res.data)
+      })
+      } catch (error) {
+        console.log(error)
+      }
+    },[])
+
+
+    //const urlAPI = `http://192.168.0.250:5000/info`;
+    //fetch(urlAPI)
+    //.then((response)=>response.json())
+    //.then((Jsondata)=>setData(Jsondata))
+    //.catch((error)=>(console.error(error)))
+    //console.log(Jsondata)
 
 
   // useEffect(() => {
@@ -64,8 +80,9 @@ const Profile = ({ navigation }) => {
   //   console.log("useEffectProfile onPageLoad", Data);
   // }, [])
 
+
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 2 }}>
       <View>
         <Image source={require("../assets/Farmer3.png")}
           style={{
@@ -76,7 +93,7 @@ const Profile = ({ navigation }) => {
             alignSelf: 'center',
             borderRadius: 20,
             position: "absolute",
-            top: 20
+            top: 35
           }}
         />
       </View>
@@ -85,18 +102,18 @@ const Profile = ({ navigation }) => {
         <Text style={{
           fontSize: 20,
           fontWeight: 'bold',
-          top: 130
+          top: 150
         }}
-        >{Data.Name}</Text>
+        >{user.FN} {user.LN}</Text>
 
         <View style={styles.row}>
           <Text style={{
-            top: 140,
-          }}>เลขประจำตัวชาวไร่</Text>
+            top: 160,
+          }}>เลขประจำตัวประชาชน</Text>
 
           <Text style={{
-            top: 140,
-          }}>{Data.ID}</Text>
+            top: 160,
+          }}>{user.IDC} </Text>                      
         </View>
       </View>
 
@@ -114,31 +131,14 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 90,
-            color: '#868080',
+            marginHorizontal: 100,
+            color: '#86754e',
             fontWeight: 'bold'
-          }}>{Data.Name}</Text>
+          }}>{user.FN} {user.LN}</Text>
         </View>
+      </View>
 
-        <View style={styles.row}>
-          <Text style={{
-            paddingVertical: 30,
-            alignSelf: 'flex-start',
-            fontSize: 17,
-            marginHorizontal: 50,
-            fontWeight: 'bold'
-          }}>Email</Text>
-
-          <Text style={{
-            paddingVertical: 30,
-            alignSelf: 'flex-start',
-            fontSize: 17,
-            marginHorizontal: 40,
-            color: '#868080',
-            fontWeight: 'bold'
-          }}>{Data.Email}</Text>
-        </View>
-
+      <View style={styles.container}>
         <View style={styles.row}>
           <Text style={{
             paddingVertical: 30,
@@ -152,12 +152,14 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 50,
-            color: '#868080',
+            marginHorizontal: 40,
+            color: '#86754e',
             fontWeight: 'bold'
-          }}>{Data.Phone}</Text>
+          }}>{user.PH}</Text>
+        </View>
         </View>
 
+        <View style={styles.container}>
         <View style={styles.row}>
           <Text style={{
             paddingVertical: 30,
@@ -172,45 +174,45 @@ const Profile = ({ navigation }) => {
             alignSelf: 'flex-start',
             fontSize: 17,
             marginHorizontal: 52,
-            color: '#868080',
+            color: '#86754e',
             fontWeight: 'bold'
-          }}>{Data.Place}</Text>
+          }}>{user.AD}</Text>
+        </View>
         </View>
 
-
+        
         <View style={styles.row}>
           <Pressable
             onPress={() => navigation.navigate("Login")}>
             <Text style={{
-              paddingVertical: 30,
-              alignSelf: 'flex-start',
+              paddingVertical: 20,
               fontSize: 17,
               color: "#f00",
               fontWeight: 'bold'
             }}>ออกจากระบบ</Text>
           </Pressable>
         </View>
-      </View>
+    
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
     backgroundColor: '',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 5,
-    marginHorizontal: 15,
-    borderColor: '#007260',
-    borderRadius: 20,
-    borderWidth: 1
+    marginVertical: 10,
+    marginHorizontal: 10,
+    borderColor: '#091E40',
+    borderRadius: 10,
+    borderWidth: 2
   },
   row: {
     flexDirection: 'row',
-    backgroundColor: ''
-
+    backgroundColor: '',
+    textAlign: 'center',
+    alignSelf: 'center',
   },
 
 })

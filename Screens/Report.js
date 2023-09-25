@@ -1,80 +1,106 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Text, View, StyleSheet, Dimensions,Pressable, } from 'react-native';
-import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { Picker } from '@react-native-picker/picker';
-import { Button } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NativeBaseProvider } from 'native-base';
-import { NavigationContainer } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
 import { HStack,Center } from 'native-base';
-import ProfileScreen from './Profile';
-import Stack from '@mui/material/Stack';
-import { VStack } from 'native-base';
-import { Image } from 'react-native';
 import { DataTable } from 'react-native-paper';
-import COLORS from '../constants/colors';
+import axios from 'axios'
 
 
 
-const Report = () => {
+const Report = ({ navigation }) => {
 
 
+  const [report, setReport] = useState({});
 
+  useEffect(()=>{   
+    try {
 
-
-
+      console.log('LoadReportPage');
+      
+      const url = 'http://192.168.0.250:5000/report'
+      axios.get(url).then((res) => {
+        setReport(res.data);
+      console.log('axios res -->', res.data)
+    })
+    } catch (error) {
+      console.log(error)
+    }
+  },[])
 
   
-    const [selectedValue, setSelectedValue] = useState('option1');
+
+  
+    const [selectedValue, setSelectedValue] = useState('');
   
     return (
 <View>
     <Picker style={{ backgroundColor: '#cccccc'}}
       selectedValue={selectedValue}
         onValueChange={(itemValue) => setSelectedValue(itemValue)}>
-      <Picker.Item label="--กรุณาเลือกงวด--" value="option1" />
-      <Picker.Item label="งวดที่ 1" value="option2" />
-      <Picker.Item label="งวดที่ 2" value="option3" />
-      <Picker.Item label="งวดที่ 3" value="option4" />
+      <Picker.Item label="--กรุณาเลือกงวด--" value=""></Picker.Item>
+      <Picker.Item label="งวดที่ 1" value="งวดที่ 1" ></Picker.Item>
+      <Picker.Item label="งวดที่ 2" value="งวดที่ 2" ></Picker.Item>
+      <Picker.Item label="งวดที่ 3" value="งวดที่ 3" ></Picker.Item>
     </Picker>
+    {/* <Picker
+        selectedValue={selectedValue}
+        onValueChange={(itemValue) => setSelectedValue(itemValue)}
+        mode="dropdown" // Android only
+        style={styles.picker}
+      >
+        <Picker.Item label="--กรุณาเลือกงวด--" value="" />
+        <Picker.Item label="งวดที่ 1" value="งวดที่ 1" />
+        <Picker.Item label="งวดที่ 2" value="งวดที่ 2" />
+        <Picker.Item label="งวดที่ 3" value="งวดที่ 3" />
+      </Picker> */}
 
+      <Text style={{
+
+        paddingTop: 5,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 17
+
+      }}>- {selectedValue} -</Text>
 
       <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={5}>
-        <Center bg="#007260" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        <Center bg="#091E40" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
-          จำนวลบิล : --
-
-        </Center>
-        <Center bg="#39B68D" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
-
-          CCS เฉลี่ย : --
+          จำนวลบิล : {report.Bill}
 
         </Center>
-      </HStack>
+        <Center bg="#86754e" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
-      <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={3} >
-        <Center bg="#007260"width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
-
-          น้ำหนัก : --
-
-        </Center>
-        <Center bg="#39B68D" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
-
-          น้ำมัน : --
+          CCS เฉลี่ย : {report.CCSAV}
 
         </Center>
       </HStack>
 
       <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={3} >
-        <Center bg="#007260"  width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        <Center bg="#091E40"width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
-          CCS สะสม : --
+          น้ำหนัก : {report.WeightCane}
 
         </Center>
-        <Center bg="#39B68D" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        <Center bg="#86754e" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
-          นน.สะสม : --
+          น้ำมัน : {report.Oil}
+
+        </Center>
+      </HStack>
+
+      <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={3} >
+        <Center bg="#091E40"  width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+
+          CCS สะสม : {report.CCSCL}
+
+
+        </Center>
+        <Center bg="#86754e" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+
+          นน.สะสม : {report.WeightOil}
+
 
         </Center>
       </HStack>
@@ -91,8 +117,8 @@ const Report = () => {
         </DataTable.Header>
 
         <DataTable.Row>
-          {/* <DataTable.Cell> 2 มกราคม 2565 </DataTable.Cell>
-          <DataTable.Cell> 25 </DataTable.Cell> */}
+          <DataTable.Cell>{report.Date} </DataTable.Cell>
+          <DataTable.Cell>{report.Bill} </DataTable.Cell>
         </DataTable.Row>
 
       <DataTable.Row>

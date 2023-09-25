@@ -19,7 +19,7 @@ const Login = ({ navigation }) => {
     const [isChecked,setIsChecked] = useState(false);
 
 
-    const [Email,setEmail] = useState(null);
+    const [Phone,setPhone] = useState(null);
     const [Password,setPassword] = useState(null); 
  
    
@@ -53,13 +53,13 @@ useEffect(() =>  {
 
 const onClickMe = () => {
 
-          if ( Email == "bow" && Password == 1234)
+          if ( Phone == "0822222222" && Password == 1234)
           {navigation.navigate("Home")
           }
           else {
-            Alert.alert('Email หรือ Password ไม่ถูกต้อง');
-          console.log("Email ไม่ถูกต้อง ")
-          console.log("Password ไม่ถูกต้อง")
+            Alert.alert('หมายเลขโทรศัพท์ หรือ รหัสผ่าน ไม่ถูกต้อง');
+          console.log("หมายเลขโทรศัพท์ ไม่ถูกต้อง ")
+          console.log("รหัสผ่าน ไม่ถูกต้อง")
           }
            
         
@@ -127,7 +127,7 @@ const onClickMe = () => {
           fontSize: 16,
           fontWeight: 400,
           marginVertical: 8
-        }}>Email</Text>
+        }}>หมายเลขโทรศัพท์</Text>
 
         <View style={{
           width: "100%",
@@ -141,12 +141,12 @@ const onClickMe = () => {
         }}>
 
           <TextInput
-          placeholder='Enter your email'
+          placeholder='Enter your Phone'
           placeholderTextColor={COLORS.grey}
-          keyboardType='email-address'
-          value={Email}
+          keyboardType='numeric'
+          value={Phone}
           // value={Data.username}
-          onChangeText={(text)=>{setEmail(text)}}
+          onChangeText={(text)=>{setPhone(text)}}
           // onChangeText={(text) => setData((prevState) => ({ ...prevState, username: text }))}
 
           style={{
@@ -161,7 +161,7 @@ const onClickMe = () => {
           fontSize: 16,
           fontWeight: 400,
           marginVertical: 8
-        }}>Password</Text>
+        }}>รหัสผ่าน</Text>
 
         <View style={{
           width: "100%",
@@ -174,7 +174,7 @@ const onClickMe = () => {
           paddingLeft: 22
         }}>
           <TextInput
-          placeholder='Enter your password'
+          placeholder='Enter your Password'
           placeholderTextColor={COLORS.grey}
           secureTextEntry={isPasswordShown}
           onChangeText={(text)=>{setPassword(text)}}
@@ -191,9 +191,9 @@ const onClickMe = () => {
 
           {
             isPasswordShown == true ? (
-                <Ionicons name="eye-off" size={20} color={COLORS.primary}/>
+                <Ionicons name="eye-off" size={20} color={COLORS.Blue}/>
             ) : (
-              <Ionicons name="eye" size={20} color={COLORS.primary}/>
+              <Ionicons name="eye" size={20} color={COLORS.Blue}/>
             )
 
           }
@@ -202,49 +202,34 @@ const onClickMe = () => {
         </View>
       </View>
       
-      <View style={{
-        flexDirection: "row",
-        marginVertical: 6
-      }}>
-        <Checkbox
-          style={{marginRight: 8}}
-          value={isChecked}
-          onValueChange={setIsChecked}
-          color={isChecked ? COLORS.primary:undefined}
-        />
-
-        <Text>Remember Me</Text>
-      </View>
 
         <Button
           title="Login"
           onPress={onClickMe}
           filled
-          color={COLORS.primary}
+          color={COLORS.Blue}
           style={{
             marginTop: 18,
-            marginBottom: 4
+            marginBottom: 4,
           }}/>
-        
 
-  
 
-      
+
           <View style={{
             flexDirection: "row",
             justifyContent: "center",
             marginVertical: 22
           }}>
 
-            <Text style={{fontSize: 16, color: COLORS.black}}>Don't have an account ?</Text>
+            <Text style={{fontSize: 16, color: COLORS.black}}>คุณยังไม่มีบัญชีใช่รึไม่ ? </Text>
             <Pressable 
               onPress={()=>navigation.navigate("Signup")}>
                 <Text style={{
                   fontSize: 16,
-                  color: COLORS.primary,
+                  color: COLORS.Gold,
                   fontWeight: "bold",
                   marginLeft: 6
-                }}>Register</Text>
+                }}>ลงทะเบียน</Text>
 
                 
               </Pressable>

@@ -11,22 +11,23 @@ const Signup = ({ navigation }) => {
 
 
     const [FullName,setFullName] = useState(null);
-    const [Email,setEmail] = useState(null);
+    const [IDCard,setIDCard] = useState(null);
     const [Phone,setPhone] = useState(null);
     const [Password,setPassword] = useState(null); 
-
+    const [Address,setAddress] = useState(null); 
 
     const onClickMe = () => {
       
-              if ( FullName == "Bongkod Boonpeng" || Email == "bow" || Phone == "0111111111" || Password == "1234" )
+              if ( FullName == "ใจดี มีสุข" || Phone == "0822222222" || IDCard == "1100110011001" || Password == "1234" || Address == "22/2 กรุงเทพมหานคร" )
               {navigation.navigate("Login")      
               }
               else { 
               Alert.alert('กรุณากรอกข้อมูลให้ครบถ้วน');
-              console.log("Full Name ยังไม่ได้กรอก")
-              console.log("Email ยังไม่ได้กรอก")
-              console.log("Phone Number ยังไม่ได้กรอก")
-              console.log("Password ยังไม่ได้กรอก")
+              console.log("ชื่อหรือนามสกุล ยังไม่ได้กรอก")
+              console.log("เบอร์โทรศัพท์ ยังไม่ได้กรอก")
+              console.log("เลขบัตรประจำตัวประชาชน ยังไม่ได้กรอก")
+              console.log("ตั้งค่ารหัสผ่าน ยังไม่ได้กรอก")
+              console.log("ที่อยู่ ยังไม่ได้กรอก")
               }
             }
             
@@ -35,12 +36,12 @@ const Signup = ({ navigation }) => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
       <ScrollView keyboardShouldPersistTaps="handled">
-      <View style={{flex: 1, marginHorizontal: 22}}>
+      <View style={{ marginHorizontal: 22}}>
         <View style={{ marginVertical: 50}}>
           <Text style={{
           fontSize: 22,
           fontWeight: 'bold',
-          marginVertical: 12,
+          marginVertical: 5,
           textAlign: 'center',
           color: COLORS.black
           }}> 
@@ -50,6 +51,7 @@ const Signup = ({ navigation }) => {
           fontSize: 16,
           color: COLORS.black,
           textAlign: 'center',
+          marginVertical: 2
         }}>สมัครสมาชิก</Text>
         </View>
 
@@ -57,8 +59,8 @@ const Signup = ({ navigation }) => {
           <Text style={{
             fontSize: 16,
             fontWeight: 400,
-            marginVertical: 8
-          }}>Full Name</Text>
+            marginVertical: 1
+          }}>ชื่อ-นามสกุล</Text>
 
           <View style={{
             width: "100%",
@@ -87,8 +89,8 @@ const Signup = ({ navigation }) => {
           <Text style={{
             fontSize: 16,
             fontWeight: 400,
-            marginVertical: 8
-          }}>Email</Text>
+            marginVertical: 1
+          }}>เบอร์โทรศัพท์</Text>
 
           <View style={{
             width: "100%",
@@ -101,10 +103,10 @@ const Signup = ({ navigation }) => {
             paddingLeft: 22
           }}>
             <TextInput
-            placeholder='Enter your email'
+            placeholder='Enter your Phone'
             placeholderTextColor={COLORS.grey}
-            keyboardType='email-address'
-            onChangeText={(text)=>{setEmail(text)}}
+            keyboardType='numeric'
+            onChangeText={(text)=>{setPhone(text)}}
             style={{
               width: "100%"
             }}/>
@@ -115,8 +117,8 @@ const Signup = ({ navigation }) => {
           <Text style={{
             fontSize: 16,
             fontWeight: 400,
-            marginVertical: 8
-          }}>Phone Number</Text>
+            marginVertical: 1
+          }}>เลขบัตรประจำตัวประชาชน</Text>
 
           <View style={{
             width: "100%",
@@ -135,7 +137,7 @@ const Signup = ({ navigation }) => {
             placeholder='Enter your phone number'
             placeholderTextColor={COLORS.grey}
             keyboardType='numeric'
-            onChangeText={(text)=>{setPhone(text)}}
+            onChangeText={(text)=>{setIDCard(text)}}
 
             style={{
               width: "80%"
@@ -148,8 +150,8 @@ const Signup = ({ navigation }) => {
           <Text style={{
             fontSize: 16,
             fontWeight: 400,
-            marginVertical: 8
-          }}>Password</Text>
+            marginVertical: 1
+          }}>ตั้งค่ารหัสผ่าน</Text>
 
           <View style={{
             width: "100%",
@@ -180,9 +182,9 @@ const Signup = ({ navigation }) => {
 
             {
               isPasswordShown == true ? (
-                  <Ionicons name="eye-off" size={20} color={COLORS.primary}/>
+                  <Ionicons name="eye-off" size={20} color={COLORS.Blue}/>
               ) : (
-                <Ionicons name="eye" size={20} color={COLORS.primary}/>
+                <Ionicons name="eye" size={20} color={COLORS.Blue}/>
               )
 
             }
@@ -190,26 +192,54 @@ const Signup = ({ navigation }) => {
             </TouchableOpacity>
           </View>
           </View>
+
+          <View style={{marginBottom: 12}}>
+          <Text style={{
+            fontSize: 16,
+            fontWeight: 400,
+            marginVertical: 1
+          }}>ที่อยู่</Text>
+
+          <View style={{
+            width: "100%",
+            height: 48,
+            borderColor: COLORS.black,
+            borderWidth: 1,
+            borderRadius: 8,
+            alignItems: "center",
+            justifyContent: "center",
+            paddingLeft: 22
+          }}>
+            <TextInput
+            placeholder='Enter your Address'
+            placeholderTextColor={COLORS.grey}
+            onChangeText={(text)=>{setAddress(text)}}
+            keyboardType='default'
+            style={{
+              width: "100%"
+            }}/>
+          </View>
+          </View>
         
         <View style={{
           flexDirection: "row",
-          marginVertical: 6
+          marginVertical: 10
         }}>
           <Checkbox
             style={{marginRight: 8}}
             value={isChecked}
             onValueChange={setIsChecked}
-            color={isChecked ? COLORS.primary:undefined}
+            color={isChecked ? COLORS.Gold:undefined}
           />
 
-          <Text>I aggree to the terms and conditions</Text>
+          <Text>ยอมรับข้อตกลงและเงื่อนไขการใช้งานนี้</Text>
         </View>
 
           <Button
             title="Sign Up"
             onPress={onClickMe}
             filled
-            color={COLORS.primary}
+            color={COLORS.Blue}
             style={{
               marginTop: 18,
               marginBottom: 4
@@ -219,15 +249,15 @@ const Signup = ({ navigation }) => {
             <View style={{
               flexDirection: "row",
               justifyContent: "center",
-              marginVertical: 22
+              marginVertical: 15
             }}>
 
-              <Text style={{fontSize: 16, color: COLORS.black}}>Already have an account ?</Text>
+              <Text style={{fontSize: 16, color: COLORS.black}}>มีบัญชีผู้ใช้อยู่แล้ว ?</Text>
               <Pressable 
                 onPress={()=>navigation.navigate("Login")}>
                   <Text style={{
                     fontSize: 16,
-                    color: COLORS.primary,
+                    color: COLORS.Gold,
                     fontWeight: "bold",
                     marginLeft: 6
                   }}>Login

@@ -43,7 +43,7 @@ const Welcome = ({}) => {
     <LinearGradient style={{
       flex: 1
     }}
-    colors={[COLORS.secondary, COLORS.primary]}
+    colors={[COLORS.Blue, COLORS.Gold]}
     >
       <View style={{flex: 1}}>
           <View>
@@ -144,8 +144,8 @@ const Welcome = ({}) => {
             </View>
 
             <Button
-              title="Join Us"
-              onPress={()=>navigation.navigate("Signup")}
+              title="เข้าสู่ระบบ"
+              onPress={()=> NextLogin()}
               style={{
                 marginTop: 22,
                 width: "100%"
@@ -160,9 +160,9 @@ const Welcome = ({}) => {
               <Text style={{
                 fontSize: 16,
                 color: COLORS.white
-              }}>Already have an account ? </Text>
+              }}>คุณไม่เคยบัญชีใช่รึไม่ ? </Text>
               <Pressable 
-                onPress={()=> NextLogin()}
+                onPress={()=>navigation.navigate("Signup")}
               >
 
                   <Text style={{
@@ -170,7 +170,7 @@ const Welcome = ({}) => {
                     color: COLORS.white,
                     fontWeight: "bold",
                     marginLeft: 4
-                  }}>Login</Text>
+                  }}>ลงทะเบียน</Text>
               </Pressable>
 
 
