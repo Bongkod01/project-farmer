@@ -21,14 +21,12 @@ const Login = ({ navigation }) => {
 
     const [Phone,setPhone] = useState(null);
     const [Password,setPassword] = useState(null); 
- 
-   
+
 
     const returndata_appname = useSelector((state) => state.welcome.AppName);
 
     // console.log(' useSelector: ',returndata_appname);
 
- 
 
 
 
@@ -61,7 +59,7 @@ const onClickMe = () => {
           console.log("หมายเลขโทรศัพท์ ไม่ถูกต้อง ")
           console.log("รหัสผ่าน ไม่ถูกต้อง")
           }
-           
+        
         
           const Home_Page = "Welcome to Home Page";
         
