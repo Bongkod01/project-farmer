@@ -7,7 +7,7 @@ import axios from 'axios'
 const Profile = ({ navigation }) => {
 
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([]);
 
   // const onPageLoad = () => {
 
@@ -31,11 +31,6 @@ const Profile = ({ navigation }) => {
   // state = {
   //   Data: ''
   // }
-
-
-
-
-  
     //     try {
     //   const url = 'http://127.0.0.1:5000/info'
     // axios.get(url).then((res) => {
@@ -47,7 +42,6 @@ const Profile = ({ navigation }) => {
 
     useEffect(()=>{   
 
-      
       try {
 
         console.log('LoadProfilePage');
