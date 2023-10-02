@@ -77,7 +77,7 @@ const Welcome = ({}) => {
                 { rotate: "-5deg"}
               ]
             }} 
-
+            
             />
             <Image source={require("../assets/barn3.png")} 
             style={{

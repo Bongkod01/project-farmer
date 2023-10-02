@@ -1,183 +1,112 @@
-import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Dimensions, Pressable, } from 'react-native';
+import React, { useState,useEffect } from 'react';
+import { Text, View, StyleSheet, Dimensions,Pressable, } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { HStack, Center, FlatList, Box,Select  } from 'native-base';
+import { HStack,Center } from 'native-base';
+import { DataTable } from 'react-native-paper';
 import axios from 'axios'
-import { SelectList } from 'react-native-dropdown-select-list'
-
 
 
 
 const Report = ({ navigation }) => {
 
-  const [Data_d, setData_d] = useState([]);
-  const [selected, setSelected] = useState("");
-
-  // const No = [
-  //   { key: '1', value: 'งวดที่ 1 ' },
-  //   { key: '2', value: 'งวดที่ 2 ' }
-  // ]
-  
-  
 
   const [report, setReport] = useState({});
 
-  const [ sumBil, setsumBil ] = useState([]);
-  console.log(sumBil)
-
-  const [ sumWeightCane, setsumWeightCane ] = useState([]);
-  console.log(sumWeightCane)
-
-  const [ sumCCSAV, setsumCCSAV ] = useState([]);
-  console.log(sumCCSAV)
-
-  const [ sumCCSCL, setsumCCSCL ] = useState([]);
-  console.log(sumCCSCL)
-
-  const [ sumOil, setsumOil ] = useState([]);
-  console.log(sumOil)
-
-  const [ sumWeightOil, setsumWeightOil ] = useState([]);
-  console.log(sumWeightOil)
-
-  // {"Bill": 25, "CCSAV": 5.65, "CCSCL": 5.65, "Date": "2022-01-02", "No": 1, "Oil": 7800, "PH": "0811111111", "WeightCane": 5400, "WeightOil": 1500}
-  // );
-
-  useEffect(() => {
+  useEffect(()=>{   
     try {
 
       console.log('LoadReportPage');
-      const preiodNo = 1;
-      const url = 'http://192.168.0.250:5000/report/1'
-      // const url = 'http://192.168.0.250:5000/report/'+ preiodNo
       
+      const url = 'http://192.168.0.250:5000/report'
       axios.get(url).then((res) => {
-        setsumBil(res.data.sumBil)
-        setsumWeightCane(res.data.sumWeightCane)
-        setsumCCSAV(res.data.sumCCSAV)
-        setsumCCSCL(res.data.sumCCSCL)
-        setsumOil(res.data.sumOil)
-        setsumWeightOil(res.data.sumWeightOil)
-        setData_d(res.data.res_report_no)
-        console.log('axios res -->', res.data)
-      })
+        setReport(res.data);
+      console.log('axios res -->', res.data)
+    })
     } catch (error) {
       console.log(error)
     }
-  }, [])
-
-
-
-
-  // useEffect(()=>{   
-  //   console.log('changereport');
-  //   console.log(report.res_report_no[1].Bill);
-
-  //   if ( len(report) > 1 ){
-  //     setReport(report.res_report_no[1]);
-  //   }
-
-
-
-  // },[report])
-
-
-
-
-
-  const renderItem = ({ item }) => (
-    <View style={styles.row} >
-      <Text style={styles.cell}>{item.Date}</Text>
-      <Text style={styles.cell}>{item.Bill}</Text>
-    </View>
-  )
-
-  const [service, setService] = useState({})
-
-
-
-  // console.log('data',Data_d);
+  },[])
 
   
 
-  return (
+  
+    const [selectedValue, setSelectedValue] = useState('');
+  
+    return (
+<View>
+    <Picker style={{ backgroundColor: '#cccccc'}}
+      selectedValue={selectedValue}
+        onValueChange={(itemValue) => setSelectedValue(itemValue)}>
+      <Picker.Item label="--กรุณาเลือกงวด--" value=""></Picker.Item>
+      <Picker.Item label="งวดที่ 1" value="งวดที่ 1" ></Picker.Item>
+      <Picker.Item label="งวดที่ 2" value="งวดที่ 2" ></Picker.Item>
+      <Picker.Item label="งวดที่ 3" value="งวดที่ 3" ></Picker.Item>
+    </Picker>
+    {/* <Picker
+        selectedValue={selectedValue}
+        onValueChange={(itemValue) => setSelectedValue(itemValue)}
+        mode="dropdown" // Android only
+        style={styles.picker}
+      >
+        <Picker.Item label="--กรุณาเลือกงวด--" value="" />
+        <Picker.Item label="งวดที่ 1" value="งวดที่ 1" />
+        <Picker.Item label="งวดที่ 2" value="งวดที่ 2" />
+        <Picker.Item label="งวดที่ 3" value="งวดที่ 3" />
+      </Picker> */}
 
+      <Text style={{
 
-    <View>
+        paddingTop: 5,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 17
 
+      }}>- {selectedValue} -</Text>
 
-      <Box maxW="450">
-              <Select selectedValue={service} minWidth="250" placeholder="กรุณาเลือกงวด" backgroundColor={'blueGray.900'} color={'white'}  mt={3} 
-              onValueChange={itemValue => setService(itemValue)}>
-                <Select.Item label="งวดที่ 1 " value="1" />
-                <Select.Item label="งวดที่ 2 " value="2"/>
-              </Select>
-      </Box>
-    
       <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={5}>
-        <Center bg="#091E40" width={150} height={60} borderRadius={10} _text={{ color: "#FFFFFF" }} borderWidth={1} shadow={5}>
+        <Center bg="#091E40" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
-        จำนวลบิล : {sumBil}
-
-        </Center>
-        <Center bg="#86754e" width={150} height={60} borderRadius={10} _text={{ color: "#FFFFFF" }} borderWidth={1} shadow={5}>
-
-          CCS เฉลี่ย : {sumCCSAV}
+          จำนวลบิล : {report.Bill}
 
         </Center>
-      </HStack>
+        <Center bg="#86754e" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
-      <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={3} >
-        <Center bg="#091E40" width={150} height={60} borderRadius={10} _text={{ color: "#FFFFFF" }} borderWidth={1} shadow={5}>
-
-          น้ำหนัก : {sumWeightCane}
-
-        </Center>
-        <Center bg="#86754e" width={150} height={60} borderRadius={10} _text={{ color: "#FFFFFF" }} borderWidth={1} shadow={5}>
-
-          น้ำมัน : {sumOil}
+          CCS เฉลี่ย : {report.CCSAV}
 
         </Center>
       </HStack>
 
       <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={3} >
-        <Center bg="#091E40" width={150} height={60} borderRadius={10} _text={{ color: "#FFFFFF" }} borderWidth={1} shadow={5}>
+        <Center bg="#091E40"width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
-          CCS สะสม : {sumCCSCL}
+          น้ำหนัก : {report.WeightCane}
+
+        </Center>
+        <Center bg="#86754e" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+
+          น้ำมัน : {report.Oil}
+
+        </Center>
+      </HStack>
+
+      <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={3} >
+        <Center bg="#091E40"  width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+
+          CCS สะสม : {report.CCSCL}
 
 
         </Center>
-        <Center bg="#86754e" width={150} height={60} borderRadius={10} _text={{ color: "#FFFFFF" }} borderWidth={1} shadow={5}>
+        <Center bg="#86754e" width={150} height={60} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
 
-          นน.สะสม : {sumWeightOil}
+          นน.สะสม : {report.WeightOil}
 
 
         </Center>
       </HStack>
 
 
-      <View style={styles.flatlist}>
-
-        <View style={styles.header}>
-          <Text style={styles.heading}>วันที่</Text>
-          <Text style={styles.heading}>จำนวนบิล</Text>
-        </View>
-        <FlatList
-          data={Data_d}
-          keyExtractor={(item) => { item.id }}
-          renderItem={renderItem}
-        />
-      </View>
-  
-
-
-
-
-
-    </View>
-  )
-}
-{/* <DataTable style={styles.container} paddingTop={20} >
+      <DataTable style={styles.container} paddingTop={20} >
 
         <DataTable.Header style={styles.tableHeader}  alignItems="center" justifyContent={"center"} >
 
@@ -193,29 +122,33 @@ const Report = ({ navigation }) => {
         </DataTable.Row>
 
       <DataTable.Row>
-        <DataTable.Cell>{report.Date} </DataTable.Cell>
-        <DataTable.Cell>{report.Bill} </DataTable.Cell>
+        {/* <DataTable.Cell> 5 พฤษภาคม 2565 </DataTable.Cell>
+        <DataTable.Cell> 20 </DataTable.Cell> */}
       </DataTable.Row>
 
-      <DataTable.Row> */}
-{/* <DataTable.Cell> {report.Date}  </DataTable.Cell>
-        <DataTable.Cell> {report.Bill}</DataTable.Cell> */}
-{/* </DataTable.Row>
+      <DataTable.Row>
+        {/* <DataTable.Cell> 5 พฤษภาคม 2565 </DataTable.Cell>
+        <DataTable.Cell> 15 </DataTable.Cell> */}
+      </DataTable.Row>
 
-      <DataTable.Row> */}
-{/* <DataTable.Cell> {report.Date}  </DataTable.Cell>
-        <DataTable.Cell> {report.Bill}</DataTable.Cell> */}
-{/* </DataTable.Row>
+      <DataTable.Row>
+        {/* <DataTable.Cell></DataTable.Cell>
+        <DataTable.Cell></DataTable.Cell> */}
+      </DataTable.Row>
 
-      <DataTable.Row> */}
-{/* <DataTable.Cell> {report.Date}  </DataTable.Cell>
-        <DataTable.Cell> {report.Bill}</DataTable.Cell> */}
-{/* </DataTable.Row>
+      <DataTable.Row>
+        {/* <DataTable.Cell></DataTable.Cell>
+        <DataTable.Cell></DataTable.Cell> */}
+      </DataTable.Row>
 
-    </DataTable> */}
+    </DataTable>
 
 
-{/* <View style={styles.box }>
+    </View>
+)}
+
+
+          {/* <View style={styles.box }>
           <Text style={{
             color: "#ffffff",
           }}>จำนวนบิล: --</Text>
@@ -248,90 +181,49 @@ const Report = ({ navigation }) => {
           }}>นน.สะสม: --</Text>
       </View> 
     </View>  */}
+  
+
+   
+
+    
 
 
+   const styles = StyleSheet.create({
+      picker: {
+        width: 200,
+        height: 50,
+        borderColor: '#000000',
+        borderWidth: 1,
+      },
+      box: {
+        marginHorizontal: 10,
+        width: 160,
+        marginVertical: 10,
+        height: 50,
+        borderRadius: 5,
+        backgroundColor: '#007260',
+        marginBottom: 10,
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+       boxx: {
+        marginHorizontal: 10,
+        width: 160,
+        marginVertical: 10,
+        height: 50,
+        borderRadius: 5,
+        backgroundColor: '#727272',
+        marginBottom: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+       },
+      tableHeader: {
+        
+        backgroundColor: '#cccccc', 
+      
+        },
+        
+   });
+  
 
-
-
-
-
-const styles = StyleSheet.create({
-  picker: {
-    width: 200,
-    height: 50,
-    borderColor: '#000000',
-    borderWidth: 1,
-  },
-  box: {
-    marginHorizontal: 10,
-    width: 160,
-    marginVertical: 10,
-    height: 50,
-    borderRadius: 5,
-    backgroundColor: '#007260',
-    marginBottom: 10,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  boxx: {
-    marginHorizontal: 10,
-    width: 160,
-    marginVertical: 10,
-    height: 50,
-    borderRadius: 5,
-    backgroundColor: '#727272',
-    marginBottom: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  tableHeader: {
-
-    backgroundColor: '#cccccc',
-
-  },
-  flatlist: {
-    top: 5
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#cccccc',
-    borderRadius: 10,
-    borderColor: '#000000',
-    padding: 20,
-    borderWidth: 1,
-    marginVertical: 8,
-  },
-  heading: {
-    flex: 1,
-    fontSize: 15,
-  },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginVertical: 8,
-    marginHorizontal: 1,
-    elevation: 3,
-    borderRadius: 10,
-    borderColor: '#000000',
-    borderWidth: 1,
-
-    padding: 10,
-    backgroundColor: '#C0C0C0'
-  },
-  cell: {
-    fontSize: 15,
-    textAlign: 'left',
-    flex: 1,
-
-
-  },
-  list: {
-    backgroundColor: '#000000'
-  }
-
-});
-
-
-export default Report
+ export default Report

@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Dimensions, Pressable, TextInput } from 'react-native';
 import { Image } from 'react-native';
 import axios from 'axios'
-import { Info } from '@mui/icons-material';
 
 
 const Profile = ({ navigation }) => {
 
 
-    const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
 
   // const onPageLoad = () => {
 
@@ -52,13 +51,12 @@ const Profile = ({ navigation }) => {
       try {
 
         console.log('LoadProfilePage');
+
         const url = 'http://192.168.0.250:5000/info'
-
         axios.get(url).then((res) => {
-          setUser(res.data.res_obj_no)
-          console.log('axios res -->', res.data)
-        })
-
+          setUser(res.data);
+        console.log('axios res -->', res.data)
+      })
       } catch (error) {
         console.log(error)
       }
@@ -93,31 +91,29 @@ const Profile = ({ navigation }) => {
             width: 100,
             alignItems: 'center',
             alignSelf: 'center',
-
             borderRadius: 20,
             position: "absolute",
-            top: 45
+            top: 35
           }}
-        /> 
+        />
       </View>
 
       <View style={{ flex: 1, alignItems: 'center', textAlign: 'center' }}>
         <Text style={{
           fontSize: 20,
           fontWeight: 'bold',
-          top: 160
+          top: 150
         }}
-        > 
-        </Text>
+        >{user.FN} {user.LN}</Text>
 
         <View style={styles.row}>
           <Text style={{
-            top: 170,
+            top: 160,
           }}>เลขประจำตัวประชาชน</Text>
 
           <Text style={{
-            top: 170,
-          }}> </Text>                      
+            top: 160,
+          }}>{user.IDC} </Text>                      
         </View>
       </View>
 
@@ -138,7 +134,7 @@ const Profile = ({ navigation }) => {
             marginHorizontal: 100,
             color: '#86754e',
             fontWeight: 'bold'
-          }}></Text>
+          }}>{user.FN} {user.LN}</Text>
         </View>
       </View>
 
@@ -159,9 +155,10 @@ const Profile = ({ navigation }) => {
             marginHorizontal: 40,
             color: '#86754e',
             fontWeight: 'bold'
-          }}></Text>
+          }}>{user.PH}</Text>
         </View>
         </View>
+
         <View style={styles.container}>
         <View style={styles.row}>
           <Text style={{
@@ -179,7 +176,7 @@ const Profile = ({ navigation }) => {
             marginHorizontal: 52,
             color: '#86754e',
             fontWeight: 'bold'
-          }}></Text>
+          }}>{user.AD}</Text>
         </View>
         </View>
 
@@ -208,8 +205,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 10,
     borderColor: '#091E40',
-    borderRadius: 20,
-    borderWidth: 2,
+    borderRadius: 10,
+    borderWidth: 2
   },
   row: {
     flexDirection: 'row',
