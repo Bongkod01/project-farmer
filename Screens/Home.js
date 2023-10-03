@@ -111,14 +111,10 @@ const ProfileRoute = () => (
     
 //   console.log (DogClass_Definition)
 //  }
-
-
- 
 //  console.log (DogClass_Definition)
 
 
-
- const initialLayout = { width: Dimensions.get('window').width };
+  const initialLayout = { width: Dimensions.get('window').width };
 
   const Home = ({ navigation }) => {
 
