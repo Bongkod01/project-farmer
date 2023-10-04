@@ -10,15 +10,15 @@ const Signup = ({ navigation }) => {
     const [isChecked,setIsChecked] = useState(false);
 
 
-    const [FullName,setFullName] = useState(null);
+    const [FirstName,setFirstName] = useState(null);
+    const [LastName,setLastName] = useState(null);
     const [IDCard,setIDCard] = useState(null);
     const [Phone,setPhone] = useState(null);
     const [Password,setPassword] = useState(null); 
     const [Address,setAddress] = useState(null); 
 
     const onClickMe = () => {
-      
-              if ( FullName == "ใจดี มีสุข" || Phone == "0822222222" || IDCard == "1100110011001" || Password == "1234" || Address == "22/2 กรุงเทพมหานคร" )
+              if ( FirstName == "ใจดี" || LastName == "มีสุข" || Phone == "0822222222" || IDCard == "1100110011001" || Password == "1234" || Address == "22/2 กรุงเทพมหานคร" )
               {navigation.navigate("Login")      
               }
               else { 
@@ -36,8 +36,8 @@ const Signup = ({ navigation }) => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
       <ScrollView keyboardShouldPersistTaps="handled">
-      <View style={{ marginHorizontal: 22}}>
-        <View style={{ marginVertical: 50}}>
+      <View style={{ marginHorizontal: 25}}>
+        <View style={{ marginVertical: 60}}>
           <Text style={{
           fontSize: 22,
           fontWeight: 'bold',
@@ -45,7 +45,7 @@ const Signup = ({ navigation }) => {
           textAlign: 'center',
           color: COLORS.black
           }}> 
-            Create account
+            Create Account
           </Text>
         <Text style={{ 
           fontSize: 16,
@@ -54,13 +54,13 @@ const Signup = ({ navigation }) => {
           marginVertical: 2
         }}>สมัครสมาชิก</Text>
         </View>
-
-        <View style={{marginBottom: 12}}>
+      
+        <View style={{marginBottom: 1}}>
           <Text style={{
             fontSize: 16,
             fontWeight: 400,
             marginVertical: 1
-          }}>ชื่อ-นามสกุล</Text>
+          }}>ชื่อ</Text>
 
           <View style={{
             width: "100%",
@@ -75,17 +75,45 @@ const Signup = ({ navigation }) => {
             <TextInput
             placeholder='Enter your full name'
             placeholderTextColor={COLORS.grey}
-            onChangeText={(text)=>{setFullName(text)}}
+            value={FirstName}
+            onChangeText={(text)=>{setFirstName(text)}}
             keyboardType='default'
             style={{
               width: "100%"
             }}/>
           </View>
+          
+          
+          
+          <Text style={{
+            fontSize: 16,
+            fontWeight: 400,
+            marginVertical: 1
+          }}>นามสกุล</Text>
+
+          <View style={{
+            width: "100%",
+            height: 48,
+            borderColor: COLORS.black,
+            borderWidth: 1,
+            borderRadius: 8,
+            alignItems: "center",
+            justifyContent: "center",
+            paddingLeft: 22
+          }}>
+            <TextInput
+            placeholder='Enter your full name'
+            placeholderTextColor={COLORS.grey}
+            value={LastName}
+            onChangeText={(text)=>{setLastName(text)}}
+            keyboardType='default'
+            style={{
+              width: "100%"
+            }}/>
           </View>
 
 
-
-        <View style={{marginBottom: 12}}>
+        
           <Text style={{
             fontSize: 16,
             fontWeight: 400,
@@ -105,15 +133,16 @@ const Signup = ({ navigation }) => {
             <TextInput
             placeholder='Enter your Phone'
             placeholderTextColor={COLORS.grey}
+            value={Phone}
             keyboardType='numeric'
             onChangeText={(text)=>{setPhone(text)}}
             style={{
               width: "100%"
             }}/>
           </View>
-          </View>
+          
 
-          <View style={{marginBottom: 12}}>
+          
           <Text style={{
             fontSize: 16,
             fontWeight: 400,
@@ -136,6 +165,7 @@ const Signup = ({ navigation }) => {
             <TextInput
             placeholder='Enter your phone number'
             placeholderTextColor={COLORS.grey}
+            value={IDCard}
             keyboardType='numeric'
             onChangeText={(text)=>{setIDCard(text)}}
 
@@ -144,9 +174,9 @@ const Signup = ({ navigation }) => {
             }}/>
 
           </View>
-          </View>
+          
 
-          <View style={{marginBottom: 12}}>
+          
           <Text style={{
             fontSize: 16,
             fontWeight: 400,
@@ -166,6 +196,7 @@ const Signup = ({ navigation }) => {
             <TextInput
             placeholder='Enter your password'
             placeholderTextColor={COLORS.grey}
+            value={Password}
             secureTextEntry={isPasswordShown}
             onChangeText={(text)=>{setPassword(text)}}
 
@@ -191,7 +222,7 @@ const Signup = ({ navigation }) => {
 
             </TouchableOpacity>
           </View>
-          </View>
+          
 
           <View style={{marginBottom: 12}}>
           <Text style={{
@@ -213,13 +244,15 @@ const Signup = ({ navigation }) => {
             <TextInput
             placeholder='Enter your Address'
             placeholderTextColor={COLORS.grey}
+            value={Address}
             onChangeText={(text)=>{setAddress(text)}}
             keyboardType='default'
             style={{
               width: "100%"
             }}/>
           </View>
-          </View>
+        </View>
+        </View>
         
         <View style={{
           flexDirection: "row",
