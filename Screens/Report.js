@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Dimensions, Pressable, } from 'react-native';
+import { Text, View, StyleSheet, Dimensions, Pressable, ScrollView} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { HStack, Center, FlatList, Box,Select  } from 'native-base';
 import axios from 'axios'
@@ -83,34 +83,50 @@ const Report = ({ navigation }) => {
 
 
 
-
   const renderItem = ({ item }) => (
     <View style={styles.row} >
+  
       <Text style={styles.cell}>{item.Date}</Text>
       <Text style={styles.cell}>{item.Bill}</Text>
+      
     </View>
   )
 
+  // const Select = () => {
+
+  //   if (Period == "0822222222")
+  //   {navigation.navigate("Home")
+  //   }
+  //   else {
+  //     Alert.alert('หมายเลขโทรศัพท์ หรือ รหัสผ่าน ไม่ถูกต้อง');
+  //   console.log("หมายเลขโทรศัพท์ ไม่ถูกต้อง ")
+  //   console.log("รหัสผ่าน ไม่ถูกต้อง")
+  //   }
+  // }
   const [service, setService] = useState({})
 
 
 
   // console.log('data',Data_d);
 
-  
-
   return (
 
-
+    <ScrollView>
+    
     <View>
-
-
-      <Box maxW="450">
+      <Box maxW="500">
               <Select selectedValue={service} minWidth="250" placeholder="กรุณาเลือกงวด" backgroundColor={'blueGray.900'} color={'white'}  mt={3} 
               onValueChange={itemValue => setService(itemValue)}>
                 <Select.Item label="งวดที่ 1 " value="1" />
                 <Select.Item label="งวดที่ 2 " value="2"/>
               </Select>
+            {/* {service === "1" ? (
+              <Text>คุณเลือกงวดที่ 1</Text>
+            ) : service === "2" ? (
+              <Text>คุณเลือกงวดที่ 2</Text>
+            ) : (
+              <Text>คุณยังไม่ได้เลือกงวด</Text>
+            )} */}
       </Box>
     
       <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={5}>
@@ -167,34 +183,35 @@ const Report = ({ navigation }) => {
           renderItem={renderItem}
         />
       </View>
-  
 
 
 
 
 
+    
     </View>
+    </ScrollView>
   )
 }
 {/* <DataTable style={styles.container} paddingTop={20} >
 
-        <DataTable.Header style={styles.tableHeader}  alignItems="center" justifyContent={"center"} >
+        // <DataTable.Header style={styles.tableHeader}  alignItems="center" justifyContent={"center"} >
 
-          <DataTable.Title> วันที่ </DataTable.Title>
+        //   <DataTable.Title> วันที่ </DataTable.Title>
 
-          <DataTable.Title> จำนวนบิล </DataTable.Title>
+        //   <DataTable.Title> จำนวนบิล </DataTable.Title>
 
-        </DataTable.Header>
+        // </DataTable.Header>
 
-        <DataTable.Row>
-          <DataTable.Cell>{report.Date} </DataTable.Cell>
-          <DataTable.Cell>{report.Bill} </DataTable.Cell>
-        </DataTable.Row>
+      //   <DataTable.Row>
+      //     <DataTable.Cell>{report.Date} </DataTable.Cell>
+      //     <DataTable.Cell>{report.Bill} </DataTable.Cell>
+      //   </DataTable.Row>
 
-      <DataTable.Row>
-        <DataTable.Cell>{report.Date} </DataTable.Cell>
-        <DataTable.Cell>{report.Bill} </DataTable.Cell>
-      </DataTable.Row>
+      // <DataTable.Row>
+      //   <DataTable.Cell>{report.Date} </DataTable.Cell>
+      //   <DataTable.Cell>{report.Bill} </DataTable.Cell>
+      // </DataTable.Row>
 
       <DataTable.Row> */}
 {/* <DataTable.Cell> {report.Date}  </DataTable.Cell>
@@ -263,7 +280,7 @@ const styles = StyleSheet.create({
   },
   box: {
     marginHorizontal: 10,
-    width: 160,
+    width: 180,
     marginVertical: 10,
     height: 50,
     borderRadius: 5,
@@ -316,7 +333,7 @@ const styles = StyleSheet.create({
     borderColor: '#000000',
     borderWidth: 1,
 
-    padding: 10,
+    padding: 15,
     backgroundColor: '#C0C0C0'
   },
   cell: {

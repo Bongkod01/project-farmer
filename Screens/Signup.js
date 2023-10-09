@@ -30,7 +30,6 @@ const Signup = ({ navigation }) => {
               console.log("ที่อยู่ ยังไม่ได้กรอก")
               }
             }
-            
 
 
   return (

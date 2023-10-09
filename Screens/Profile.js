@@ -81,13 +81,13 @@ const Profile = ({ navigation }) => {
         <Image source={require("../assets/Farmer3.png")}
           style={{
             flex: 1,
-            height: 100,
-            width: 100,
+            height: 120,
+            width: 120,
             alignItems: 'center',
             alignSelf: 'center',
             borderRadius: 20,
             position: "absolute",
-            top: 35
+            top: 50
           }}
         />
       </View>
@@ -96,17 +96,17 @@ const Profile = ({ navigation }) => {
         <Text style={{
           fontSize: 20,
           fontWeight: 'bold',
-          top: 150
+          top: 180
         }}
         >{user.FN} {user.LN}</Text>
 
         <View style={styles.row}>
           <Text style={{
-            top: 160,
+            top: 183,
           }}>เลขประจำตัวประชาชน</Text>
 
           <Text style={{
-            top: 160,
+            top: 185,
           }}>{user.IDC} </Text>                      
         </View>
       </View>
@@ -117,7 +117,7 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 98,
+            marginHorizontal: 120,
             fontWeight: 'bold'
           }}>ชื่อ</Text>
 
@@ -125,7 +125,7 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 100,
+            marginHorizontal: 130,
             color: '#86754e',
             fontWeight: 'bold'
           }}>{user.FN} {user.LN}</Text>
@@ -138,7 +138,7 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 50,
+            marginHorizontal: 60,
             fontWeight: 'bold'
           }}>เบอร์โทรศัพท์</Text>
 
@@ -146,7 +146,7 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 40,
+            marginHorizontal: 70,
             color: '#86754e',
             fontWeight: 'bold'
           }}>{user.PH}</Text>
@@ -159,7 +159,7 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 60,
+            marginHorizontal: 70,
             fontWeight: 'bold'
           }}>ที่อยู่</Text>
 
@@ -167,7 +167,7 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 52,
+            marginHorizontal: 75,
             color: '#86754e',
             fontWeight: 'bold'
           }}>{user.AD}</Text>
@@ -179,7 +179,7 @@ const Profile = ({ navigation }) => {
           <Pressable
             onPress={() => navigation.navigate("Login")}>
             <Text style={{
-              paddingVertical: 20,
+              paddingVertical: 45,
               fontSize: 17,
               color: "#f00",
               fontWeight: 'bold'
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     backgroundColor: '',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 10,
+    marginVertical: 20,
     marginHorizontal: 10,
     borderColor: '#091E40',
     borderRadius: 10,

@@ -61,7 +61,7 @@ const onClickMe = () => {
           console.log("หมายเลขโทรศัพท์ ไม่ถูกต้อง ")
           console.log("รหัสผ่าน ไม่ถูกต้อง")
           }
-           
+          
         
           const Home_Page = "Welcome to Home Page";
         
@@ -90,7 +90,7 @@ const onClickMe = () => {
 //             console.log(Data)
 
 //            console.log("useEffectLogin")
-           
+          
 //            }, [])
           
 //  console.log(Data)
@@ -100,7 +100,7 @@ const onClickMe = () => {
 
   return (
     
-   <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
+  <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
     <ScrollView keyboardShouldPersistTaps="handled">
       <View style={{flex: 1, marginHorizontal: 22}}>
         <View style={{ marginVertical: 50}}>
@@ -121,7 +121,7 @@ const onClickMe = () => {
         </View>
 
 
-       <View style={{marginBottom: 12}}>
+      <View style={{marginBottom: 12}}>
 
         <Text style={{
           fontSize: 16,
@@ -241,7 +241,7 @@ const onClickMe = () => {
       
     </ScrollView>
     
-   </SafeAreaView>
+  </SafeAreaView>
 
   )
 
