@@ -21,14 +21,13 @@ const Login = ({ navigation }) => {
 
     const [Phone,setPhone] = useState(null);
     const [Password,setPassword] = useState(null); 
- 
-   
+
 
     const returndata_appname = useSelector((state) => state.welcome.AppName);
 
     // console.log(' useSelector: ',returndata_appname);
 
- 
+
 
 
 
@@ -53,13 +52,25 @@ useEffect(() =>  {
 
 const onClickMe = () => {
 
-          if ( Phone == "0822222222" && Password == 1234)
+          if ( Phone != null && Password != null)
           {navigation.navigate("Home")
+          console.log(Phone);
+          console.log(Password);
           }
           else {
-            Alert.alert('หมายเลขโทรศัพท์ หรือ รหัสผ่าน ไม่ถูกต้อง');
-          console.log("หมายเลขโทรศัพท์ ไม่ถูกต้อง ")
-          console.log("รหัสผ่าน ไม่ถูกต้อง")
+            let missingFields = [];
+        
+            if (Phone == null || Phone == '') {
+              missingFields.push("หมายเลขโทรศัพท์");
+            }
+            if (Password == null || Password == '') {
+              missingFields.push("รหัสผ่าน");
+            }
+            if (missingFields.length > 0) {
+              Alert.alert("กรุณากรอกข้อมูลให้ครบถ้วน", `ยังไม่ได้กรอก: ${missingFields.join(", ")}`);
+            } else {
+              console.log("All Fields are null");
+            }
           }
           
         
@@ -78,7 +89,7 @@ const onClickMe = () => {
     //     console.log("Password ไม่ถูกต้อง")
     //  }
 
-  
+
           }
 
 //          useEffect(() => {

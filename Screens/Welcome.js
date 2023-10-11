@@ -49,11 +49,11 @@ const Welcome = ({}) => {
           <View>
             <Image source={require("../assets/Farmer3.png")} 
             style={{
-              height: 100, 
-              width: 100,
+              height: 120, 
+              width:120,
               borderRadius: 20,
               position: "absolute",
-              top: 10,
+              top: 100,
               transform: [
                 { translateX: 20},
                 { translateY: 50},
@@ -65,28 +65,28 @@ const Welcome = ({}) => {
 
             <Image source={require("../assets/Farmer1.png")} 
             style={{
-              height: 100, 
-              width: 100,
+              height: 120, 
+              width: 120,
               borderRadius: 20,
               position: "absolute",
-              top: -30,
-              left: 100,
+              top: 40,
+              left: 120,
               transform: [
-                { translateX: 50},
+                { translateX: 60},
                 { translateY: 50},
-                { rotate: "-5deg"}
+                { rotate: "7deg"}
               ]
             }} 
             
             />
             <Image source={require("../assets/barn3.png")} 
             style={{
-              height: 100, 
-              width: 100,
+              height: 120, 
+              width: 120,
               borderRadius: 20,
               position: "absolute",
-              top: 130,
-              left: -40,
+              top: 250,
+              left: 3,
               transform: [
                 { translateX: 50},
                 { translateY: 50},
@@ -101,8 +101,8 @@ const Welcome = ({}) => {
               width: 200,
               borderRadius: 20,
               position: "absolute",
-              top: 110,
-              left: 100,
+              top: 200,
+              left:150,
               transform: [
                 { translateX: 50},
                 { translateY: 50},
@@ -118,7 +118,7 @@ const Welcome = ({}) => {
             <View style={{
               paddingHorizontal: 22,
               position: "absolute",
-              top: 400,
+              top: 470,
               width: "100%"
             }}>
               <Text style={{

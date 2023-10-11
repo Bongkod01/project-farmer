@@ -159,7 +159,7 @@ const ProfileRoute = () => (
         </Image>
 
       <HStack space={2} alignItems="center" justifyContent={"center"} paddingTop={5} >
-          <Center bg="#86754e" width={250} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+          <Center bg="#86754e" width={270} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
           จากโรงงานน้ำตาลเอกชนแห่งแรกของไทย
           เราพัฒนาอย่างต่อเนื่องจากรุ่นสู่รุ่น
           </Center>
@@ -175,7 +175,7 @@ const ProfileRoute = () => (
       </Image>
 
     <HStack space={2} alignItems="center" justifyContent={"center"} paddingTop={5} >
-        <Center bg="#86754e" width={250} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        <Center bg="#86754e" width={270} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
         เราพิถีพิถันใส่ใจในทุกรายละเอียด
         เพื่อให้ได้น้ำตาลคุณภาพที่ดีที่สุด
         </Center>
@@ -191,7 +191,7 @@ const ProfileRoute = () => (
       </Image>
 
     <HStack space={2} alignItems="center" justifyContent={"center"} paddingTop={5} >
-        <Center bg="#86754e" width={250} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        <Center bg="#86754e" width={270} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
         เพื่อส่งมอบความหวานและความสุข
         ให้กับทุกคน เพราะเราเชื่อว่า
         "ความหวาน คือ รสชาติแรกของความสุข"

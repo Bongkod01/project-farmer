@@ -12,25 +12,55 @@ const Signup = ({ navigation }) => {
 
     const [FirstName,setFirstName] = useState(null);
     const [LastName,setLastName] = useState(null);
+
+
+
     const [IDCard,setIDCard] = useState(null);
     const [Phone,setPhone] = useState(null);
     const [Password,setPassword] = useState(null); 
     const [Address,setAddress] = useState(null); 
 
     const onClickMe = () => {
-              if ( FirstName == "ใจดี" || LastName == "มีสุข" || Phone == "0822222222" || IDCard == "1100110011001" || Password == "1234" || Address == "22/2 กรุงเทพมหานคร" )
-              {navigation.navigate("Login")      
-              }
-              else { 
-              Alert.alert('กรุณากรอกข้อมูลให้ครบถ้วน');
-              console.log("ชื่อหรือนามสกุล ยังไม่ได้กรอก")
-              console.log("เบอร์โทรศัพท์ ยังไม่ได้กรอก")
-              console.log("เลขบัตรประจำตัวประชาชน ยังไม่ได้กรอก")
-              console.log("ตั้งค่ารหัสผ่าน ยังไม่ได้กรอก")
-              console.log("ที่อยู่ ยังไม่ได้กรอก")
-              }
-            }
-
+      if (FirstName != null && LastName != null &&IDCard != null &&Phone != null &&Password != null &&Address != null) 
+      {
+        navigation.navigate("Login");
+        console.log(FirstName);
+        console.log(LastName);
+        console.log(IDCard);
+        console.log(Phone);
+        console.log(Password);
+        console.log(Address);
+      } 
+      else {
+        let missingFields = [];
+    
+        if (FirstName == null || FirstName == '') {
+          missingFields.push("ชื่อ");
+        }
+        if (LastName == null || LastName == '') {
+          missingFields.push("นามสกุล");
+        }
+        if (IDCard == null || IDCard == '') {
+          missingFields.push("เลขบัตรประชาชน");
+        }
+        if (Phone == null || Phone == '') {
+          missingFields.push("หมายเลขโทรศัพท์");
+        }
+        if (Password == null || Password == '') {
+          missingFields.push("รหัสผ่าน");
+        }
+        if (Address == null || Address == '') {
+          missingFields.push("ที่อยู่");
+        }
+    
+        if (missingFields.length > 0) {
+          Alert.alert("กรุณากรอกข้อมูลให้ครบถ้วน", `ยังไม่ได้กรอก: ${missingFields.join(", ")}`);
+        } else {
+          console.log("All Fields are null");
+        }
+      }
+    };
+    
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
