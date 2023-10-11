@@ -114,11 +114,11 @@ const onClickMe = () => {
   <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
     <ScrollView keyboardShouldPersistTaps="handled">
       <View style={{flex: 1, marginHorizontal: 22}}>
-        <View style={{ marginVertical: 50}}>
+        <View style={{ marginVertical: 90}}>
           <Text style={{
           fontSize: 22,
           fontWeight: 'bold',
-          marginVertical: 12,
+          marginVertical: 15,
           textAlign: 'center',
           color: COLORS.black
           }}> 
@@ -137,7 +137,7 @@ const onClickMe = () => {
         <Text style={{
           fontSize: 16,
           fontWeight: 400,
-          marginVertical: 8
+          marginVertical: 1
         }}>หมายเลขโทรศัพท์</Text>
 
         <View style={{

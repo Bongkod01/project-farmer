@@ -21,46 +21,41 @@ const Signup = ({ navigation }) => {
     const [Address,setAddress] = useState(null); 
 
     const onClickMe = () => {
-      if (FirstName != null && LastName != null &&IDCard != null &&Phone != null &&Password != null &&Address != null) 
-      {
-        navigation.navigate("Login");
-        console.log(FirstName);
-        console.log(LastName);
-        console.log(IDCard);
-        console.log(Phone);
-        console.log(Password);
-        console.log(Address);
-      } 
-      else {
-        let missingFields = [];
-    
-        if (FirstName == null || FirstName == '') {
-          missingFields.push("ชื่อ");
-        }
-        if (LastName == null || LastName == '') {
-          missingFields.push("นามสกุล");
-        }
-        if (IDCard == null || IDCard == '') {
-          missingFields.push("เลขบัตรประชาชน");
-        }
-        if (Phone == null || Phone == '') {
-          missingFields.push("หมายเลขโทรศัพท์");
-        }
-        if (Password == null || Password == '') {
-          missingFields.push("รหัสผ่าน");
-        }
-        if (Address == null || Address == '') {
-          missingFields.push("ที่อยู่");
-        }
-    
-        if (missingFields.length > 0) {
-          Alert.alert("กรุณากรอกข้อมูลให้ครบถ้วน", `ยังไม่ได้กรอก: ${missingFields.join(", ")}`);
-        } else {
-          console.log("All Fields are null");
-        }
-      }
-    };
-    
+              if (FirstName == null  )
+              {
+                Alert.alert("กรุณากรอกชื่อจริง")
+              }
+              else if (LastName == null )
+              {
+                Alert.alert("กรุณากรอกนามสกุล")
+              }
+              else if (Phone == null  )
+              {
+                Alert.alert("กรุณากรอกเบอร์โทร")
+              }
+              else if (IDCard == null  )
+              {
+                Alert.alert("กรุณากรอกเลขบัตรประชาชน")
+              }
+              else if (IDCard.length < 13)
+              {
+                Alert.alert("กรุณากรอกเลขบัตรประชาชนให้ครบ 13 หลัก")
+              }
+              else if (Password == null  )
+              {
+                Alert.alert("กรุณากรอกรหัสผ่าน")
+              }
+              else if (Address == null  )
+              {
+                Alert.alert("กรุณากรอกที่อยู่")
+              }
+
+              
+              else {
+                navigation.navigate("Login");
+              }
+            }
+
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
