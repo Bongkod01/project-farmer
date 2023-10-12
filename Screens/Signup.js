@@ -4,6 +4,7 @@ import COLORS from '../constants/colors';
 import { Ionicons } from '@expo/vector-icons';
 import Checkbox from "expo-checkbox";
 import { Button } from 'react-native';
+import axios from 'axios'
 
 const Signup = ({ navigation }) => {
     const [isPasswordShown, setIsPasswordShown] = useState(false);
@@ -20,8 +21,10 @@ const Signup = ({ navigation }) => {
     const [Password,setPassword] = useState(null); 
     const [Address,setAddress] = useState(null); 
 
+
+
     const onClickMe = () => {
-              if (FirstName == null  )
+              if (FirstName == null )
               {
                 Alert.alert("กรุณากรอกชื่อจริง")
               }
@@ -29,29 +32,44 @@ const Signup = ({ navigation }) => {
               {
                 Alert.alert("กรุณากรอกนามสกุล")
               }
-              else if (Phone == null  )
+              else if (Phone == null )
               {
-                Alert.alert("กรุณากรอกเบอร์โทร")
+                Alert.alert("กรุณากรอกเบอร์โทรศัพท์")
               }
-              else if (IDCard == null  )
+              else if (Phone.length < 10)
+              {
+                Alert.alert("กรุณากรอกเบอร์โทรศัพท์ให้ครบ 10 หลัก")
+              
+              }
+              else if (IDCard == null )
               {
                 Alert.alert("กรุณากรอกเลขบัตรประชาชน")
               }
               else if (IDCard.length < 13)
               {
                 Alert.alert("กรุณากรอกเลขบัตรประชาชนให้ครบ 13 หลัก")
+              
               }
-              else if (Password == null  )
+              else if (Password == null )
               {
-                Alert.alert("กรุณากรอกรหัสผ่าน")
+                Alert.alert("กรุณาตั้งค่ารหัสผ่าน")
               }
-              else if (Address == null  )
+              else if (Password.length < 6  )
+              {
+                Alert.alert("กรุณาตั้งค่ารหัสผ่านอย่างน้อย 6 ตัว")
+              }
+              else if (Address == null )
               {
                 Alert.alert("กรุณากรอกที่อยู่")
               }
 
-              
               else {
+                
+                const url = 'http://192.168.0.250:5000/register'
+                axios.post(url).then((res) => {
+                console.log('axios res -->', res.data)
+              })
+
                 navigation.navigate("Login");
               }
             }
