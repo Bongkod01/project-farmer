@@ -39,7 +39,6 @@ const Signup = ({ navigation }) => {
               else if (Phone.length < 10)
               {
                 Alert.alert("กรุณากรอกเบอร์โทรศัพท์ให้ครบ 10 หลัก")
-              
               }
               else if (IDCard == null )
               {
@@ -64,9 +63,20 @@ const Signup = ({ navigation }) => {
               }
 
               else {
-                
+
+                const Test = []
+                const test = {
+                }
+                const obj_json = {
+                  "FirstName" : FirstName ,
+                  "LastName" : LastName,
+                  "Phone" : Phone,
+                  "Password" : Password,
+                  "IDCard" : IDCard,
+                  "Address" : Address
+                };
                 const url = 'http://192.168.0.250:5000/register'
-                axios.post(url).then((res) => {
+                axios.post(url,obj_json).then((res) => {
                 console.log('axios res -->', res.data)
               })
 
@@ -115,7 +125,7 @@ const Signup = ({ navigation }) => {
             paddingLeft: 22
           }}>
             <TextInput
-            placeholder='Enter your full name'
+            placeholder='Enter your first name'
             placeholderTextColor={COLORS.grey}
             value={FirstName}
             onChangeText={(text)=>{setFirstName(text)}}
@@ -144,7 +154,7 @@ const Signup = ({ navigation }) => {
             paddingLeft: 22
           }}>
             <TextInput
-            placeholder='Enter your full name'
+            placeholder='Enter your lastname name'
             placeholderTextColor={COLORS.grey}
             value={LastName}
             onChangeText={(text)=>{setLastName(text)}}
@@ -205,7 +215,7 @@ const Signup = ({ navigation }) => {
         
 
             <TextInput
-            placeholder='Enter your phone number'
+            placeholder='Enter your ID Card number'
             placeholderTextColor={COLORS.grey}
             value={IDCard}
             keyboardType='numeric'
