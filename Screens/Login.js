@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import { setHome_Name } from '../redux/LoginSlice';
-
+import axios from 'axios'
 
 const Login = ({ navigation }) => {
 
@@ -52,28 +52,40 @@ useEffect(() =>  {
 
 const onClickMe = () => {
 
-          if ( Phone != null && Password != null)
-          {navigation.navigate("Home")
-          console.log(Phone);
-          console.log(Password);
+          if (Phone == null )
+          {
+            Alert.alert("กรุณากรอกเบอร์โทรศัพท์")
+          }
+          else if (Phone.length < 10)
+          {
+            Alert.alert("กรุณากรอกเบอร์โทรศัพท์ให้ครบ 10 หลัก")
+          }
+          else if (Password == null )
+          {
+            Alert.alert("กรุณาตั้งค่ารหัสผ่าน")
+          }
+          else if (Password.length < 6  )
+          {
+            Alert.alert("กรุณาตั้งค่ารหัสผ่านอย่างน้อย 6 ตัว")
           }
           else {
-            let missingFields = [];
-        
-            if (Phone == null || Phone == '') {
-              missingFields.push("หมายเลขโทรศัพท์");
-            }
-            if (Password == null || Password == '') {
-              missingFields.push("รหัสผ่าน");
-            }
-            if (missingFields.length > 0) {
-              Alert.alert("กรุณากรอกข้อมูลให้ครบถ้วน", `ยังไม่ได้กรอก: ${missingFields.join(", ")}`);
-            } else {
-              console.log("All Fields are null");
-            }
+            const obj_json = {
+              "Phone" : Phone,
+              "Password" : Password,
+            };
+            const url = 'http://192.168.0.250:5000/login'
+            axios.post(url,obj_json)
+        .then((res) => {
+          console.log('axios res -->', res.data);
+        })
+        .catch((error) => {
+          console.error('axios error -->', error);
+        }); 
+            navigation.navigate("Home");
           }
+        }
+
           
-        
           const Home_Page = "Welcome to Home Page";
         
           Dispatch(setHome_Name(Home_Page));
@@ -90,7 +102,7 @@ const onClickMe = () => {
     //  }
 
 
-          }
+  
 
 //          useEffect(() => {
 //            setData ({

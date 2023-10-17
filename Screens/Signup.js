@@ -77,9 +77,8 @@ const Signup = ({ navigation }) => {
                 };
                 const url = 'http://192.168.0.250:5000/register'
                 axios.post(url,obj_json).then((res) => {
-                console.log('axios res -->', res.data)
+                console.log('axios res -->', res.data)   
               })
-
                 navigation.navigate("Login");
               }
             }
