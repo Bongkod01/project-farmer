@@ -27,7 +27,7 @@ const Welcome = ({}) => {
   const NextLogin = () => {
 
 
-    const Welcome_Name = "Bow_Welcome";
+    const Welcome_Name = "Bo_Welcome";
     
     Dispatch(setAppName(Welcome_Name));
         

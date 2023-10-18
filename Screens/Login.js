@@ -58,37 +58,40 @@ const onClickMe = () => {
           }
           else if (Phone.length < 10)
           {
-            Alert.alert("กรุณากรอกเบอร์โทรศัพท์ให้ครบ 10 หลัก")
+            Alert.alert("กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง")
           }
           else if (Password == null )
           {
-            Alert.alert("กรุณาตั้งค่ารหัสผ่าน")
+            Alert.alert("กรุณาใส่รหัสผ่านให้ถูกต้อง")
           }
-          else if (Password.length < 6  )
-          {
-            Alert.alert("กรุณาตั้งค่ารหัสผ่านอย่างน้อย 6 ตัว")
-          }
+          
           else {
             const obj_json = {
               "Phone" : Phone,
               "Password" : Password,
             };
             const url = 'http://192.168.0.250:5000/login'
-            axios.post(url,obj_json)
-        .then((res) => {
-          console.log('axios res -->', res.data);
-        })
-        .catch((error) => {
-          console.error('axios error -->', error);
-        }); 
+            axios.post(url, obj_json).then((res) => {
+            console.log('axios res -->', res.data);
+
+          if (res.data) {
+            console.log('Login successful');
             navigation.navigate("Home");
-          }
-        }
+          } 
+          else {
+              console.log('Login failed');
+              Alert.alert("เบอร์โทรศัพท์หรือรหัสผ่านไม่ถูกต้อง")
+          }   
+        }).catch(e => {
+          console.error(`Login Error! ${e}`);
+          Alert.alert('Login Error','Please try again.');
+        })
+      }}
 
           
-          const Home_Page = "Welcome to Home Page";
+          // const Home_Page = "Welcome to Home Page";
         
-          Dispatch(setHome_Name(Home_Page));
+          // Dispatch(setHome_Name(Home_Page));
   
 
     //   const  onClickMe = () => {
@@ -267,10 +270,6 @@ const onClickMe = () => {
   </SafeAreaView>
 
   )
-
-
-
-
 
 }
 
