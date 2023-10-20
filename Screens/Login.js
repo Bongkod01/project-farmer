@@ -84,7 +84,7 @@ const onClickMe = () => {
           }   
         }).catch(e => {
           console.error(`Login Error! ${e}`);
-          Alert.alert('Login Error','Please try again.');
+          Alert.alert('เบอร์โทรศัพท์หรือรหัสผ่านไม่ถูกต้อง, กรุณากรอกใหม่อีกครั้ง.');
         })
       }}
 

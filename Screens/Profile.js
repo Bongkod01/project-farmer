@@ -117,7 +117,7 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 120,
+            marginHorizontal: 110,
             fontWeight: 'bold'
           }}>ชื่อ</Text>
 
@@ -125,7 +125,7 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 130,
+            marginHorizontal: 120,
             color: '#86754e',
             fontWeight: 'bold'
           }}>{user.FN} {user.LN}</Text>
@@ -138,7 +138,7 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 60,
+            marginHorizontal: 70,
             fontWeight: 'bold'
           }}>เบอร์โทรศัพท์</Text>
 
@@ -146,7 +146,7 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 70,
+            marginHorizontal: 85,
             color: '#86754e',
             fontWeight: 'bold'
           }}>{user.PH}</Text>
@@ -159,7 +159,7 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 70,
+            marginHorizontal: 95,
             fontWeight: 'bold'
           }}>ที่อยู่</Text>
 
@@ -167,7 +167,7 @@ const Profile = ({ navigation }) => {
             paddingVertical: 30,
             alignSelf: 'flex-start',
             fontSize: 17,
-            marginHorizontal: 75,
+            marginHorizontal: 110,
             color: '#86754e',
             fontWeight: 'bold'
           }}>{user.AD}</Text>

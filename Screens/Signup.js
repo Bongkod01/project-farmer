@@ -77,11 +77,21 @@ const Signup = ({ navigation }) => {
                 };
                 const url = 'http://192.168.0.250:5000/register'
                 axios.post(url,obj_json).then((res) => {
-                console.log('axios res -->', res.data)   
-              })
-                navigation.navigate("Login");
+                console.log('axios res -->', res.data)  
+            
+              if (res.data) {
+                  console.log('Registered successfully');
+                  navigation.navigate("Login");
+                } 
+              else {
+                    console.log('Registered failed');
+                    Alert.alert("เบอร์โทรศัพท์นี้มีอยู่แล้วในระบบ")
               }
-            }
+            }).catch(e => {
+              console.error(`Registered Error! ${e}`);
+              Alert.alert('เบอร์โทรศัพท์นี้มีอยู่แล้วในระบบ');
+            })
+          }}
 
 
   return (
