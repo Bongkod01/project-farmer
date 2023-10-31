@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, Dimensions,Pressable,ScrollView } from 'react-native';
+import { Text, View, StyleSheet, Dimensions,LineChart,FlatList,e, TouchableOpacity,chartConfig,Pressable,ScrollView } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { Picker } from '@react-native-picker/picker';
 
@@ -7,12 +7,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import ProfileScreen from './Profile';
-import { VStack,HStack,Spacer , Center, NativeBaseConfigProvider,Stack,Button } from "native-base";
+import { VStack,HStack,Spacer,Heading,Divider , Center, NativeBaseConfigProvider,Stack,Button } from "native-base";
 import { Image } from 'react-native';
 import { useSelector } from 'react-redux';
 import COLORS from '../constants/colors';
 import Report from './Report';
 import Profile from './Profile';
+
 import { useDispatch } from 'react-redux';
 
 
@@ -121,13 +122,15 @@ const ProfileRoute = () => (
 
     const return_home = useSelector((state) => state.welcome.Home_Page);
     
+    
 
   const HomeScreen = () => (
 
-
+    
 <ScrollView>
 <View>
-
+    
+  
 
       <Image source={require("../assets/logotrr.png")}
       style={{
@@ -135,6 +138,7 @@ const ProfileRoute = () => (
         width: 320,
         borderRadius: 10,
         alignSelf: "center",
+        shadow: 10,
         top: 30,}}>
       </Image>
 
@@ -148,6 +152,56 @@ const ProfileRoute = () => (
 
       }}>       " กลุ่มไทยรุ่งเรืองมีโรงงานในเครือทั้งหมด    10  โรงงาน  มีกำลังการผลิตทั้งหมด 301,000 ตันต่อวัน    ซึ่งเป็นกลุ่มน้ำตาลที่มีกำลังการผลิตสูงที่สุดในประเทศไทย "</Text>
 
+
+      <Divider space="1" mt="5" px="5" />
+      <Heading size="md" mt="2" px="5" >ธุรกิจของเรา</Heading>
+        <HStack space="8" mt="8" px="10">
+        <Image source={require("../assets/factory.png")}
+        style={{
+          height: 150, 
+          width: 150,
+          borderRadius: 10,
+          alignSelf: "center",
+          shadowRadius: 5,
+          top: 2
+        }}>
+        </Image>
+        <Image source={require("../assets/Notes.png")}
+        style={{
+          height: 150, 
+          width: 150,
+          borderRadius: 10,
+          alignSelf: "center",
+          top: 2
+        }}>
+        </Image>
+        </HStack>
+        
+        <HStack space={1} alignItems="center" justifyContent={"flex-start"} paddingTop={7} >
+          <Stack direction="row" mb="2" mt="1" space={3}></Stack>
+        {/* <Center bg="#091E40" width={200} height={200} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        
+        </Center> */}
+        <Center bg="#091E40" width={407} height={100} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        กลุ่มไทยรุ่งเรือง ทำธุรกิจเกี่ยวกับอุตสาหกรรมอ้อยและน้ำตาลทรายมายาวนานที่สุดในประเทศไทยและยังได้ขยายธุรกิจไปยังธุรกิจอื่น ๆ อีกมากมาย
+        </Center>
+        </HStack>
+        
+        <Divider space="1" mt="5" px="5" />
+        <Heading size="md" mt="2" px="5" >ธุรกิจของเรา</Heading>
+        <HStack space={1} alignItems="center" justifyContent={"flex-start"} paddingTop={7} >
+          <Stack direction="row" mb="2" mt="1" space={3}></Stack>
+        <Center bg="#091E40" width={407} height={200} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        เรามุ่งมั่นเพื่อเป็นบริษัทชั้นนำระดับโลก ในการแปรรูปผลิตภัณฑ์จากอ้อยอย่างครบวงจร ด้วยนวัตกรรมและเทคโนโลยีที่มีมาตรฐาน บริหารงานโดยยึดหลักของคุณธรรม ความซื้อสัตย์ คุณภาพและความยั่งยืน โดยคำนึงถึงความรับผิดชอบต่อสังคมและเป็นมิตรต่อสิ่งแวดล้อม เพื่อส่งต่อความสุข รอยยิ้ม สู่สังคม จากรุ่นสู่รุ่น
+        </Center>
+        </HStack>
+
+
+        <Divider space="2.5" mt="10" px="10" />
+        <Heading size="md" mt="2" px="5" >เกี่ยวกับเรา</Heading>
+        
+        {/* เรามุ่งมั่นเพื่อเป็นบริษัทชั้นนำระดับโลก ในการแปรรูปผลิตภัณฑ์จากอ้อยอย่างครบวงจร ด้วยนวัตกรรมและเทคโนโลยีที่มีมาตรฐาน บริหารงานโดยยึดหลักของคุณธรรม ความซื้อสัตย์ คุณภาพและความยั่งยืน โดยคำนึงถึงความรับผิดชอบต่อสังคมและเป็นมิตรต่อสิ่งแวดล้อม เพื่อส่งต่อความสุข รอยยิ้ม สู่สังคม จากรุ่นสู่รุ่น */}
+      
         <Image source={require("../assets/trrweight.png")}
         style={{
           height: 120, 
@@ -197,6 +251,10 @@ const ProfileRoute = () => (
         "ความหวาน คือ รสชาติแรกของความสุข"
         </Center>
       </HStack>
+
+      <Stack direction="row" mb="10" mt="1.5" space={15}>
+        </Stack>
+        <Divider />
 
       {/* <Image source={require("../assets/trrweight.png")}
       style={{
