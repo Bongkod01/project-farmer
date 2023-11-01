@@ -188,7 +188,7 @@ const ProfileRoute = () => (
         </HStack>
         
         <Divider space="1" mt="5" px="5" />
-        <Heading size="md" mt="2" px="5" >ธุรกิจของเรา</Heading>
+        <Heading size="md" mt="2" px="5" >วิสัยทัศน์</Heading>
         <HStack space={1} alignItems="center" justifyContent={"flex-start"} paddingTop={7} >
           <Stack direction="row" mb="2" mt="1" space={3}></Stack>
         <Center bg="#091E40" width={407} height={200} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>

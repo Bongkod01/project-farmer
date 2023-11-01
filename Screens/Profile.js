@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Dimensions, Pressable, TextInput } from 'react-native';
+import { Text, View, StyleSheet, Dimensions, Pressable, TextInput,ActivityIndicator  } from 'react-native';
 import { Image } from 'react-native';
 import axios from 'axios'
 
@@ -8,7 +8,7 @@ const Profile = ({ navigation }) => {
 
 
   const [user, setUser] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   // const onPageLoad = () => {
 
   //   const data_name = "บงกช บุญเพ็ง";
@@ -45,8 +45,9 @@ const Profile = ({ navigation }) => {
       try {
 
         console.log('LoadProfilePage');
-
-        const url = 'http://192.168.0.250:5000/info'
+    
+        const url = 'http://192.168.0.250:5000/info/phone'
+        
         axios.get(url).then((res) => {
           setUser(res.data);
         console.log('axios res -->', res.data)
@@ -56,6 +57,38 @@ const Profile = ({ navigation }) => {
       }
     },[])
 
+    //   const fetchData = async () => {
+    //     try {
+    //       const url = 'http://192.168.0.250:5000/info/phone';
+    //       const response = await axios.get(url);
+    //       setUser(response.data);
+    //     } catch (error) {
+    //       console.error(error);
+    //       // Handle the error, e.g., show an error message to the user
+    //     } finally {
+    //       setLoading(false);
+    //     }
+    //   };
+  
+    //   fetchData();
+    // }, []);
+  
+    // if (loading) {
+    //   return (
+    //     <View>
+    //       <ActivityIndicator size="large" />
+    //     </View>
+    //   );
+    // }
+  
+    // if (!user) {
+    //   return (
+    //     <View>
+    //       <Text>Error loading user information.</Text>
+    //     </View>
+    //   );
+    // }
+    
 
     //const urlAPI = `http://192.168.0.250:5000/info`;
     //fetch(urlAPI)
