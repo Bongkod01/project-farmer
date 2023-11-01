@@ -138,7 +138,6 @@ const ProfileRoute = () => (
         width: 320,
         borderRadius: 10,
         alignSelf: "center",
-        shadow: 10,
         top: 30,}}>
       </Image>
 
@@ -162,7 +161,7 @@ const ProfileRoute = () => (
           width: 150,
           borderRadius: 10,
           alignSelf: "center",
-          shadowRadius: 5,
+  
           top: 2
         }}>
         </Image>
@@ -179,11 +178,8 @@ const ProfileRoute = () => (
         
         <HStack space={1} alignItems="center" justifyContent={"flex-start"} paddingTop={7} >
           <Stack direction="row" mb="2" mt="1" space={3}></Stack>
-        {/* <Center bg="#091E40" width={200} height={200} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
-        
-        </Center> */}
-        <Center bg="#091E40" width={407} height={100} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
-        กลุ่มไทยรุ่งเรือง ทำธุรกิจเกี่ยวกับอุตสาหกรรมอ้อยและน้ำตาลทรายมายาวนานที่สุดในประเทศไทยและยังได้ขยายธุรกิจไปยังธุรกิจอื่น ๆ อีกมากมาย
+        <Center bg="#091E40" width={407} height={100} borderRadius={10} _text={{color: "#FFFFFF"}}>
+        กลุ่มไทยรุ่งเรือง ทำธุรกิจเกี่ยวกับอุตสหากรรมอ้อยและน้ำตาลทรายมายาวนานที่สุดในประเทศไทยและยังได้ขยายธุรกิจไปยังธุรกิจอื่นๆอีกมากมาย
         </Center>
         </HStack>
         
@@ -191,8 +187,8 @@ const ProfileRoute = () => (
         <Heading size="md" mt="2" px="5" >วิสัยทัศน์</Heading>
         <HStack space={1} alignItems="center" justifyContent={"flex-start"} paddingTop={7} >
           <Stack direction="row" mb="2" mt="1" space={3}></Stack>
-        <Center bg="#091E40" width={407} height={200} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
-        เรามุ่งมั่นเพื่อเป็นบริษัทชั้นนำระดับโลก ในการแปรรูปผลิตภัณฑ์จากอ้อยอย่างครบวงจร ด้วยนวัตกรรมและเทคโนโลยีที่มีมาตรฐาน บริหารงานโดยยึดหลักของคุณธรรม ความซื้อสัตย์ คุณภาพและความยั่งยืน โดยคำนึงถึงความรับผิดชอบต่อสังคมและเป็นมิตรต่อสิ่งแวดล้อม เพื่อส่งต่อความสุข รอยยิ้ม สู่สังคม จากรุ่นสู่รุ่น
+        <Center bg="#091E40" width={407} height={150} borderRadius={10} _text={{color: "#FFFFFF"}} >
+        " เรามุ่งมั่นเพื่อเป็นบริษัทชั้นนำระดับโลก ในการแปรรูปผลิตภัณฑ์จากอ้อยอย่างครบวงจร ด้วยนวัตกรรมและเทคโนโลยีที่มีมาตรฐาน บริหารงานโดยยึดหลักของคุณธรรม ความซื้อสัตย์ คุณภาพและความยั่งยืน โดยคำนึงถึงความรับผิดชอบต่อสังคมและเป็นมิตรต่อสิ่งแวดล้อม เพื่อส่งต่อความสุข รอยยิ้ม สู่สังคม จากรุ่นสู่รุ่น "
         </Center>
         </HStack>
 
@@ -213,13 +209,13 @@ const ProfileRoute = () => (
         </Image>
 
       <HStack space={2} alignItems="center" justifyContent={"center"} paddingTop={5} >
-          <Center bg="#86754e" width={270} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+          <Center bg="#86754e" width={270} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} >
           จากโรงงานน้ำตาลเอกชนแห่งแรกของไทย
           เราพัฒนาอย่างต่อเนื่องจากรุ่นสู่รุ่น
           </Center>
         </HStack>
 
-        <Image source={require("../assets/quality.png")}
+      <Image source={require("../assets/quality.png")}
       style={{
         height: 120, 
         width: 175,
@@ -229,7 +225,7 @@ const ProfileRoute = () => (
       </Image>
 
     <HStack space={2} alignItems="center" justifyContent={"center"} paddingTop={5} >
-        <Center bg="#86754e" width={270} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        <Center bg="#86754e" width={270} height={70} borderRadius={10} _text={{color: "#FFFFFF"}}>
         เราพิถีพิถันใส่ใจในทุกรายละเอียด
         เพื่อให้ได้น้ำตาลคุณภาพที่ดีที่สุด
         </Center>
@@ -245,13 +241,23 @@ const ProfileRoute = () => (
       </Image>
 
     <HStack space={2} alignItems="center" justifyContent={"center"} paddingTop={5} >
-        <Center bg="#86754e" width={270} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} shadow={5}>
+        <Center bg="#86754e" width={270} height={70} borderRadius={10} _text={{color: "#FFFFFF"}} >
         เพื่อส่งมอบความหวานและความสุข
         ให้กับทุกคน เพราะเราเชื่อว่า
         "ความหวาน คือ รสชาติแรกของความสุข"
         </Center>
       </HStack>
 
+      <Divider space="2.5" mt="10" px="10" />
+        <Heading size="md" mt="2" px="5" >ติดต่อเรา</Heading>
+
+      <HStack space={2} alignItems="center" justifyContent={"center"} paddingTop={5} >
+        <Center bg="#FFFFFF" width={400} height={70} borderRadius={10} _text={{color: "#091E40"}}>
+        สำนักงานใหญ่กลุ่มไทยรุ่งเรือง
+        794 อาคารไทยรวมทุน ถนนกรุงเกษม แขวงวัดโสมนัส เขตป้อมปราบศัตรูพ่าย กรุงเทพฯ 10100 เบอร์โทร : +66 2282 2022 Email: CustomerService@TRRsugar.com
+        </Center>
+        
+      </HStack>
       <Stack direction="row" mb="10" mt="1.5" space={15}>
         </Stack>
         <Divider />
@@ -760,4 +766,4 @@ const styles = StyleSheet.create({
   
 });
 
- export default Home
+export default Home
