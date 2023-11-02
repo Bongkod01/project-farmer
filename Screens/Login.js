@@ -6,11 +6,11 @@ import Checkbox from "expo-checkbox";
 import { Button } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-
+import Profile from './Profile';
 import { setHome_Name } from '../redux/LoginSlice';
 import axios from 'axios'
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation,route }) => {
 
     const Dispatch = useDispatch();
 
@@ -31,11 +31,6 @@ const Login = ({ navigation }) => {
 
 
 
-    
-
-    
-
-
 // const [Data,setData] = useState({
 
 
@@ -52,6 +47,7 @@ useEffect(() =>  {
 
 const onClickMe = () => {
 
+  
           if (Phone == null )
           {
             Alert.alert("กรุณากรอกเบอร์โทรศัพท์")
@@ -70,7 +66,9 @@ const onClickMe = () => {
               "Phone" : Phone,
               "Password" : Password,
             };
+            
             const url = 'http://192.168.0.250:5000/login'
+
             axios.post(url, obj_json).then((res) => {
             console.log('axios res -->', res.data);
 

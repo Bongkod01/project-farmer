@@ -22,7 +22,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-   HomePage: ""
+    HomePage: ""
 }
 
 const LoginSlice = createSlice({

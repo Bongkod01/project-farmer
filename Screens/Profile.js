@@ -4,7 +4,7 @@ import { Image } from 'react-native';
 import axios from 'axios'
 
 
-const Profile = ({ navigation }) => {
+const Profile = ({ navigation,route }) => {
 
 
   const [user, setUser] = useState([]);
@@ -45,9 +45,8 @@ const Profile = ({ navigation }) => {
       try {
 
         console.log('LoadProfilePage');
-    
         const url = 'http://192.168.0.250:5000/info/phone'
-        
+
         axios.get(url).then((res) => {
           setUser(res.data);
         console.log('axios res -->', res.data)
@@ -64,7 +63,6 @@ const Profile = ({ navigation }) => {
     //       setUser(response.data);
     //     } catch (error) {
     //       console.error(error);
-    //       // Handle the error, e.g., show an error message to the user
     //     } finally {
     //       setLoading(false);
     //     }
@@ -111,7 +109,7 @@ const Profile = ({ navigation }) => {
   return (
     <View style={{ flex: 2 }}>
       <View>
-        <Image source={require("../assets/Farmer3.png")}
+        <Image source={require("../assets/blankpf.png")}
           style={{
             flex: 1,
             height: 120,

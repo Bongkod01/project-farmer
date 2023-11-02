@@ -14,5 +14,4 @@ export {
     Profile,
     Report,
     Setting
-   
 }
