@@ -47,7 +47,7 @@ const Report = ({ navigation }) => {
 
       console.log('LoadReportPage');
       const preiodNo = 1;
-      const url = 'http://192.168.0.250:5000/report/1'
+      const url = 'http://192.168.1.44:8082/report/1'
       // const url = 'http://192.168.0.250:5000/report/'+ preiodNo
       
       axios.get(url).then((res) => {

@@ -45,7 +45,7 @@ const Profile = ({ navigation,route }) => {
       try {
 
         console.log('LoadProfilePage');
-        const url = 'http://192.168.0.250:5000/info/phone'
+        const url = 'http://192.168.1.44:8082/info/phone'
 
         axios.get(url).then((res) => {
           setUser(res.data);

@@ -6,11 +6,10 @@ import Checkbox from "expo-checkbox";
 import { Button } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import Profile from './Profile';
 import { setHome_Name } from '../redux/LoginSlice';
 import axios from 'axios'
 
-const Login = ({ navigation,route }) => {
+const Login = ({ navigation}) => {
 
     const Dispatch = useDispatch();
 
@@ -67,7 +66,7 @@ const onClickMe = () => {
               "Password" : Password,
             };
             
-            const url = 'http://192.168.0.250:5000/login'
+            const url = 'http://192.168.1.44:8082/login'
 
             axios.post(url, obj_json).then((res) => {
             console.log('axios res -->', res.data);

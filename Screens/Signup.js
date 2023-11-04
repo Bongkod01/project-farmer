@@ -75,7 +75,7 @@ const Signup = ({ navigation }) => {
                   "IDCard" : IDCard,
                   "Address" : Address
                 };
-                const url = 'http://192.168.0.250:5000/register'
+                const url = 'http://192.168.1.44:8082/register'
                 axios.post(url,obj_json).then((res) => {
                 console.log('axios res -->', res.data)  
             
