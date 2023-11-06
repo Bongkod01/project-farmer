@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Text, View, StyleSheet, Dimensions,LineChart,FlatList,e, TouchableOpacity,chartConfig,Pressable,ScrollView } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { Picker } from '@react-native-picker/picker';
@@ -11,6 +11,7 @@ import { VStack,HStack,Spacer,Heading,Divider , Center, NativeBaseConfigProvider
 import { Image } from 'react-native';
 import { useSelector } from 'react-redux';
 import COLORS from '../constants/colors';
+import axios from 'axios'
 import Report from './Report';
 import Profile from './Profile';
 
@@ -119,9 +120,24 @@ const ProfileRoute = () => (
 
   const Home = ({ navigation }) => {
 
-
+    const [user, setUser] = useState([]);
     const return_home = useSelector((state) => state.welcome.Home_Page);
     
+
+    useEffect(()=>{   
+
+      console.log('LoadProfilePage');
+      const url = 'http://192.168.0.250:5000/home';
+
+      axios.get(url)
+      .then((res) => {
+        setUser(res.data);
+        console.log('axios res -->', res.data);
+      })
+      .catch((error) => {
+        console.log('axios error -->', error);
+      });
+      }, []);
     
 
   const HomeScreen = () => (
@@ -130,7 +146,35 @@ const ProfileRoute = () => (
 <ScrollView>
 <View>
     
+      <Text style={{
+        fontStyle:"italic",
+        paddingTop: 50,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 17
+
+      }}>ยินดีต้อนรับคุณ {user.FN} {user.LN} </Text>
+
   
+
+      <Image source={require("../assets/blankpf.png")}
+      style={{
+        height: 100, 
+        width: 100,
+        borderRadius: 50,
+        alignSelf: "center",
+        top: 15,}}>
+      </Image>
+
+      <Text style={{
+        fontStyle:"italic",
+        paddingTop: 25,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 17 }}>
+        เข้าสู่ Farmer Application</Text>
 
       <Image source={require("../assets/logotrr.png")}
       style={{
@@ -138,12 +182,12 @@ const ProfileRoute = () => (
         width: 320,
         borderRadius: 10,
         alignSelf: "center",
-        top: 30,}}>
+        top: 25,}}>
       </Image>
 
       <Text style={{
         fontStyle:"italic",
-        paddingTop: 50,
+        paddingTop: 40,
         alignItems: "center",
         fontWeight: "bold",
         alignSelf: "center",

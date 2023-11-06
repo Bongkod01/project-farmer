@@ -40,21 +40,21 @@ const Profile = ({ navigation,route }) => {
     //   console.log(error)
     // }
 
+    
     useEffect(()=>{   
 
-      try {
+      console.log('LoadProfilePage');
+    const url = 'http://192.168.0.250:5000/info/phone';
 
-        console.log('LoadProfilePage');
-        const url = 'http://192.168.1.44:8082/info/phone'
-
-        axios.get(url).then((res) => {
-          setUser(res.data);
-        console.log('axios res -->', res.data)
+    axios.get(url)
+      .then((res) => {
+        setUser(res.data);
+        console.log('axios res -->', res.data);
       })
-      } catch (error) {
-        console.log(error)
-      }
-    },[])
+      .catch((error) => {
+        console.log('axios error -->', error);
+      });
+  }, []);
 
     //   const fetchData = async () => {
     //     try {

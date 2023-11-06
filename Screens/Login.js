@@ -66,7 +66,7 @@ const onClickMe = () => {
               "Password" : Password,
             };
             
-            const url = 'http://192.168.1.44:8082/login'
+            const url = 'http://192.168.0.250:5000/login'
 
             axios.post(url, obj_json).then((res) => {
             console.log('axios res -->', res.data);
@@ -144,6 +144,8 @@ const onClickMe = () => {
         </View>
 
 
+        {/* console.lock123text546789 */}
+
       <View style={{marginBottom: 12}}>
 
         <Text style={{
@@ -200,6 +202,7 @@ const onClickMe = () => {
           placeholder='Enter your Password'
           placeholderTextColor={COLORS.grey}
           secureTextEntry={isPasswordShown}
+          value={Password}
           onChangeText={(text)=>{setPassword(text)}}
           style={{
             width: "100%"
