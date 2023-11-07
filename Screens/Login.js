@@ -73,7 +73,10 @@ const onClickMe = () => {
 
           if (res.data) {
             console.log('Login successful');
-            navigation.navigate("Home");
+            navigation.navigate("Home",{
+            Phone: Phone,
+            Password: Password,
+          });
           } 
           else {
               console.log('Login failed');

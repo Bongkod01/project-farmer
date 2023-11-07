@@ -4,11 +4,12 @@ import { Image } from 'react-native';
 import axios from 'axios'
 
 
-const Profile = ({ navigation,route }) => {
+const Profile = ({ navigation,route, }) => {
 
-
+  
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
+  
   // const onPageLoad = () => {
 
   //   const data_name = "บงกช บุญเพ็ง";
@@ -41,20 +42,20 @@ const Profile = ({ navigation,route }) => {
     // }
 
     
-    useEffect(()=>{   
-
+    useEffect(()=>{                                  
       console.log('LoadProfilePage');
-    const url = 'http://192.168.0.250:5000/info/phone';
+      const url = ('http://192.168.0.250:5000/info/(phone)')
+      axios.get(url)
+        .then((res) => {
+          setUser(res.data);
+          console.log('axios res -->', res.data);
+        })
+        .catch((error) => {
+          console.log('axios error -->', error);
+        });
+    },[]);
 
-    axios.get(url)
-      .then((res) => {
-        setUser(res.data);
-        console.log('axios res -->', res.data);
-      })
-      .catch((error) => {
-        console.log('axios error -->', error);
-      });
-  }, []);
+
 
     //   const fetchData = async () => {
     //     try {
@@ -108,6 +109,7 @@ const Profile = ({ navigation,route }) => {
 
   return (
     <View style={{ flex: 2 }}>
+      
       <View>
         <Image source={require("../assets/blankpf.png")}
           style={{
@@ -122,14 +124,15 @@ const Profile = ({ navigation,route }) => {
           }}
         />
       </View>
-
+    
+  
       <View style={{ flex: 1, alignItems: 'center', textAlign: 'center' }}>
         <Text style={{
           fontSize: 20,
           fontWeight: 'bold',
           top: 180
         }}
-        >{user.FN} {user.LN}</Text>
+        >{user.FirstName} {user.LastName}</Text>
 
         <View style={styles.row}>
           <Text style={{
@@ -138,7 +141,7 @@ const Profile = ({ navigation,route }) => {
 
           <Text style={{
             top: 185,
-          }}>{user.IDC} </Text>                      
+          }}>{user.IDCard} </Text>                      
         </View>
       </View>
 
@@ -159,7 +162,7 @@ const Profile = ({ navigation,route }) => {
             marginHorizontal: 120,
             color: '#86754e',
             fontWeight: 'bold'
-          }}>{user.FN} {user.LN}</Text>
+          }}>{user.FirstName} {user.LastName}</Text>
         </View>
       </View>
 
@@ -180,7 +183,7 @@ const Profile = ({ navigation,route }) => {
             marginHorizontal: 85,
             color: '#86754e',
             fontWeight: 'bold'
-          }}>{user.PH}</Text>
+          }}>{user.Phone}</Text>
         </View>
         </View>
 
@@ -201,7 +204,7 @@ const Profile = ({ navigation,route }) => {
             marginHorizontal: 110,
             color: '#86754e',
             fontWeight: 'bold'
-          }}>{user.AD}</Text>
+          }}>{user.Address}</Text>
         </View>
         </View>
 

@@ -118,11 +118,11 @@ const ProfileRoute = () => (
 
   const initialLayout = { width: Dimensions.get('window').width };
 
-  const Home = ({ navigation }) => {
+  const Home = ({ navigation, route }) => {
 
     const [user, setUser] = useState([]);
     const return_home = useSelector((state) => state.welcome.Home_Page);
-    
+  
 
     useEffect(()=>{   
 
@@ -139,10 +139,13 @@ const ProfileRoute = () => (
       });
       }, []);
     
+    const { Phone, Password} = route.params;
+    console.log(Phone)
+    console.log(Password)
 
   const HomeScreen = () => (
 
-    
+  
 <ScrollView>
 <View>
     
@@ -154,7 +157,7 @@ const ProfileRoute = () => (
         alignSelf: "center",
         fontSize: 17
 
-      }}>ยินดีต้อนรับคุณ {user.FN} {user.LN} </Text>
+      }}>ยินดีต้อนรับคุณ  {user.FirstName} {user.LastName} </Text>
 
   
 
