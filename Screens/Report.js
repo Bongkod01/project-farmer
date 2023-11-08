@@ -7,7 +7,7 @@ import axios from 'axios'
 
 
 
-const Report = ({ navigation }) => {
+const Report = ({ navigation,route }) => {
 
   const [Data_d, setData_d] = useState([]);
   const [selected, setSelected] = useState("");
@@ -17,8 +17,6 @@ const Report = ({ navigation }) => {
   //   { key: '2', value: 'งวดที่ 2 ' }
   // ]
   
-  
-
   const [report, setReport] = useState({});
 
   const [ sumBil, setsumBil ] = useState([]);
@@ -67,22 +65,6 @@ const Report = ({ navigation }) => {
 
 
 
-
-  // useEffect(()=>{   
-  //   console.log('changereport');
-  //   console.log(report.res_report_no[1].Bill);
-
-  //   if ( len(report) > 1 ){
-  //     setReport(report.res_report_no[1]);
-  //   }
-
-
-
-  // },[report])
-
-
-
-
   const renderItem = ({ item }) => (
     <View style={styles.row} >
   
@@ -92,22 +74,8 @@ const Report = ({ navigation }) => {
     </View>
   )
 
-  // const Select = () => {
 
-  //   if (Period == "0822222222")
-  //   {navigation.navigate("Home")
-  //   }
-  //   else {
-  //     Alert.alert('หมายเลขโทรศัพท์ หรือ รหัสผ่าน ไม่ถูกต้อง');
-  //   console.log("หมายเลขโทรศัพท์ ไม่ถูกต้อง ")
-  //   console.log("รหัสผ่าน ไม่ถูกต้อง")
-  //   }
-  // }
   const [service, setService] = useState({})
-
-
-
-  // console.log('data',Data_d);
 
   return (
 
@@ -193,82 +161,6 @@ const Report = ({ navigation }) => {
     </ScrollView>
   )
 }
-{/* <DataTable style={styles.container} paddingTop={20} >
-
-        // <DataTable.Header style={styles.tableHeader}  alignItems="center" justifyContent={"center"} >
-
-        //   <DataTable.Title> วันที่ </DataTable.Title>
-
-        //   <DataTable.Title> จำนวนบิล </DataTable.Title>
-
-        // </DataTable.Header>
-
-      //   <DataTable.Row>
-      //     <DataTable.Cell>{report.Date} </DataTable.Cell>
-      //     <DataTable.Cell>{report.Bill} </DataTable.Cell>
-      //   </DataTable.Row>
-
-      // <DataTable.Row>
-      //   <DataTable.Cell>{report.Date} </DataTable.Cell>
-      //   <DataTable.Cell>{report.Bill} </DataTable.Cell>
-      // </DataTable.Row>
-
-      <DataTable.Row> */}
-{/* <DataTable.Cell> {report.Date}  </DataTable.Cell>
-        <DataTable.Cell> {report.Bill}</DataTable.Cell> */}
-{/* </DataTable.Row>
-
-      <DataTable.Row> */}
-{/* <DataTable.Cell> {report.Date}  </DataTable.Cell>
-        <DataTable.Cell> {report.Bill}</DataTable.Cell> */}
-{/* </DataTable.Row>
-
-      <DataTable.Row> */}
-{/* <DataTable.Cell> {report.Date}  </DataTable.Cell>
-        <DataTable.Cell> {report.Bill}</DataTable.Cell> */}
-{/* </DataTable.Row>
-
-    </DataTable> */}
-
-
-{/* <View style={styles.box }>
-          <Text style={{
-            color: "#ffffff",
-          }}>จำนวนบิล: --</Text>
-          </View>
-
-      <View style={styles.box}>
-          <Text style={{
-            color: "#ffffff",
-          }}> น้ำหนัก: --</Text>
-      </View>
-
-      <View style={styles.box}>
-          <Text style={{
-            color: "#ffffff",
-          }}>CCS สะสม: --</Text>
-      </View> 
-      <View style={styles.boxx}>
-          <Text style={{
-            color: "#ffffff",
-          }}>CCS เฉลี่ย: --</Text>
-      </View> 
-      <View style={styles.boxx}>
-          <Text style={{
-            color: "#ffffff",
-          }}>น้ำมัน: --</Text>
-      </View> 
-      <View style={styles.boxx}>
-          <Text style={{
-            color: "#ffffff",
-          }}>นน.สะสม: --</Text>
-      </View> 
-    </View>  */}
-
-
-
-
-
 
 
 const styles = StyleSheet.create({
@@ -351,3 +243,106 @@ const styles = StyleSheet.create({
 
 
 export default Report
+
+
+
+// useEffect(()=>{   
+  //   console.log('changereport');
+  //   console.log(report.res_report_no[1].Bill);
+
+  //   if ( len(report) > 1 ){
+  //     setReport(report.res_report_no[1]);
+  //   }
+
+
+
+  // },[report])
+
+
+
+  // const Select = () => {
+
+  //   if (Period == "0822222222")
+  //   {navigation.navigate("Home")
+  //   }
+  //   else {
+  //     Alert.alert('หมายเลขโทรศัพท์ หรือ รหัสผ่าน ไม่ถูกต้อง');
+  //   console.log("หมายเลขโทรศัพท์ ไม่ถูกต้อง ")
+  //   console.log("รหัสผ่าน ไม่ถูกต้อง")
+  //   }
+  // }
+{/* <DataTable style={styles.container} paddingTop={20} >
+
+        // <DataTable.Header style={styles.tableHeader}  alignItems="center" justifyContent={"center"} >
+
+        //   <DataTable.Title> วันที่ </DataTable.Title>
+
+        //   <DataTable.Title> จำนวนบิล </DataTable.Title>
+
+        // </DataTable.Header>
+
+      //   <DataTable.Row>
+      //     <DataTable.Cell>{report.Date} </DataTable.Cell>
+      //     <DataTable.Cell>{report.Bill} </DataTable.Cell>
+      //   </DataTable.Row>
+
+      // <DataTable.Row>
+      //   <DataTable.Cell>{report.Date} </DataTable.Cell>
+      //   <DataTable.Cell>{report.Bill} </DataTable.Cell>
+      // </DataTable.Row>
+
+      <DataTable.Row> */}
+{/* <DataTable.Cell> {report.Date}  </DataTable.Cell>
+        <DataTable.Cell> {report.Bill}</DataTable.Cell> */}
+{/* </DataTable.Row>
+
+      <DataTable.Row> */}
+{/* <DataTable.Cell> {report.Date}  </DataTable.Cell>
+        <DataTable.Cell> {report.Bill}</DataTable.Cell> */}
+{/* </DataTable.Row>
+
+      <DataTable.Row> */}
+{/* <DataTable.Cell> {report.Date}  </DataTable.Cell>
+        <DataTable.Cell> {report.Bill}</DataTable.Cell> */}
+{/* </DataTable.Row>
+
+    </DataTable> */}
+
+
+{/* <View style={styles.box }>
+          <Text style={{
+            color: "#ffffff",
+          }}>จำนวนบิล: --</Text>
+          </View>
+
+      <View style={styles.box}>
+          <Text style={{
+            color: "#ffffff",
+          }}> น้ำหนัก: --</Text>
+      </View>
+
+      <View style={styles.box}>
+          <Text style={{
+            color: "#ffffff",
+          }}>CCS สะสม: --</Text>
+      </View> 
+      <View style={styles.boxx}>
+          <Text style={{
+            color: "#ffffff",
+          }}>CCS เฉลี่ย: --</Text>
+      </View> 
+      <View style={styles.boxx}>
+          <Text style={{
+            color: "#ffffff",
+          }}>น้ำมัน: --</Text>
+      </View> 
+      <View style={styles.boxx}>
+          <Text style={{
+            color: "#ffffff",
+          }}>นน.สะสม: --</Text>
+      </View> 
+    </View>  */}
+
+
+
+

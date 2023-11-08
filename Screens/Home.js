@@ -36,99 +36,20 @@ const ProfileRoute = () => (
 
 
 
-
-//  const ary = []
-//  const mainnumber = 0
-// let number = 0
-
-// const onClickMe = () => {
-//   if (mainnumber == 0) {
-//     number++
-//     ary.push(number)
-//   } else{
-//     number--
-//   }
-
-//   console.log("นับจำนวน")
-//   console.log(number);
-
-//   console.log("เพิ่มค่าเข้าไปใน array")
-//   console.log(ary);
-
-// if (number == 5)
-// {
-//   for (let index = 0; index < ary.length; index++) {
-//     const element = ary[2];
-//     console.log(element);
-//   }
-// }
-
-// [1, 2, 3, 4] data
-
-// [0, 1, 2, 3] index
-
-// data = ค่า 1 ตำแหน่งที่ [0]
-
-
-// }
-
-  //  let DogClass_Definition = ({
-  //    DogName: "",
-  //    DogAge: 0,
-  //    DogBreed: "",
-  //    DogColor: ""
-  // });
-
-  
-
-  // const onClickMe = () => {
-    
-    // const data_dog_ME_name = "Woonsen";
-    // const data_dog_Age = 2;
-    // const data_dog_Breed = "Shiba Inu";
-    // const data_dog_Color = "Orange";
-
-    // DogClass_Definition={
-    //   DogName:data_dog_ME_name,
-    //   DogAge:data_dog_Age,
-    //   DogBreed: data_dog_Breed,
-    //   DogColor:data_dog_Color,
-    // }
-
-
-//     if (DogClass_Definition.DogName == '') {
-
-//       const data_dog_ME_name2 = "Itim";
-//       const data_dog_Age2 = 4;
-//       const data_dog_Breed2 = "Beaggle";
-//       const data_dog_Color2 = "Brown";
-
-//       DogClass_Definition={
-//       DogName:data_dog_ME_name2,
-//       DogAge:data_dog_Age2,
-//       DogBreed: data_dog_Breed2,
-//       DogColor:data_dog_Color2,
-//     }
-//   }
-    
-//   console.log (DogClass_Definition)
-//  }
-//  console.log (DogClass_Definition)
-
-
   const initialLayout = { width: Dimensions.get('window').width };
 
   const Home = ({ navigation, route }) => {
 
     const [user, setUser] = useState([]);
     const return_home = useSelector((state) => state.welcome.Home_Page);
-  
+
+    const { Phone, Password} = route.params;
+    console.log(Phone)
+    console.log(Password)
 
     useEffect(()=>{   
-
       console.log('LoadProfilePage');
       const url = 'http://192.168.0.250:5000/home';
-
       axios.get(url)
       .then((res) => {
         setUser(res.data);
@@ -139,9 +60,7 @@ const ProfileRoute = () => (
       });
       }, []);
     
-    const { Phone, Password} = route.params;
-    console.log(Phone)
-    console.log(Password)
+  
 
   const HomeScreen = () => (
 
@@ -309,105 +228,107 @@ const ProfileRoute = () => (
         </Stack>
         <Divider />
 
-      {/* <Image source={require("../assets/trrweight.png")}
-      style={{
-        height: 120, 
-        width: 80,
-        borderRadius: 10,
-        alignSelf: "center",
-        top: 50,
-      }}>
-      </Image>
-
-      <Text style={{
-        paddingTop: 60,
-        alignItems: "center",
-        fontWeight: "bold",
-        alignSelf: "center",
-        fontSize: 15
-
-      }}>จากโรงงานน้ำตาลเอกชนแห่งแรกของไทย</Text>
-
-      <Text style={{
-        paddingTop: 2,
-        alignItems: "center",
-        fontWeight: "bold",
-        alignSelf: "center",
-        fontSize: 15
-
-      }}>เราพัฒนาอย่างต่อเนื่องจากรุ่นสู่รุ่น</Text>
-
-      <Image source={require("../assets/quality.png")}
-      style={{
-        height: 100, 
-        width: 160,
-        borderRadius: 10,
-        alignSelf: "center",
-        top: 50,
-      }}>
-      </Image>
-
-      <Text style={{
-        paddingTop: 60,
-        alignItems: "center",
-        fontWeight: "bold",
-        alignSelf: "center",
-        fontSize: 15
-
-      }}>เราพิถีพิถันใส่ใจในทุกรายละเอียด  </Text>
-
-      <Text style={{
-        paddingTop: 2,
-        alignItems: "center",
-        fontWeight: "bold",
-        alignSelf: "center",
-        fontSize: 15
-
-      }}>เพื่อให้ได้น้ำตาลคุณภาพที่ดีที่สุด</Text>
-
-      <Image source={require("../assets/heart.png")}
-      style={{
-        height: 70, 
-        width: 130,
-        borderRadius: 10,
-        alignSelf: "center",
-        top: 50,
-      }}>
-      </Image>
-
-      <Text style={{
-        paddingTop: 60,
-        alignItems: "center",
-        fontWeight: "bold",
-        alignSelf: "center",
-        fontSize: 15
-
-      }}>เพื่อส่งมอบความหวานและความสุข </Text>
-
-      <Text style={{
-        paddingTop: 2,
-        alignItems: "center",
-        fontWeight: "bold",
-        alignSelf: "center",
-        fontSize: 15
-
-      }}>ให้กับทุกคน เพราะเราเชื่อว่า</Text>
-
-      <Text style={{
-        paddingTop: 2,
-        alignItems: "center",
-        fontWeight: "bold",
-        alignSelf: "center",
-        fontSize: 15
-
-      }}>"ความหวาน คือ รสชาติแรกของความสุข"</Text> */}
-
-
-
 </View>
 </ScrollView>
   );
 
+
+
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="หน้าหลัก"
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons name={focused ? 'home' : 'home-outline'} size={size} color={"#091E40"} />
+          ),
+        }}
+      />
+      <Tab.Screen name="รายงาน CCS"
+        component={Report}
+        onPress={()=>navigation.navigate("Report",{
+          Phone: Phone
+        })}
+        options={{ 
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons name={focused ? 'document' : 'document-text-outline'} size={size} color={"#091E40"} />
+          ),
+        }}
+      />
+      <Tab.Screen name="Profile"
+        component={Profile}
+        onPress={()=>navigation.navigate("Profile",{
+          Phone: Phone
+        })}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+              <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={"#091E40"} />
+          ),
+        }}
+      />
+
+    </Tab.Navigator>
+  );
+  }
+
+
+const styles = StyleSheet.create({
+  scene: {
+    flex: 1,
+  },
+  tabBar: {
+    backgroundColor: '"#ffffff"',
+  },
+  indicator: {
+    backgroundColor: '"#ffffff"',
+  },
+  row: {
+    flexDirection: 'row',
+    backgroundColor: ''
+    
+  },
+  container: {
+    flex: 2,
+    backgroundColor: '',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 5,
+    marginHorizontal: 15,
+    borderColor: '#091E40',
+    borderRadius: 20,
+    borderWidth: 1
+  },
+  // picker: {
+  //   width: 200,
+  //   height: 50,
+  //   borderColor: '#007260',
+  //   borderWidth: 1
+  // },
+  // box: {
+  //   marginHorizontal: 10,
+  //   width: 170,
+  //   marginVertical: 20,
+  //   height: 50,
+  //   borderRadius: 5,
+  //   backgroundColor: '#007260',
+  //   marginBottom: 10,
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+    
+  // }
+    
+
+  // rowbutton: {
+  //   flexDirection: 'row',
+  //    marginHorizontal: 30,
+  //    marginVertical: 10,
+  //    paddingVertical: 10,
+    
+  //    justifyContent: 'center',
+  
+});
+
+export default Home
 
 
 
@@ -720,97 +641,174 @@ const ProfileRoute = () => (
   //   );
   // };
 
-
-
-
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="หน้าหลัก"
-        component={HomeScreen}
-        options={{
-          tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons name={focused ? 'home' : 'home-outline'} size={size} color={"#091E40"} />
-          ),
-        }}
-      />
-      <Tab.Screen name="รายงาน CCS"
-        component={Report}
-        onPress={()=>navigation.navigate("Report")}
-        options={{ 
-          tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons name={focused ? 'document' : 'document-text-outline'} size={size} color={"#091E40"} />
-          ),
-        }}
-      />
-      <Tab.Screen name="Profile"
-        component={Profile}
-        onPress={()=>navigation.navigate("Profile")}
-        options={{
-          tabBarIcon: ({ focused, color, size }) => (
-              <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={"#091E40"} />
-          ),
-        }}
-      />
-
-    </Tab.Navigator>
-  );
-  }
-
-
-const styles = StyleSheet.create({
-  scene: {
-    flex: 1,
-  },
-  tabBar: {
-    backgroundColor: '"#ffffff"',
-  },
-  indicator: {
-    backgroundColor: '"#ffffff"',
-  },
-  row: {
-    flexDirection: 'row',
-    backgroundColor: ''
-    
-  },
-  container: {
-    flex: 2,
-    backgroundColor: '',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginVertical: 5,
-    marginHorizontal: 15,
-    borderColor: '#091E40',
-    borderRadius: 20,
-    borderWidth: 1
-  },
-  // picker: {
-  //   width: 200,
-  //   height: 50,
-  //   borderColor: '#007260',
-  //   borderWidth: 1
-  // },
-  // box: {
-  //   marginHorizontal: 10,
-  //   width: 170,
-  //   marginVertical: 20,
-  //   height: 50,
-  //   borderRadius: 5,
-  //   backgroundColor: '#007260',
-  //   marginBottom: 10,
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-    
-  // }
-    
-
-  // rowbutton: {
-  //   flexDirection: 'row',
-  //    marginHorizontal: 30,
-  //    marginVertical: 10,
-  //    paddingVertical: 10,
-    
-  //    justifyContent: 'center',
   
-});
+      {/* <Image source={require("../assets/trrweight.png")}
+      style={{
+        height: 120, 
+        width: 80,
+        borderRadius: 10,
+        alignSelf: "center",
+        top: 50,
+      }}>
+      </Image>
 
-export default Home
+      <Text style={{
+        paddingTop: 60,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>จากโรงงานน้ำตาลเอกชนแห่งแรกของไทย</Text>
+
+      <Text style={{
+        paddingTop: 2,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>เราพัฒนาอย่างต่อเนื่องจากรุ่นสู่รุ่น</Text>
+
+      <Image source={require("../assets/quality.png")}
+      style={{
+        height: 100, 
+        width: 160,
+        borderRadius: 10,
+        alignSelf: "center",
+        top: 50,
+      }}>
+      </Image>
+
+      <Text style={{
+        paddingTop: 60,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>เราพิถีพิถันใส่ใจในทุกรายละเอียด  </Text>
+
+      <Text style={{
+        paddingTop: 2,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>เพื่อให้ได้น้ำตาลคุณภาพที่ดีที่สุด</Text>
+
+      <Image source={require("../assets/heart.png")}
+      style={{
+        height: 70, 
+        width: 130,
+        borderRadius: 10,
+        alignSelf: "center",
+        top: 50,
+      }}>
+      </Image>
+
+      <Text style={{
+        paddingTop: 60,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>เพื่อส่งมอบความหวานและความสุข </Text>
+
+      <Text style={{
+        paddingTop: 2,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>ให้กับทุกคน เพราะเราเชื่อว่า</Text>
+
+      <Text style={{
+        paddingTop: 2,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 15
+
+      }}>"ความหวาน คือ รสชาติแรกของความสุข"</Text> */}
+
+      //  const ary = []
+//  const mainnumber = 0
+// let number = 0
+
+// const onClickMe = () => {
+//   if (mainnumber == 0) {
+//     number++
+//     ary.push(number)
+//   } else{
+//     number--
+//   }
+
+//   console.log("นับจำนวน")
+//   console.log(number);
+
+//   console.log("เพิ่มค่าเข้าไปใน array")
+//   console.log(ary);
+
+// if (number == 5)
+// {
+//   for (let index = 0; index < ary.length; index++) {
+//     const element = ary[2];
+//     console.log(element);
+//   }
+// }
+
+// [1, 2, 3, 4] data
+
+// [0, 1, 2, 3] index
+
+// data = ค่า 1 ตำแหน่งที่ [0]
+
+
+// }
+
+  //  let DogClass_Definition = ({
+  //    DogName: "",
+  //    DogAge: 0,
+  //    DogBreed: "",
+  //    DogColor: ""
+  // });
+
+  
+
+  // const onClickMe = () => {
+    
+    // const data_dog_ME_name = "Woonsen";
+    // const data_dog_Age = 2;
+    // const data_dog_Breed = "Shiba Inu";
+    // const data_dog_Color = "Orange";
+
+    // DogClass_Definition={
+    //   DogName:data_dog_ME_name,
+    //   DogAge:data_dog_Age,
+    //   DogBreed: data_dog_Breed,
+    //   DogColor:data_dog_Color,
+    // }
+
+
+//     if (DogClass_Definition.DogName == '') {
+
+//       const data_dog_ME_name2 = "Itim";
+//       const data_dog_Age2 = 4;
+//       const data_dog_Breed2 = "Beaggle";
+//       const data_dog_Color2 = "Brown";
+
+//       DogClass_Definition={
+//       DogName:data_dog_ME_name2,
+//       DogAge:data_dog_Age2,
+//       DogBreed: data_dog_Breed2,
+//       DogColor:data_dog_Color2,
+//     }
+//   }
+    
+//   console.log (DogClass_Definition)
+//  }
+//  console.log (DogClass_Definition)

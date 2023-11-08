@@ -24,19 +24,6 @@ const Login = ({ navigation}) => {
 
     const returndata_appname = useSelector((state) => state.welcome.AppName);
 
-    // console.log(' useSelector: ',returndata_appname);
-
-
-
-
-
-// const [Data,setData] = useState({
-
-
-//   username: '',
-//   password: ''
-// })
-
 
 useEffect(() =>  {
 
@@ -88,40 +75,7 @@ const onClickMe = () => {
         })
       }}
 
-          
-          // const Home_Page = "Welcome to Home Page";
-        
-          // Dispatch(setHome_Name(Home_Page));
-  
-
-    //   const  onClickMe = () => {
-
-    //   if( Email == "bow" && Password == 1234){
-    //      navigation.navigate("Home")
-    //   }
-    //    else{
-    //    console.log("Email ไม่ถูกต้อง ")
-    //     console.log("Password ไม่ถูกต้อง")
-    //  }
-
-
-  
-
-//          useEffect(() => {
-//            setData ({
-//            username: 'test',
-//                password: '1111'
-//              })
-          
-//             console.log(Data)
-
-//            console.log("useEffectLogin")
-          
-//            }, [])
-          
-//  console.log(Data)
-
-
+    
 
 
   return (
@@ -278,3 +232,50 @@ const onClickMe = () => {
 
 
 export default Login
+
+
+    // console.log(' useSelector: ',returndata_appname);
+
+
+
+
+
+// const [Data,setData] = useState({
+
+
+//   username: '',
+//   password: ''
+// })
+
+          // const Home_Page = "Welcome to Home Page";
+        
+          // Dispatch(setHome_Name(Home_Page));
+  
+
+    //   const  onClickMe = () => {
+
+    //   if( Email == "bow" && Password == 1234){
+    //      navigation.navigate("Home")
+    //   }
+    //    else{
+    //    console.log("Email ไม่ถูกต้อง ")
+    //     console.log("Password ไม่ถูกต้อง")
+    //  }
+
+
+  
+
+//          useEffect(() => {
+//            setData ({
+//            username: 'test',
+//                password: '1111'
+//              })
+          
+//             console.log(Data)
+
+//            console.log("useEffectLogin")
+          
+//            }, [])
+          
+//  console.log(Data)
+
