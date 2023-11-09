@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Dimensions, Pressable, TextInput,ActivityIndicator  } from 'react-native';
 import { Image } from 'react-native';
+import { useSelector } from 'react-redux';
 import axios from 'axios'
-
+import Report from './Report';
+import Home from './Home';
+import Login from './Login';
+import { useDispatch } from 'react-redux';
 
 const Profile = ({ navigation,route }) => {
 
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
     
+const Phone = route.params;
+console.log('route.params',route.params)
+console.log('Phone',Phone)
+
     useEffect(()=>{                                  
       console.log('LoadProfilePage');
-      const url = 'http://192.168.0.250:5000/info/phone'
+      const url = `http://192.168.0.250:5000/info/${Phone}`;
       axios.get(url)
         .then((res) => {
           setUser(res.data);

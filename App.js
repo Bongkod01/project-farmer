@@ -8,7 +8,7 @@ import _Navigat from '../project-farmer/src/navigation'
 
 export default  App =() => {
   return (
-   <NativeBaseProvider>
+    <NativeBaseProvider>
     <_Navigat></_Navigat>
     </NativeBaseProvider>
     

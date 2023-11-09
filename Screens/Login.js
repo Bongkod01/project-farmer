@@ -6,10 +6,11 @@ import Checkbox from "expo-checkbox";
 import { Button } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { setHome_Name } from '../redux/LoginSlice';
+import { setHomePage } from '../redux/LoginSlice';
 import axios from 'axios'
+import { PasswordOutlined } from '@mui/icons-material';
 
-const Login = ({ navigation}) => {
+const Login = ({ navigation }) => {
 
     const Dispatch = useDispatch();
 
@@ -20,6 +21,7 @@ const Login = ({ navigation}) => {
 
     const [Phone,setPhone] = useState(null);
     const [Password,setPassword] = useState(null); 
+    
 
 
     const returndata_appname = useSelector((state) => state.welcome.AppName);
@@ -62,7 +64,7 @@ const onClickMe = () => {
             console.log('Login successful');
             navigation.navigate("Home",{
             Phone: Phone,
-            Password: Password,
+            Password: Password
           });
           } 
           else {

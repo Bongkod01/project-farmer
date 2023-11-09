@@ -7,6 +7,8 @@ import Login from '../../Screens/Login';
 import Welcome from '../../Screens/Welcome';
 import Home from '../../Screens/Home';
 import Signup from '../../Screens/Signup';
+import Profile from '../../Screens/Profile';
+import Report from '../../Screens/Report';
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
 
@@ -24,6 +26,8 @@ return (
             <Stack.Screen name ="Login" component={Login} />
             <Stack.Screen name ="Home" component={Home} />
             <Stack.Screen name ="Signup" component={Signup} />
+            <Stack.Screen name ="Profile" component={Profile} />
+            <Stack.Screen name ="Report" component={Report} />
             </Stack.Navigator>
             
         </NavigationContainer>

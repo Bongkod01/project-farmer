@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { Text, View, StyleSheet, Dimensions,LineChart,FlatList,e, TouchableOpacity,chartConfig,Pressable,ScrollView } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { Picker } from '@react-native-picker/picker';
-
+import { setAppName } from '../redux/HomeSlice';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
@@ -14,7 +14,6 @@ import COLORS from '../constants/colors';
 import axios from 'axios'
 import Report from './Report';
 import Profile from './Profile';
-
 import { useDispatch } from 'react-redux';
 
 
@@ -43,22 +42,24 @@ const ProfileRoute = () => (
     const [user, setUser] = useState([]);
     const return_home = useSelector((state) => state.welcome.Home_Page);
 
+    const Dispatch = useDispatch();
+
     const { Phone, Password} = route.params;
     console.log(Phone)
     console.log(Password)
 
     useEffect(()=>{   
       console.log('LoadProfilePage');
-      const url = 'http://192.168.0.250:5000/home';
+      const url = `http://192.168.0.250:5000/home/${Phone}`;
       axios.get(url)
-      .then((res) => {
-        setUser(res.data);
-        console.log('axios res -->', res.data);
-      })
-      .catch((error) => {
-        console.log('axios error -->', error);
-      });
-      }, []);
+        .then((res) => {
+          setUser(res.data);
+          console.log('axios res -->', res.data);
+        })
+        .catch((error) => {
+          console.log('axios error -->', error);
+        });
+    },[]);
     
   
 
@@ -247,7 +248,8 @@ const ProfileRoute = () => (
       <Tab.Screen name="รายงาน CCS"
         component={Report}
         onPress={()=>navigation.navigate("Report",{
-          Phone: Phone
+          Phone: Phone,
+          Password: Password
         })}
         options={{ 
           tabBarIcon: ({ focused, color, size }) => (
@@ -257,7 +259,7 @@ const ProfileRoute = () => (
       />
       <Tab.Screen name="Profile"
         component={Profile}
-        onPress={()=>navigation.navigate("Profile",{
+        onPress={()=>navigation.navigate ("Profile",{
           Phone: Phone
         })}
         options={{

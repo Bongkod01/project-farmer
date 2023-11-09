@@ -29,7 +29,7 @@ const LoginSlice = createSlice({
     name: 'welcome',
     initialState,
     reducers: {
-        setHome_Name: (state, action) => {
+        setHomePage: (state, action) => {
             state.HomePage = action.payload;
             console.log( 'LoginSlice: ',state.HomePage);
         }

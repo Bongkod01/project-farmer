@@ -4,14 +4,9 @@ import { LinearGradient } from 'expo-linear-gradient';
 import COLORS from '../constants/colors';
 import { Image } from 'react-native';
 import Button from '../components/Button';
-
-
-import { setAppName } from '../redux/WelcomeSlice';
-
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-
-// import { setHome_Name } from '../redux/HomeSlice';
+import { setAppName } from '../redux/WelcomeSlice';
 
 const Welcome = ({}) => {
 
