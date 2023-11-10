@@ -37,7 +37,7 @@ const ProfileRoute = () => (
 
   const initialLayout = { width: Dimensions.get('window').width };
 
-  const Home = ({ navigation, route }) => {
+const Home = ({ navigation, route }) => {
 
     const [user, setUser] = useState([]);
     const return_home = useSelector((state) => state.welcome.Home_Page);
@@ -45,8 +45,8 @@ const ProfileRoute = () => (
     const Dispatch = useDispatch();
 
     const { Phone, Password} = route.params;
-    console.log(Phone)
-    console.log(Password)
+    // console.log(Phone)
+    // console.log(Password)
 
     useEffect(()=>{   
       console.log('LoadProfilePage');
@@ -54,14 +54,25 @@ const ProfileRoute = () => (
       axios.get(url)
         .then((res) => {
           setUser(res.data);
-          console.log('axios res -->', res.data);
+          console.log('res.data home -->', res.data);
         })
         .catch((error) => {
           console.log('axios error -->', error);
         });
     },[]);
-    
+
+
+    const onClickMe = () => {
+      console.log('onClickMe')
   
+      console.log(Phone)
+      console.log(Password)
+
+      // navigation.navigate ("Profile",{
+      //     Phone: Phone
+      //   })
+      // navigation.navigate('Profile')
+  }
 
   const HomeScreen = () => (
 
@@ -236,7 +247,7 @@ const ProfileRoute = () => (
 
 
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName="HomeScreen">
       <Tab.Screen name="หน้าหลัก"
         component={HomeScreen}
         options={{
@@ -248,8 +259,7 @@ const ProfileRoute = () => (
       <Tab.Screen name="รายงาน CCS"
         component={Report}
         onPress={()=>navigation.navigate("Report",{
-          Phone: Phone,
-          Password: Password
+          Phone: Phone
         })}
         options={{ 
           tabBarIcon: ({ focused, color, size }) => (
@@ -259,9 +269,9 @@ const ProfileRoute = () => (
       />
       <Tab.Screen name="Profile"
         component={Profile}
-        onPress={()=>navigation.navigate ("Profile",{
-          Phone: Phone
-        })}
+        onPress={(onClickMe())}
+        // onPress={()=>navigation.navigate ("Profile",{
+        //   Phone: Phone })}
         options={{
           tabBarIcon: ({ focused, color, size }) => (
               <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={"#091E40"} />
