@@ -14,16 +14,16 @@ const Profile = ({ navigation,route }) => {
   const [loading, setLoading] = useState(true);
     
 const Phone = route.params;
-console.log('route.params -->',route.params)
-console.log('Phone -->',Phone)
+console.log('route.params',route.params)
+console.log('Phone',Phone)
 
-    useEffect(()=>{                                
+    useEffect(()=>{                                  
       console.log('LoadProfilePage');
       const url = `http://192.168.0.250:5000/info/${Phone}`;
       axios.get(url)
         .then((res) => {
           setUser(res.data);
-          console.log('res.data profile -->', res.data);
+          console.log('axios res -->', res.data);
         })
         .catch((error) => {
           console.log('axios error -->', error);

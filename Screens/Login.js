@@ -33,6 +33,7 @@ useEffect(() =>  {
 })
 
 
+
 const onClickMe = () => {
 
   
@@ -62,6 +63,15 @@ const onClickMe = () => {
 
           if (res.data) {
             console.log('Login successful');
+
+
+            // const LoginPage = {
+            //   Phone:'',
+            //   Password:''
+            // };
+
+            // Dispatch(setHomePage(LoginPage));
+          
             navigation.navigate("Home",{
             Phone: Phone,
             Password: Password
@@ -197,7 +207,6 @@ const onClickMe = () => {
             marginTop: 18,
             marginBottom: 4,
           }}/>
-
 
 
           <View style={{

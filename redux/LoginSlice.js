@@ -25,6 +25,7 @@ const initialState = {
     HomePage: ""
 }
 
+
 const LoginSlice = createSlice({
     name: 'welcome',
     initialState,
@@ -39,5 +40,6 @@ const LoginSlice = createSlice({
     }
 })
 
-export const {setHome_Name} = LoginSlice.actions
+export const {setHomePage} = LoginSlice.actions
 export default LoginSlice.reducer
+

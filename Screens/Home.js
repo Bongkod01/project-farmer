@@ -42,6 +42,8 @@ const Home = ({ navigation, route }) => {
     const [user, setUser] = useState([]);
     const return_home = useSelector((state) => state.welcome.Home_Page);
 
+    const [FirstName,setFirstName] = useState(null);
+    const [LastName,setLastName] = useState(null);
     const Dispatch = useDispatch();
 
     const { Phone, Password} = route.params;
@@ -62,17 +64,16 @@ const Home = ({ navigation, route }) => {
     },[]);
 
 
-    const onClickMe = () => {
-      console.log('onClickMe')
-  
-      console.log(Phone)
-      console.log(Password)
+  //   const onClickMe = () => {
+  //     console.log('onClickMe')
+  //     console.log(Phone)
+  //     console.log(Password)
 
-      // navigation.navigate ("Profile",{
-      //     Phone: Phone
-      //   })
-      // navigation.navigate('Profile')
-  }
+  //     // navigation.navigate ("Profile",{
+  //     //     Phone: Phone
+  //     //   })
+  //     // navigation.navigate('Profile')
+  // }
 
   const HomeScreen = () => (
 
@@ -269,7 +270,7 @@ const Home = ({ navigation, route }) => {
       />
       <Tab.Screen name="Profile"
         component={Profile}
-        onPress={(onClickMe())}
+        // onPress={(onClickMe())}
         // onPress={()=>navigation.navigate ("Profile",{
         //   Phone: Phone })}
         options={{
