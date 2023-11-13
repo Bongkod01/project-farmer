@@ -6,9 +6,10 @@ import Checkbox from "expo-checkbox";
 import { Button } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { setHomePage } from '../redux/LoginSlice';
 import axios from 'axios'
-import { PasswordOutlined } from '@mui/icons-material';
+import { loginSuccess } from '../redux/LoginSlice';
+// import { PasswordOutlined } from '@mui/icons-material';
+
 
 const Login = ({ navigation }) => {
 
@@ -29,10 +30,9 @@ const Login = ({ navigation }) => {
 
 useEffect(() =>  {
 
-  // console.log('useEffect: ',returndata_appname)
+  console.log('useEffect: ',returndata_appname)
+
 })
-
-
 
 const onClickMe = () => {
 
@@ -58,12 +58,34 @@ const onClickMe = () => {
             
             const url = 'http://192.168.0.250:5000/login'
 
-            axios.post(url, obj_json).then((res) => {
+            axios.post(url, obj_json)
+            .then((res) => {
             console.log('axios res -->', res.data);
+            if (res.data) {
+              console.log('Login successful');
+              
+              Dispatch(loginSuccess({ Phone: Phone, Password: Password }));
+              
+              console.log(Phone,Password);
+              navigation.navigate("Home",{
+              Phone: Phone,
+              Password: Password
+            });
+            } 
+            else {
+                console.log('Login failed');
+                Alert.alert("เบอร์โทรศัพท์หรือรหัสผ่านไม่ถูกต้อง")
+            }   
+          }).catch(e => {
+            console.error(`Login Error! ${e}`);
+            Alert.alert('เบอร์โทรศัพท์หรือรหัสผ่านไม่ถูกต้อง, กรุณากรอกใหม่อีกครั้ง.');
+          })
+        }}
 
-          if (res.data) {
-            console.log('Login successful');
-
+                    // Dispatch({
+            //   type: 'Phone',
+            //   payload: ''
+            // })
 
             // const LoginPage = {
             //   Phone:'',
@@ -72,21 +94,6 @@ const onClickMe = () => {
 
             // Dispatch(setHomePage(LoginPage));
           
-            navigation.navigate("Home",{
-            Phone: Phone,
-            Password: Password
-          });
-          } 
-          else {
-              console.log('Login failed');
-              Alert.alert("เบอร์โทรศัพท์หรือรหัสผ่านไม่ถูกต้อง")
-          }   
-        }).catch(e => {
-          console.error(`Login Error! ${e}`);
-          Alert.alert('เบอร์โทรศัพท์หรือรหัสผ่านไม่ถูกต้อง, กรุณากรอกใหม่อีกครั้ง.');
-        })
-      }}
-
     
 
 

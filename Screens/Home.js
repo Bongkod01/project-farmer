@@ -14,6 +14,7 @@ import COLORS from '../constants/colors';
 import axios from 'axios'
 import Report from './Report';
 import Profile from './Profile';
+import { setUser } from '../redux/ProfileSlice';
 import { useDispatch } from 'react-redux';
 
 
@@ -39,16 +40,18 @@ const ProfileRoute = () => (
 
 const Home = ({ navigation, route }) => {
 
+    // const user = useSelector((state) => state.profile.user);
     const [user, setUser] = useState([]);
-    const return_home = useSelector((state) => state.welcome.Home_Page);
+    const return_home = useSelector((state) => state.welcome.home_name);
 
     const [FirstName,setFirstName] = useState(null);
     const [LastName,setLastName] = useState(null);
-    const Dispatch = useDispatch();
+
+    // const Dispatch = useDispatch();
 
     const { Phone, Password} = route.params;
-    // console.log(Phone)
-    // console.log(Password)
+    console.log(Phone)
+    console.log(Password)
 
     useEffect(()=>{   
       console.log('LoadProfilePage');
