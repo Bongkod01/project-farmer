@@ -11,15 +11,26 @@ import { useDispatch } from 'react-redux';
 const Profile = ({ navigation,route }) => {
 
   const [user, setUser] = useState([]);
+
   const [loading, setLoading] = useState(true);
+
+
+  const { info1, info2 } = useSelector((state) => ({
+    info1: state.login.phone,
+    info2: state.login.password,
+  }));
+    console.log('phone',info1)
+    console.log('password',info2)
+
+
     
 const Phone = route.params;
-console.log('route.params',route.params)
-console.log('Phone',Phone)
+// console.log('route.params',route.params)
+// console.log('Phone',Phone)
 
     useEffect(()=>{                                  
       console.log('LoadProfilePage');
-      const url = `http://192.168.0.250:5000/info/${Phone}`;
+      const url = `http://192.168.0.250:5000/info/${info1}`;
       axios.get(url)
         .then((res) => {
           setUser(res.data);
@@ -28,7 +39,7 @@ console.log('Phone',Phone)
         .catch((error) => {
           console.log('axios error -->', error);
         });
-    },[]);
+    },[info1]);
 
 
 

@@ -30,7 +30,7 @@ const Login = ({ navigation }) => {
 
 useEffect(() =>  {
 
-  console.log('useEffect: ',returndata_appname)
+  // console.log('useEffect: ',returndata_appname)
 
 })
 

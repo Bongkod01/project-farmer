@@ -47,11 +47,11 @@ const Home = ({ navigation, route }) => {
     const [FirstName,setFirstName] = useState(null);
     const [LastName,setLastName] = useState(null);
 
-    // const Dispatch = useDispatch();
+
 
     const { Phone, Password} = route.params;
-    console.log(Phone)
-    console.log(Password)
+    // console.log(Phone)
+    // console.log(Password)
 
     useEffect(()=>{   
       console.log('LoadProfilePage');
@@ -262,9 +262,7 @@ const Home = ({ navigation, route }) => {
       />
       <Tab.Screen name="รายงาน CCS"
         component={Report}
-        onPress={()=>navigation.navigate("Report",{
-          Phone: Phone
-        })}
+        onPress={()=>navigation.navigate("Report")}
         options={{ 
           tabBarIcon: ({ focused, color, size }) => (
             <Ionicons name={focused ? 'document' : 'document-text-outline'} size={size} color={"#091E40"} />
@@ -274,8 +272,7 @@ const Home = ({ navigation, route }) => {
       <Tab.Screen name="Profile"
         component={Profile}
         // onPress={(onClickMe())}
-        // onPress={()=>navigation.navigate ("Profile",{
-        //   Phone: Phone })}
+        onPress={()=>navigation.navigate ("Profile")}
         options={{
           tabBarIcon: ({ focused, color, size }) => (
               <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={"#091E40"} />

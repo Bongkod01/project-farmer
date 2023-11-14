@@ -27,7 +27,6 @@ return (
             <Stack.Screen name ="Profile" component={Profile} />
             <Stack.Screen name ="Report" component={Report} />
             </Stack.Navigator>
-            
         </NavigationContainer>
         
     </Provider>

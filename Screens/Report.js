@@ -4,13 +4,21 @@ import { Picker } from '@react-native-picker/picker';
 import { HStack, Center, FlatList, Box,Select  } from 'native-base';
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
-
+import { useSelector } from 'react-redux';
 
 
 const Report = ({ navigation,route }) => {
 
   const [Data_d, setData_d] = useState([]);
   const [selected, setSelected] = useState("");
+
+  const { info1, info2 } = useSelector((state) => ({
+    info1: state.login.phone,
+    info2: state.login.password,
+  }));
+    console.log('phone',info1)
+    console.log('password',info2)
+
 
   // const No = [
   //   { key: '1', value: 'งวดที่ 1 ' },

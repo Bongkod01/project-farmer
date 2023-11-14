@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     AppName: '',
-    username: null,
-    password: null
+    phone: '',
+    password: '',
 }
 
 const WelcomeSlice = createSlice({
