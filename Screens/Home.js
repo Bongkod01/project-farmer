@@ -44,8 +44,8 @@ const Home = ({ navigation, route }) => {
     const [user, setUser] = useState([]);
     const return_home = useSelector((state) => state.welcome.home_name);
 
-    const [FirstName,setFirstName] = useState(null);
-    const [LastName,setLastName] = useState(null);
+    // const [FirstName,setFirstName] = useState(null);
+    // const [LastName,setLastName] = useState(null);
 
 
 
@@ -329,7 +329,7 @@ const styles = StyleSheet.create({
   //   justifyContent: 'center',
     
   // }
-    
+
 
   // rowbutton: {
   //   flexDirection: 'row',

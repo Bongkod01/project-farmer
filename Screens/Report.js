@@ -10,14 +10,10 @@ import { useSelector } from 'react-redux';
 const Report = ({ navigation,route }) => {
 
   const [Data_d, setData_d] = useState([]);
+  const [user, setUser] = useState([]);
+
   const [selected, setSelected] = useState("");
 
-  const { info1, info2 } = useSelector((state) => ({
-    info1: state.login.phone,
-    info2: state.login.password,
-  }));
-    console.log('phone',info1)
-    console.log('password',info2)
 
 
   // const No = [
@@ -25,6 +21,15 @@ const Report = ({ navigation,route }) => {
   //   { key: '2', value: 'งวดที่ 2 ' }
   // ]
   
+    const { info1, info2 } = useSelector((state) => ({
+    info1: state.login.phone,
+    info2: state.login.password,
+  }));
+  console.log('phone',info1)
+  console.log('password',info2)
+    // console.log('phone',info1)
+    // console.log('password',info2)
+
   const [report, setReport] = useState({});
 
   const [ sumBil, setsumBil ] = useState([]);
@@ -48,28 +53,36 @@ const Report = ({ navigation,route }) => {
   // {"Bill": 25, "CCSAV": 5.65, "CCSCL": 5.65, "Date": "2022-01-02", "No": 1, "Oil": 7800, "PH": "0811111111", "WeightCane": 5400, "WeightOil": 1500}
   // );
 
-  useEffect(() => {
-    try {
+  const [service, setService] = useState("");
 
-      console.log('LoadReportPage');
-      const preiodNo = 1;
-      const url = 'http://192.168.0.250:5000/report/1'
-      // const url = 'http://192.168.0.250:5000/report/'+ preiodNo
-      
-      axios.get(url).then((res) => {
-        setsumBil(res.data.sumBil)
-        setsumWeightCane(res.data.sumWeightCane)
-        setsumCCSAV(res.data.sumCCSAV)
-        setsumCCSCL(res.data.sumCCSCL)
-        setsumOil(res.data.sumOil)
-        setsumWeightOil(res.data.sumWeightOil)
-        setData_d(res.data.res_report_no)
-        console.log('axios res -->', res.data)
-      })
-    } catch (error) {
-      console.log(error)
+  const Phone = route.params;  
+
+  useEffect(() => {
+    if (service !== "") {
+      // Fetch data based on the selected service value
+      try {
+        const url = `http://192.168.0.250:5000/report?var_Period=${service}&var_Phone=${info1}`;
+        console.log(url);
+        axios.get(url)
+          .then((res) => {
+            // Update your state variables with the fetched data
+            setsumBil(res.data.sumBil);
+            setsumWeightCane(res.data.sumWeightCane);
+            setsumCCSAV(res.data.sumCCSAV);
+            setsumCCSCL(res.data.sumCCSCL);
+            setsumOil(res.data.sumOil);
+            setsumWeightOil(res.data.sumWeightOil);
+            setData_d(res.data.res_report_no);
+            console.log('axios res -->', res.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }, [])
+  }, [info1, service]);
 
 
 
@@ -83,27 +96,41 @@ const Report = ({ navigation,route }) => {
   )
 
 
-  const [service, setService] = useState({})
-
   return (
 
     <ScrollView>
     
     <View>
+      
+    <Text style={{
+        fontStyle:"italic",
+        paddingTop: 10,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 17
+
+      }}>ตรวจเช็ครายงาน CCS </Text>
+
       <Box maxW="500">
               <Select selectedValue={service} minWidth="250" placeholder="กรุณาเลือกงวด" backgroundColor={'blueGray.900'} color={'white'}  mt={3} 
               onValueChange={itemValue => setService(itemValue)}>
                 <Select.Item label="งวดที่ 1 " value="1" />
                 <Select.Item label="งวดที่ 2 " value="2"/>
               </Select>
-            {/* {service === "1" ? (
-              <Text>คุณเลือกงวดที่ 1</Text>
+              {/* {service === "1" ? (
+              <Text>{user.No1}</Text>
             ) : service === "2" ? (
-              <Text>คุณเลือกงวดที่ 2</Text>
+              <Text></Text>
             ) : (
-              <Text>คุณยังไม่ได้เลือกงวด</Text>
+              <Text>{user.No2}</Text>
             )} */}
       </Box>
+            {/* Select.Item label="UX Research" value="ux" */}
+            {/* Select.Item label="Web Development" value="web" */}
+            {/* Select.Item label="Cross Platform Development" value="cross" */}
+            {/* Select.Item label="UI Designing" value="ui" */}
+            {/* Select.Item label="Backend Development" value="backend"  */}
 
       <HStack space={5} alignItems="center" justifyContent={"center"} paddingTop={5}>
         <Center bg="#091E40" width={150} height={60} borderRadius={10} _text={{ color: "#FFFFFF" }} borderWidth={1} shadow={5}>
