@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Dimensions, Pressable, ScrollView} from 'react-native';
+import { Text, View, StyleSheet, Dimensions, Pressable, ScrollView,TouchableOpacity} from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { HStack, Center, FlatList, Box,Select  } from 'native-base';
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { Ionicons } from '@expo/vector-icons';
+import COLORS from '../constants/colors';
+import { Button } from 'react-native';
 
 
 const Report = ({ navigation,route }) => {
@@ -88,9 +91,21 @@ const Report = ({ navigation,route }) => {
 
   const renderItem = ({ item }) => (
     <View style={styles.row} >
-  
+
+      {/* <Ionicons name="add-outline" size={20} color={COLORS.Blue}/> */}
+
       <Text style={styles.cell}>{item.Date}</Text>
       <Text style={styles.cell}>{item.Bill}</Text>
+
+      <Pressable 
+              onPress={()=>navigation.navigate("DailyCane")}>
+                <Text style={{
+                  fontSize: 16,
+                  color: COLORS.Gold,
+                  fontWeight: "bold",
+                  marginLeft: 6
+                }}>ดูเพิ่มเติม</Text>
+                </Pressable>
       
     </View>
   )
@@ -175,23 +190,20 @@ const Report = ({ navigation,route }) => {
 
 
       <View style={styles.flatlist}>
-
         <View style={styles.header}>
           <Text style={styles.heading}>วันที่</Text>
           <Text style={styles.heading}>จำนวนบิล</Text>
+          <Text style={styles.heading}></Text>
+
         </View>
         <FlatList
           data={Data_d}
           keyExtractor={(item) => { item.id }}
           renderItem={renderItem}
+          
         />
+
       </View>
-
-
-
-
-
-    
     </View>
     </ScrollView>
   )
@@ -233,7 +245,7 @@ const styles = StyleSheet.create({
 
   },
   flatlist: {
-    top: 5
+    top: 2
   },
   header: {
     flexDirection: 'row',
@@ -244,7 +256,7 @@ const styles = StyleSheet.create({
     borderColor: '#000000',
     padding: 20,
     borderWidth: 1,
-    marginVertical: 8,
+    marginVertical: 4,
   },
   heading: {
     flex: 1,
@@ -253,10 +265,10 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginVertical: 8,
+    marginVertical: 1,
     marginHorizontal: 1,
-    elevation: 3,
-    borderRadius: 10,
+    elevation: 2,
+    borderRadius: 2,
     borderColor: '#000000',
     borderWidth: 1,
 

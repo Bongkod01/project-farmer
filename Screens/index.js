@@ -5,6 +5,7 @@ import Home from './Home.js';
 import Profile from './Profile.js';
 import Report from './Report.js';
 import Setting from './Setting.js';
+import DailyCane from './DailyCane.js';
 
 export {
     Login,
@@ -13,5 +14,6 @@ export {
     Home,
     Profile,
     Report,
-    Setting
+    Setting,
+    DailyCane
 }

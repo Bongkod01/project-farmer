@@ -215,7 +215,6 @@ const onClickMe = () => {
             marginBottom: 4,
           }}/>
 
-
           <View style={{
             flexDirection: "row",
             justifyContent: "center",
@@ -231,7 +230,6 @@ const onClickMe = () => {
                   fontWeight: "bold",
                   marginLeft: 6
                 }}>ลงทะเบียน</Text>
-
                 
               </Pressable>
 

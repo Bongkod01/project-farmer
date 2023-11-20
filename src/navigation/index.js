@@ -11,6 +11,7 @@ import Profile from '../../Screens/Profile';
 import Report from '../../Screens/Report';
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
+import DailyCane from '../../Screens/DailyCane';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ return (
             <Stack.Screen name ="Signup" component={Signup} />
             <Stack.Screen name ="Profile" component={Profile} />
             <Stack.Screen name ="Report" component={Report} />
+            <Stack.Screen name ="DailyCane" component={DailyCane} />
             </Stack.Navigator>
         </NavigationContainer>
         

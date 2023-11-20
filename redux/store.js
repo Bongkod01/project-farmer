@@ -9,6 +9,7 @@ import ProfileSlice from './ProfileSlice';
 import ReportSlice from './ReportSlice';
 import HomeSlice from './HomeSlice';
 import SignupSlice from './SignupSlice';
+import DailyCaneSlice from './DailyCaneSlice';
 
 const store = configureStore({
   reducer:{
@@ -17,7 +18,8 @@ const store = configureStore({
     profile : ProfileSlice,
     report : ReportSlice,
     home : HomeSlice,
-    signup : SignupSlice
+    signup : SignupSlice,
+    daily : DailyCaneSlice
   }
 })
 
