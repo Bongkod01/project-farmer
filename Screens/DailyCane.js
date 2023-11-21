@@ -43,6 +43,7 @@ const DailyCane = ({ navigation,route }) => {
     console.log(url);
         axios.get(url)
             .then((res) => {
+                setData_d(res.data.res_report_no);
                 console.log('axios res -->', res.data);
             })
             .catch((error) => {
@@ -56,32 +57,67 @@ const DailyCane = ({ navigation,route }) => {
 
 
     const renderItem = ({ item }) => (
+
         <View style={styles.row} >
-    
+        <Text style={styles.cell}>{item.Billno}</Text>
         <Text style={styles.cell}>{item.Date}</Text>
-        <Text style={styles.cell}>{item.Bill}</Text>
-    
+        <Text style={styles.cell}>{item.Car_No}</Text>
+        <Text style={styles.cell}>{item.CCS}</Text>
+        <Text style={styles.cell}>{item.Oil}</Text>
+        <Text style={styles.cell}>{item.Weight_Cane}</Text>
         </View>
+        
     )
 
-    return (
 
+    return (      
         <ScrollView>
+    
+        <Text style={{
+        fontStyle:"italic",
+        paddingTop: 100,
+        alignItems: "center",
+        fontWeight: "bold",
+        alignSelf: "center",
+        fontSize: 17
+
+        }}>เช็ครายวัน CCS </Text>
+
+            <Select selectedValue={service} minWidth="350" placeholder="กรุณาเลือกงวดเพื่อดูรายละเอียด" backgroundColor={'blueGray.900'} color={'white'}  mt={10} 
+            onValueChange={itemValue => setService(itemValue)}>
+            <Select.Item label="งวดที่ 1" value="1" />
+            <Select.Item label="งวดที่ 2" value="2"/>
+            </Select>
+
     <View style={styles.flatlist}>
     <View style={styles.header}>
-        <Text style={styles.heading}>งวด</Text>
         <Text style={styles.heading}>เลขที่บิล</Text>
-        <Text style={styles.heading}>เลขทะเบียน</Text>
+        <Text style={styles.heading}>วันที่ </Text>
+        <Text style={styles.heading}>ทะเบียน</Text>
+        <Text style={styles.heading}>CCS</Text>
+        <Text style={styles.heading}>น้ำมัน</Text>
+        <Text style={styles.heading}>น้ำหนักอ้อย</Text>
 
     </View>
     <FlatList
         data={Data_d}
         keyExtractor={(item) => { item.id }}
         renderItem={renderItem}
-    
     />
 
     </View>
+    <View>
+        <Pressable
+        onPress={() => navigation.goBack("Report")}>
+        <Text style={{
+            paddingVertical: 45,
+            fontSize: 17,
+            color: "#091E40",
+            fontWeight: 'bold',
+            alignSelf: 'center'
+            }}>ย้อนกลับ</Text>
+        </Pressable>
+        </View>
     </ScrollView>
             
     )   
@@ -89,77 +125,77 @@ const DailyCane = ({ navigation,route }) => {
 
 const styles = StyleSheet.create({
     picker: {
-      width: 200,
-      height: 50,
-      borderColor: '#000000',
-      borderWidth: 1,
+        width: 200,
+        height: 50,
+        borderColor: '#000000',
+        borderWidth: 1,
     },
     box: {
-      marginHorizontal: 10,
-      width: 180,
-      marginVertical: 10,
-      height: 50,
-      borderRadius: 5,
-      backgroundColor: '#007260',
-      marginBottom: 10,
-      alignItems: 'center',
-      justifyContent: 'center'
+        marginHorizontal: 10,
+        width: 180,
+        marginVertical: 10,
+        height: 50,
+        borderRadius: 5,
+        backgroundColor: '#007260',
+        marginBottom: 10,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     boxx: {
-      marginHorizontal: 10,
-      width: 160,
-      marginVertical: 10,
-      height: 50,
-      borderRadius: 5,
-      backgroundColor: '#727272',
-      marginBottom: 10,
-      alignItems: 'center',
-      justifyContent: 'center',
+        marginHorizontal: 10,
+        width: 160,
+        marginVertical: 10,
+        height: 50,
+        borderRadius: 5,
+        backgroundColor: '#727272',
+        marginBottom: 10,
+        alignItems: 'center',
+        justifyContent: 'center', 
     },
     tableHeader: {
 
-    backgroundColor: '#cccccc',
+        backgroundColor: '#cccccc',
 
     },
     flatlist: {
-    top: 2
+        top: 1
     },
     header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#cccccc',
-    borderRadius: 10,
-    borderColor: '#000000',
-    padding: 20,
-    borderWidth: 1,
-    marginVertical: 4,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#cccccc',
+        borderRadius: 10,
+        borderColor: '#000000',
+        padding: 20,
+        borderWidth: 1,
+        marginVertical: 10, 
     },
     heading: {
-    flex: 1,
-    fontSize: 15,
+        flex: 1,
+        fontSize: 15,
     },
     row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginVertical: 1,
-    marginHorizontal: 1,
-    elevation: 2,
-    borderRadius: 2,
-    borderColor: '#000000',
-    borderWidth: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginVertical: 1,
+        marginHorizontal: 1,
+        elevation: 2,
+        borderRadius: 2,
+        borderColor: '#000000',
+        borderWidth: 1,
 
-    padding: 15,
-    backgroundColor: '#C0C0C0'
+        padding: 15,
+        backgroundColor: '#C0C0C0'
     },
     cell: {
-    fontSize: 15,
-    textAlign: 'left',
-    flex: 1,
+        fontSize: 15,
+        textAlign: 'left',
+        flex: 1,
 
     },
     list: {
-    backgroundColor: '#000000'
+        backgroundColor: '#000000'
     }
 
 });
